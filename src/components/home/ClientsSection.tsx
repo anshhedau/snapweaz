@@ -9,36 +9,33 @@ const clients = [
 
 export const ClientsSection = () => {
   return (
-    <section className="py-20 md:py-24 bg-background border-y border-border/30">
+    <section className="py-16 md:py-20 bg-background overflow-hidden">
       <div className="container-wide">
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center text-sm text-muted-foreground uppercase tracking-[0.2em] mb-12"
+          className="flex flex-col md:flex-row items-center justify-between gap-8"
         >
-          Trusted by global brands
-        </motion.p>
-
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-24">
-          {clients.map((client, index) => (
-            <motion.div
-              key={client.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="flex items-center gap-4 grayscale hover:grayscale-0 transition-all duration-300"
-            >
-              <img 
-                src={client.logo} 
-                alt={client.name} 
-                className="h-16 md:h-20 w-auto object-contain"
+          <p className="text-xs text-muted-foreground uppercase tracking-[0.3em] shrink-0">
+            Trusted by
+          </p>
+          <div className="w-full h-px bg-border/30 hidden md:block" />
+          <div className="flex items-center gap-12 md:gap-16 shrink-0">
+            {clients.map((client, index) => (
+              <motion.img
+                key={client.name}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                src={client.logo}
+                alt={client.name}
+                className="h-14 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
               />
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

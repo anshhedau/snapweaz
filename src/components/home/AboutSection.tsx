@@ -1,81 +1,95 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "30+", label: "Happy Clients" },
-  { value: "6", label: "Expert Divisions" },
-  { value: "100%", label: "Commitment" },
+  { value: "50+", label: "Projects" },
+  { value: "30+", label: "Clients" },
+  { value: "6", label: "Divisions" },
+  { value: "∞", label: "Commitment" },
 ];
 
 export const AboutSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
   return (
-    <section className="section-padding bg-secondary/30 relative overflow-hidden">
-      <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left: Content */}
+    <section ref={ref} className="relative overflow-hidden bg-foreground text-background">
+      {/* Parallax accent shape */}
+      <motion.div
+        style={{ y: bgY }}
+        className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[100px] pointer-events-none"
+      />
+
+      <div className="container-wide section-padding relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left: Large statement */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
           >
-            <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-5">
-              About SnapWeaz
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-[1.1] mb-7">
-              Where creativity meets{" "}
-              <span className="text-accent">engineering</span>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-px bg-accent" />
+              <p className="text-sm font-medium text-accent uppercase tracking-[0.2em]">
+                About SnapWeaz
+              </p>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] mb-8">
+              Where{" "}
+              <span className="text-accent italic">creativity</span>
+              <br />
+              meets engineering
             </h2>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              SnapWeaz blends bold creativity with advanced technology to make
-              smart solutions and visual experiences that redefine industries.
-              From startups to enterprises, we help build future-ready brands
-              and products.
+            <p className="text-background/60 text-lg leading-relaxed mb-6">
+              SnapWeaz blends bold creativity with advanced technology to craft
+              solutions that redefine industries. From startups to enterprises, we
+              build future-ready brands and products.
             </p>
-            <p className="text-muted-foreground mb-10 leading-relaxed">
-              Our philosophy is simple: Design with love. Engineer with
-              precision. Build for the future. Every pixel, every line of code,
-              every strategy is crafted with intentionality and care.
+            <p className="text-background/40 leading-relaxed mb-10">
+              Design with love. Engineer with precision. Build for the future.
+              Every pixel, every line of code — crafted with intentionality.
             </p>
             <Button
               variant="outline"
-              className="rounded-full px-7 h-12 border-foreground/20 hover:border-accent hover:text-accent group transition-all duration-300"
+              className="rounded-full px-8 h-12 border-background/20 text-background hover:border-accent hover:text-accent hover:bg-transparent group transition-all duration-300"
               asChild
             >
               <Link to="/about">
                 Read our story
-                <ArrowRight
-                  size={16}
-                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                />
+                <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </motion.div>
 
-          {/* Right: Stats Grid */}
+          {/* Right: Stats with big numbers */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="grid grid-cols-2 gap-5"
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="grid grid-cols-2 gap-px bg-background/10 rounded-3xl overflow-hidden"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.25 + index * 0.08 }}
-                className="bg-background rounded-2xl p-8 md:p-10 border border-border/30 text-center hover:border-accent/30 transition-colors duration-300"
+                transition={{ delay: 0.3 + index * 0.1 }}
+                className="bg-foreground p-8 md:p-12 flex flex-col justify-center"
               >
-                <span className="block font-serif text-4xl md:text-5xl text-foreground mb-2">
+                <span className="font-serif text-5xl md:text-6xl text-background mb-2 block">
                   {stat.value}
                 </span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-xs text-background/40 uppercase tracking-[0.2em]">
                   {stat.label}
                 </span>
               </motion.div>

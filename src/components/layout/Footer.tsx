@@ -30,31 +30,30 @@ const footerLinks = {
 export const Footer = () => {
   return (
     <footer className="bg-foreground text-background">
-      {/* CTA Section */}
-      <div className="container-wide section-padding border-b border-background/10">
+      {/* Large CTA */}
+      <div className="container-wide py-24 md:py-32 lg:py-40 border-b border-background/10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="max-w-4xl"
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 leading-[1.1]">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-8 h-px bg-accent" />
+            <span className="text-sm text-accent uppercase tracking-[0.3em]">Let's collaborate</span>
+          </div>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-[0.95] max-w-4xl">
             Ready to build something{" "}
-            <span className="text-accent">meaningful</span>?
+            <span className="text-accent italic">meaningful</span>?
           </h2>
-          <p className="text-lg text-background/60 mb-10 max-w-2xl leading-relaxed">
-            Let's create experiences that inspire, products that scale, and
-            brands that resonate. Your vision, our craft.
-          </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-background text-foreground rounded-full font-medium hover:bg-accent hover:text-background transition-all duration-300 group"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-background text-foreground rounded-full font-medium hover:bg-accent hover:text-background transition-all duration-500 group text-lg"
           >
             Start a conversation
             <ArrowUpRight
-              size={18}
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              size={20}
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
             />
           </Link>
         </motion.div>
@@ -66,111 +65,59 @@ export const Footer = () => {
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <img src={logo} alt="SnapWeaz" className="w-12 h-12 object-contain" />
+              <img src={logo} alt="SnapWeaz" className="w-10 h-10 object-contain" />
             </div>
-            <p className="text-background/50 text-sm mb-8 max-w-xs leading-relaxed whitespace-nowrap">
+            <p className="text-background/40 text-xs uppercase tracking-[0.2em] mb-8">
               Design · Engineering · Innovation
             </p>
-            <div className="space-y-3 text-sm text-background/50">
-              <a
-                href="mailto:info@snapweaz.in"
-                className="flex items-center gap-2 hover:text-accent transition-colors duration-300"
-              >
-                <Mail size={16} />
-                info@snapweaz.in
+            <div className="space-y-3 text-sm text-background/40">
+              <a href="mailto:info@snapweaz.in" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Mail size={14} />info@snapweaz.in
               </a>
               <div className="flex items-center gap-2">
-                <MapPin size={16} />
-                India · Global
+                <MapPin size={14} />India · Global
               </div>
             </div>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="text-xs font-medium mb-5 text-background/40 uppercase tracking-[0.15em]">
-              Company
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-background/60 hover:text-accent transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-xs font-medium mb-5 text-background/40 uppercase tracking-[0.15em]">
-              Services
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-background/60 hover:text-accent transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-xs font-medium mb-5 text-background/40 uppercase tracking-[0.15em]">
-              Legal
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-background/60 hover:text-accent transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="text-xs font-medium mb-5 text-background/40 uppercase tracking-[0.15em]">
-              Connect
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.social.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-background/60 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
-                  >
-                    {link.name}
-                    <ArrowUpRight size={12} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Link columns */}
+          {[
+            { title: "Company", links: footerLinks.company, internal: true },
+            { title: "Services", links: footerLinks.services, internal: true },
+            { title: "Legal", links: footerLinks.legal, internal: true },
+            { title: "Connect", links: footerLinks.social, internal: false },
+          ].map((col) => (
+            <div key={col.title}>
+              <h4 className="text-[10px] font-medium mb-6 text-background/30 uppercase tracking-[0.2em]">
+                {col.title}
+              </h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.name}>
+                    {col.internal ? (
+                      <Link to={link.href} className="text-sm text-background/50 hover:text-accent transition-colors duration-300">
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer"
+                        className="text-sm text-background/50 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
+                      >
+                        {link.name}<ArrowUpRight size={10} />
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="container-wide py-6 border-t border-background/10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/40">
-          <p>© SnapWeaz. All rights reserved.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-background/30">
+          <p>© {new Date().getFullYear()} SnapWeaz. All rights reserved.</p>
+          <p>Crafted with precision & love</p>
         </div>
       </div>
     </footer>
