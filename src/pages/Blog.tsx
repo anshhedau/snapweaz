@@ -89,7 +89,7 @@ const Blog = () => {
                       <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
                       <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
                         <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
-                        <span className="flex items-center gap-2"><Calendar size={14} />{featuredPost.date}</span>
+                        <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(featuredPost.date)}</span>
                         <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
                       </div>
                     </div>
