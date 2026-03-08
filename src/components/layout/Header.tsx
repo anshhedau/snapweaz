@@ -37,8 +37,9 @@ export const Header = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
             ? "glass py-2.5 shadow-lg"
-            : "bg-transparent py-5"
+            : "py-5"
         }`}
+        style={!isScrolled ? { background: 'hsl(0 0% 0%)' } : undefined}
       >
         <div className="container-wide flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
