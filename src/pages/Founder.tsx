@@ -98,7 +98,7 @@ const Founder = () => {
                   {/* Signature */}
                   <div className="pt-12 text-right">
                     <p className="text-sm text-muted-foreground mb-2">For SnapWeaz</p>
-                    <img src={stamp} alt="SnapWeaz Stamp" className="w-28 h-auto ml-auto my-2" />
+                    <img src={stamp} alt="SnapWeaz Stamp" loading="lazy" className="w-28 h-auto ml-auto my-2" />
                     <p className="text-sm text-muted-foreground">Founder</p>
                   </div>
                 </div>
