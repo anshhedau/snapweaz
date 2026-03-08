@@ -59,7 +59,7 @@ export const AboutSection = () => {
             </p>
             <Button
               variant="outline"
-              className="rounded-full px-8 h-12 border-background/30 text-background hover:border-accent hover:text-accent hover:bg-accent/10 group transition-all duration-300"
+              className="rounded-full px-8 h-12 border-background/30 bg-transparent text-background hover:border-accent hover:text-accent hover:bg-accent/10 group transition-all duration-300"
               asChild
             >
               <Link to="/about">
