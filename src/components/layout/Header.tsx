@@ -56,15 +56,21 @@ export const Header = () => {
             </motion.div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5 glass rounded-full px-1.5 py-1.5">
+          <nav className={`hidden lg:flex items-center gap-0.5 rounded-full px-1.5 py-1.5 transition-all duration-700 ${
+            isScrolled ? "glass" : "bg-white/10 border border-white/10"
+          }`}>
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
                 className={`px-5 py-2 text-[13px] font-medium transition-all duration-300 rounded-full ${
                   location.pathname === link.href
-                    ? "bg-foreground text-background shadow-md"
-                    : "text-foreground/70 hover:text-foreground hover:bg-background/50"
+                    ? isScrolled
+                      ? "bg-foreground text-background shadow-md"
+                      : "bg-white/20 text-white shadow-md"
+                    : isScrolled
+                      ? "text-foreground/70 hover:text-foreground hover:bg-background/50"
+                      : "text-white/30 hover:text-white/60"
                 }`}
               >
                 {link.name}
