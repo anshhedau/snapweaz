@@ -37,7 +37,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/press" element={<Press />} />
-          <Route path="/blog" element={<Press />} /> {/* Redirect old blog to press */}
+          <Route path="/blog" element={<Press />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/founder" element={<Founder />} />
