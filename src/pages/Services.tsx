@@ -9,11 +9,11 @@ const services = [
   {
     icon: Palette,
     title: "Brand & Identity Design",
-    description: "We create distinctive brand identities that capture your essence and resonate with your audience.",
+    description: "Distinctive brand identities that capture your essence and resonate with your audience.",
     problem: "Your brand doesn't stand out in a crowded market",
     solution: "Strategic brand positioning with cohesive visual systems",
     deliverables: ["Logo & Visual Identity", "Brand Guidelines", "Marketing Collateral", "Packaging Design"],
-    color: "from-rose-500 to-orange-400",
+    number: "01",
   },
   {
     icon: Layers,
@@ -22,25 +22,25 @@ const services = [
     problem: "Users struggle to navigate your product",
     solution: "Research-driven design focused on user needs",
     deliverables: ["User Research", "Wireframes & Prototypes", "Visual Design", "Design Systems"],
-    color: "from-violet-500 to-purple-400",
+    number: "02",
   },
   {
     icon: Code2,
     title: "Web & Software Development",
-    description: "Full-stack development that brings your ideas to life with clean, scalable, and maintainable code.",
-    problem: "Your tech stack isn't keeping up with your growth",
+    description: "Full-stack development that brings ideas to life with clean, scalable code.",
+    problem: "Your tech stack isn't keeping up with growth",
     solution: "Modern architecture built for scale and performance",
     deliverables: ["Web Applications", "Mobile Apps", "API Development", "Cloud Infrastructure"],
-    color: "from-blue-500 to-cyan-400",
+    number: "03",
   },
   {
     icon: Megaphone,
     title: "Growth & Marketing",
-    description: "Data-driven strategies to expand your reach, acquire customers, and accelerate business growth.",
+    description: "Data-driven strategies to expand reach, acquire customers, and accelerate growth.",
     problem: "You're not reaching the right audience",
     solution: "Targeted campaigns with measurable results",
     deliverables: ["Digital Marketing", "SEO & Content", "Analytics", "Campaign Management"],
-    color: "from-emerald-500 to-teal-400",
+    number: "04",
   },
 ];
 
@@ -51,24 +51,23 @@ const Services = () => {
 
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-hero relative overflow-hidden">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl"
-            >
-              <p className="text-sm font-medium text-accent uppercase tracking-widest mb-4">
-                Our Services
-              </p>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight mb-6">
+        <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-foreground text-background">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span className="font-serif text-[18vw] text-background/[0.03] whitespace-nowrap">Services</span>
+          </div>
+          <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-accent" />
+                <span className="text-sm text-accent uppercase tracking-[0.3em]">Our Services</span>
+              </div>
+              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-6 max-w-4xl">
                 Solutions that solve
-                <span className="text-gradient"> real problems</span>
+                <br />
+                <span className="text-accent italic">real problems</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                We don't just deliver services — we understand your challenges
-                and craft solutions that drive meaningful impact.
+              <p className="text-xl text-background/60 max-w-xl">
+                We understand your challenges and craft solutions that drive meaningful impact.
               </p>
             </motion.div>
           </div>
@@ -77,75 +76,76 @@ const Services = () => {
         {/* Services List */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <div className="space-y-20">
+            <div className="space-y-24">
               {services.map((service, index) => (
                 <motion.div
                   key={service.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
-                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                  }`}
+                  transition={{ duration: 0.7 }}
                 >
-                  {/* Content */}
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.color} mb-6`}>
-                      <service.icon size={32} className="text-white" />
-                    </div>
-                    <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-                      {service.title}
-                    </h2>
-                    <p className="text-lg text-muted-foreground mb-8">
-                      {service.description}
-                    </p>
-
-                    {/* Problem / Solution */}
-                    <div className="space-y-4 mb-8">
-                      <div className="flex items-start gap-3">
-                        <span className="text-xs font-medium text-destructive uppercase tracking-wider mt-1">
-                          Problem
-                        </span>
-                        <p className="text-foreground">{service.problem}</p>
+                  <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                    {/* Left - Content */}
+                    <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-2 lg:col-start-6' : ''}`}>
+                      {/* Number + Icon */}
+                      <div className="flex items-center gap-6 mb-8">
+                        <span className="font-serif text-6xl text-foreground/[0.08]">{service.number}</span>
+                        <div className="inline-flex p-3.5 rounded-2xl bg-accent/10">
+                          <service.icon size={24} className="text-accent" />
+                        </div>
                       </div>
-                      <div className="flex items-start gap-3">
-                        <span className="text-xs font-medium text-accent uppercase tracking-wider mt-1">
-                          Solution
-                        </span>
-                        <p className="text-foreground">{service.solution}</p>
+
+                      <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+                        {service.title}
+                      </h2>
+                      <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      {/* Problem / Solution */}
+                      <div className="space-y-4 mb-10 p-6 rounded-2xl bg-secondary/50 border border-border/30">
+                        <div className="flex items-start gap-4">
+                          <span className="text-[10px] font-semibold text-destructive uppercase tracking-[0.2em] mt-1.5 shrink-0 w-16">
+                            Problem
+                          </span>
+                          <p className="text-foreground">{service.problem}</p>
+                        </div>
+                        <div className="h-px bg-border/30" />
+                        <div className="flex items-start gap-4">
+                          <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em] mt-1.5 shrink-0 w-16">
+                            Solution
+                          </span>
+                          <p className="text-foreground">{service.solution}</p>
+                        </div>
                       </div>
+
+                      <Button variant="outline" className="rounded-full group" asChild>
+                        <Link to="/contact">
+                          Discuss your project
+                          <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </Button>
                     </div>
 
-                    <Button
-                      variant="outline"
-                      className="rounded-full group"
-                      asChild
-                    >
-                      <Link to="/contact">
-                        Discuss your project
-                        <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </div>
-
-                  {/* Deliverables Card */}
-                  <div className={`bg-card rounded-3xl p-8 md:p-10 border border-border/50 ${
-                    index % 2 === 1 ? "lg:order-1" : ""
-                  }`}>
-                    <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-6">
-                      What you'll get
-                    </h3>
-                    <ul className="space-y-4">
-                      {service.deliverables.map((item) => (
-                        <li key={item} className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                            <Check size={14} className="text-accent" />
-                          </div>
-                          <span className="text-foreground">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Right - Deliverables */}
+                    <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-9'}`}>
+                      <div className="bg-secondary/30 rounded-3xl p-8 md:p-10 border border-border/30 sticky top-32">
+                        <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-8">
+                          What you'll get
+                        </h3>
+                        <ul className="space-y-5">
+                          {service.deliverables.map((item) => (
+                            <li key={item} className="flex items-center gap-4">
+                              <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                                <Check size={12} className="text-accent" />
+                              </div>
+                              <span className="text-foreground">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -154,25 +154,23 @@ const Services = () => {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding bg-accent/5">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
               <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight mb-6">
-                Not sure what you need?
+                Not sure what you <span className="text-accent italic">need</span>?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Let's have a conversation. We'll help you identify the right
-                solutions for your unique challenges.
+              <p className="text-lg text-muted-foreground mb-10">
+                Let's have a conversation. We'll help identify the right solutions.
               </p>
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-14 group"
+                className="bg-foreground text-background hover:bg-accent rounded-full px-10 h-14 group transition-all duration-300"
                 asChild
               >
                 <Link to="/contact">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
@@ -7,44 +8,44 @@ const projects = [
   {
     title: "DesignFlu Rebrand",
     category: "Brand Identity",
-    description: "Complete brand transformation for a leading design agency, including logo, visual system, and digital presence.",
+    description: "Complete brand transformation for a leading design agency — logo, visual system, and digital presence.",
     image: "DF",
-    color: "bg-rose-100",
+    accent: "bg-accent/10",
   },
   {
     title: "TechStart Platform",
     category: "Web Application",
-    description: "A comprehensive startup management platform with investor dashboards, analytics, and collaboration tools.",
+    description: "Comprehensive startup management platform with investor dashboards and analytics.",
     image: "TS",
-    color: "bg-blue-100",
+    accent: "bg-secondary",
   },
   {
     title: "CloudNine SaaS",
-    category: "Product Design & Development",
-    description: "End-to-end design and development of a cloud storage solution with real-time sync and collaboration features.",
+    category: "Product Design & Dev",
+    description: "End-to-end cloud storage solution with real-time sync and collaboration.",
     image: "CN",
-    color: "bg-violet-100",
+    accent: "bg-accent/10",
   },
   {
-    title: "InnovateCo Mobile App",
+    title: "InnovateCo Mobile",
     category: "Mobile Development",
-    description: "Native iOS and Android apps for a productivity suite, featuring offline support and seamless sync.",
+    description: "Native iOS and Android apps for a productivity suite with offline support.",
     image: "IC",
-    color: "bg-emerald-100",
+    accent: "bg-secondary",
   },
   {
-    title: "StartupX Marketing",
+    title: "StartupX Growth",
     category: "Growth Strategy",
-    description: "Comprehensive digital marketing campaign that increased user acquisition by 300% in six months.",
+    description: "Digital marketing campaign that increased user acquisition by 300% in six months.",
     image: "SX",
-    color: "bg-amber-100",
+    accent: "bg-accent/10",
   },
   {
     title: "Laxmi Group Website",
     category: "Web Design",
-    description: "Modern corporate website with CMS integration, multilingual support, and optimized performance.",
+    description: "Modern corporate website with CMS, multilingual support, and optimized performance.",
     image: "LG",
-    color: "bg-sky-100",
+    accent: "bg-secondary",
   },
 ];
 
@@ -55,62 +56,65 @@ const Work = () => {
 
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-hero relative overflow-hidden">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl"
-            >
-              <p className="text-sm font-medium text-accent uppercase tracking-widest mb-4">
-                Our Work
-              </p>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight mb-6">
+        <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-foreground text-background">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span className="font-serif text-[20vw] text-background/[0.03] whitespace-nowrap">Work</span>
+          </div>
+          <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-accent" />
+                <span className="text-sm text-accent uppercase tracking-[0.3em]">Our Work</span>
+              </div>
+              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-6 max-w-4xl">
                 Projects that speak
-                <span className="text-gradient"> for themselves</span>
+                <br />
+                <span className="text-accent italic">for themselves</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                A selection of our recent work across design, development, and
-                strategy. Each project represents a unique challenge solved with
-                creativity and precision.
+              <p className="text-xl text-background/60 max-w-xl">
+                A selection of recent work across design, development, and strategy.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Projects Grid */}
+        {/* Projects - Alternating large/small layout */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-8">
               {projects.map((project, index) => (
                 <motion.div
                   key={project.title}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6 }}
                   className="group cursor-pointer"
                 >
-                  {/* Image placeholder */}
-                  <div className={`${project.color} rounded-2xl aspect-[4/3] mb-6 flex items-center justify-center overflow-hidden relative`}>
-                    <span className="font-serif text-6xl text-foreground/20">
-                      {project.image}
-                    </span>
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors" />
-                  </div>
+                  <div className={`${project.accent} rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-xl`}>
+                    <div className="grid md:grid-cols-2 gap-0">
+                      {/* Image area */}
+                      <div className={`aspect-[4/3] md:aspect-auto flex items-center justify-center p-12 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                        <span className="font-serif text-8xl md:text-9xl text-foreground/10 group-hover:text-accent/20 transition-colors duration-500">
+                          {project.image}
+                        </span>
+                      </div>
 
-                  {/* Content */}
-                  <p className="text-sm text-accent uppercase tracking-wider mb-2">
-                    {project.category}
-                  </p>
-                  <h3 className="font-serif text-2xl text-foreground mb-2 flex items-center gap-2 group-hover:text-accent transition-colors">
-                    {project.title}
-                    <ArrowUpRight size={20} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {project.description}
-                  </p>
+                      {/* Content */}
+                      <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                        <span className="text-xs text-accent uppercase tracking-[0.2em] mb-4 block">
+                          {project.category}
+                        </span>
+                        <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300 flex items-start gap-3">
+                          {project.title}
+                          <ArrowUpRight size={24} className="opacity-0 group-hover:opacity-100 transition-opacity mt-1 shrink-0" />
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -118,29 +122,27 @@ const Work = () => {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding bg-accent/5">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
               <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight mb-6">
-                Ready to start your project?
+                Ready to start your <span className="text-accent italic">project</span>?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Let's create something remarkable together. We'd love to hear
-                about your vision.
+              <p className="text-lg text-muted-foreground mb-10">
+                Let's create something remarkable together.
               </p>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-foreground text-background rounded-full font-medium hover:bg-accent transition-colors duration-300 group"
               >
                 Get in touch
-                <ArrowUpRight size={18} />
-              </a>
+                <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
             </motion.div>
           </div>
         </section>
