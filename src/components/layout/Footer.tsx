@@ -117,7 +117,7 @@ export const Footer = () => {
       <div className="container-wide py-6 border-t border-background/10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-background/30">
           <p>©SnapWeaz. All rights reserved.</p>
-          <p>Crafted with precision & love</p>
+          <p>Designed with precision and care.</p>
         </div>
       </div>
     </footer>
