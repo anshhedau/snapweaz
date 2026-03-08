@@ -1,100 +1,188 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, ArrowDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 export const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Subtle gradient orb */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[150px] pointer-events-none" />
-
-      <div className="container-wide relative z-10 pt-32 pb-20">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-secondary border border-border/50 mb-10"
-          >
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm text-foreground/70 tracking-wide">
-              Design · Engineering · Innovation
-            </span>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-foreground leading-[1.05] mb-8"
-          >
-            We craft digital
-            <br />
-            <span className="text-accent">experiences</span> that
-            <br />
-            move people
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed"
-          >
-            A creative technology studio helping startups and enterprises build
-            future-ready brands, products, and platforms with precision and soul.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button
-              size="lg"
-              className="bg-foreground text-background hover:bg-accent hover:text-background rounded-full px-10 h-14 text-base font-medium group transition-all duration-300"
-              asChild
-            >
-              <Link to="/contact">
-                Start your project
-                <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              className="rounded-full px-10 h-14 text-base text-foreground/70 hover:text-foreground hover:bg-secondary transition-all duration-300"
-              asChild
-            >
-              <Link to="/work">
-                View our work
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Scroll indicator - positioned lower to avoid overlap */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 rounded-full border-2 border-border flex items-start justify-center p-2"
-          >
-            <motion.div className="w-1 h-2 rounded-full bg-accent" />
-          </motion.div>
-        </motion.div>
+    <section
+      ref={containerRef}
+      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-background"
+    >
+      {/* Floating grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
+          }}
+        />
       </div>
+
+      {/* Accent orb */}
+      <motion.div
+        style={{ y }}
+        className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-accent/8 blur-[120px] pointer-events-none"
+      />
+
+      <motion.div style={{ opacity, scale }} className="relative z-10 flex-1 flex items-center">
+        <div className="container-wide w-full pt-32 pb-8">
+          <div className="grid lg:grid-cols-12 gap-8 items-end">
+            {/* Main content - takes 8 cols */}
+            <div className="lg:col-span-8">
+              {/* Eyebrow */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-4 mb-8"
+              >
+                <div className="w-12 h-px bg-accent" />
+                <span className="text-sm text-muted-foreground uppercase tracking-[0.3em] font-medium">
+                  Creative Technology Studio
+                </span>
+              </motion.div>
+
+              {/* Main Headline - Large, dramatic */}
+              <motion.h1
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                className="font-serif text-[clamp(3rem,8vw,7.5rem)] text-foreground leading-[0.95] mb-8 tracking-tight"
+              >
+                We design
+                <br />
+                <span className="text-accent italic">digital</span>
+                <br />
+                futures
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10"
+              >
+                A multidisciplinary studio crafting brands, products & experiences
+                for companies that refuse to blend in.
+              </motion.p>
+
+              {/* CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="flex flex-wrap items-center gap-5"
+              >
+                <Button
+                  size="lg"
+                  className="bg-foreground text-background hover:bg-accent rounded-full px-10 h-14 text-base font-medium group transition-all duration-500"
+                  asChild
+                >
+                  <Link to="/contact">
+                    Start a project
+                    <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Link
+                  to="/work"
+                  className="group flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors duration-300 text-base"
+                >
+                  See our work
+                  <ArrowDownRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right column - Rotating badge + stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 1 }}
+              className="lg:col-span-4 hidden lg:flex flex-col items-end gap-10 pb-4"
+            >
+              {/* Rotating circle badge */}
+              <div className="relative w-32 h-32">
+                <motion.svg
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  viewBox="0 0 200 200"
+                  className="w-full h-full"
+                >
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                    />
+                  </defs>
+                  <text className="fill-foreground/40 text-[14px] uppercase tracking-[0.4em]">
+                    <textPath href="#circlePath">
+                      Design · Engineering · Innovation · 
+                    </textPath>
+                  </text>
+                </motion.svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <ArrowDownRight size={24} className="text-accent" />
+                </div>
+              </div>
+
+              {/* Mini stats */}
+              <div className="text-right space-y-4">
+                <div>
+                  <span className="block font-serif text-4xl text-foreground">50+</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Projects</span>
+                </div>
+                <div>
+                  <span className="block font-serif text-4xl text-foreground">6</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Divisions</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Bottom marquee */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="relative z-10 border-t border-border/30 py-5 overflow-hidden"
+      >
+        <motion.div
+          animate={{ x: [0, -1000] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="flex items-center gap-8 whitespace-nowrap"
+        >
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8">
+              <span className="text-sm text-muted-foreground/50 uppercase tracking-[0.3em]">Brand Identity</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+              <span className="text-sm text-muted-foreground/50 uppercase tracking-[0.3em]">UI/UX Design</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+              <span className="text-sm text-muted-foreground/50 uppercase tracking-[0.3em]">Web Development</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+              <span className="text-sm text-muted-foreground/50 uppercase tracking-[0.3em]">Cloud Infrastructure</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+              <span className="text-sm text-muted-foreground/50 uppercase tracking-[0.3em]">Growth Marketing</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+            </div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
