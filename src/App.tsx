@@ -12,7 +12,7 @@ import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Press from "./pages/Press";
-import Blog from "./pages/Blog";
+// Blog removed — Press & Media is the new blog
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Founder from "./pages/Founder";
