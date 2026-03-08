@@ -11,103 +11,111 @@ const Founder = () => {
       <Header />
 
       <main>
-        <section className="pt-32 pb-20 md:pt-40 md:pb-28">
-          <div className="max-w-[780px] mx-auto px-5">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="font-serif text-[32px] md:text-[42px] font-semibold text-foreground mb-2 tracking-tight">
-                Meet the Founder
-              </h1>
-              <p className="text-sm text-muted-foreground mb-8">
-                The vision behind SnapWeaz
-              </p>
-
-              <div className="space-y-8">
-                {/* Founder Image Placeholder */}
-                <div className="aspect-square max-w-xs rounded-2xl bg-secondary/50 flex items-center justify-center border border-border/50">
-                  <img src={logo} alt="SnapWeaz" className="w-32 h-32 object-contain opacity-80" />
-                </div>
-
-                <section>
-                  <h2 className="text-[17px] font-semibold text-foreground border-t border-border pt-6 mb-2 before:content-['—_'] before:text-muted-foreground/50">
-                    Vision & Mission
-                  </h2>
-                  <p className="text-[15.5px] text-muted-foreground leading-[1.75]">
-                    SnapWeaz was founded with a clear vision: to bridge the gap between exceptional design
-                    and robust engineering. We believe that the best digital products emerge when creative
-                    thinking and technical excellence work hand in hand from day one.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-[17px] font-semibold text-foreground border-t border-border pt-6 mb-2 before:content-['—_'] before:text-muted-foreground/50">
-                    Our Philosophy
-                  </h2>
-                  <p className="text-[15.5px] text-muted-foreground leading-[1.75]">
-                    We don't just build products — we craft experiences. Every project is an opportunity
-                    to push boundaries, embrace innovation, and create something that truly makes a difference.
-                    Our work is driven by passion, precision, and a relentless pursuit of excellence.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-[17px] font-semibold text-foreground border-t border-border pt-6 mb-2 before:content-['—_'] before:text-muted-foreground/50">
-                    The Journey
-                  </h2>
-                  <p className="text-[15.5px] text-muted-foreground leading-[1.75]">
-                    What started as a small team passionate about beautiful, functional products has grown
-                    into a full-service creative technology studio serving clients around the world. Today,
-                    our specialized divisions work in harmony to deliver end-to-end solutions — from brand
-                    strategy and design to development, cloud infrastructure, and growth marketing.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-[17px] font-semibold text-foreground border-t border-border pt-6 mb-2 before:content-['—_'] before:text-muted-foreground/50">
-                    Connect
-                  </h2>
-                  <div className="flex flex-wrap gap-3 mt-4">
-                    <a
-                      href="https://instagram.com/anshhedau_"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-full bg-secondary text-sm text-foreground hover:bg-accent hover:text-background transition-all duration-300 inline-flex items-center gap-2"
-                    >
-                      Instagram
-                      <ArrowUpRight size={14} />
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/anshhedau"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-full bg-secondary text-sm text-foreground hover:bg-accent hover:text-background transition-all duration-300 inline-flex items-center gap-2"
-                    >
-                      LinkedIn
-                      <ArrowUpRight size={14} />
-                    </a>
-                    <a
-                      href="https://twitter.com/anshhedau"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-full bg-secondary text-sm text-foreground hover:bg-accent hover:text-background transition-all duration-300 inline-flex items-center gap-2"
-                    >
-                      Twitter
-                      <ArrowUpRight size={14} />
-                    </a>
-                  </div>
-                </section>
-
-                {/* Signature */}
-                <div className="mt-16 text-right">
-                  <p className="text-sm text-muted-foreground mb-1">For SnapWeaz</p>
-                  <img src={stamp} alt="SnapWeaz Stamp" className="w-28 h-auto ml-auto my-2" />
-                  <p className="text-sm text-muted-foreground">Founder</p>
-                </div>
+        {/* Hero */}
+        <section className="relative min-h-[50vh] flex items-end overflow-hidden bg-foreground text-background">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+            <span className="font-serif text-[18vw] text-background/[0.03] whitespace-nowrap">Founder</span>
+          </div>
+          <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-8 h-px bg-accent" />
+                <span className="text-sm text-accent uppercase tracking-[0.3em]">Leadership</span>
               </div>
+              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95]">
+                Meet the <span className="text-accent italic">founder</span>
+              </h1>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Content */}
+        <section className="section-padding bg-background">
+          <div className="container-wide">
+            <div className="grid lg:grid-cols-12 gap-16">
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="lg:col-span-4"
+              >
+                <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center sticky top-32 overflow-hidden">
+                  <div className="text-center">
+                    <img src={logo} alt="SnapWeaz" className="w-28 h-28 object-contain opacity-60 mx-auto mb-4" />
+                    <p className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Founder & CEO</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="lg:col-span-7 lg:col-start-6"
+              >
+                <div className="space-y-10">
+                  {[
+                    {
+                      title: "Vision & Mission",
+                      text: "SnapWeaz was founded with a clear vision: to bridge the gap between exceptional design and robust engineering. We believe that the best digital products emerge when creative thinking and technical excellence work hand in hand from day one."
+                    },
+                    {
+                      title: "Our Philosophy",
+                      text: "We don't just build products — we craft experiences. Every project is an opportunity to push boundaries, embrace innovation, and create something that truly makes a difference. Our work is driven by passion, precision, and a relentless pursuit of excellence."
+                    },
+                    {
+                      title: "The Journey",
+                      text: "What started as a small team passionate about beautiful, functional products has grown into a full-service creative technology studio serving clients worldwide. Our specialized divisions work in harmony — from brand strategy and design to development, cloud infrastructure, and growth marketing."
+                    },
+                  ].map((section, index) => (
+                    <motion.div
+                      key={section.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="border-t border-border/30 pt-8"
+                    >
+                      <h2 className="font-serif text-2xl text-foreground mb-4">{section.title}</h2>
+                      <p className="text-muted-foreground leading-relaxed text-lg">{section.text}</p>
+                    </motion.div>
+                  ))}
+
+                  {/* Connect */}
+                  <div className="border-t border-border/30 pt-8">
+                    <h2 className="font-serif text-2xl text-foreground mb-6">Connect</h2>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { name: "Instagram", href: "https://instagram.com/anshhedau_" },
+                        { name: "LinkedIn", href: "https://linkedin.com/in/anshhedau" },
+                        { name: "Twitter", href: "https://twitter.com/anshhedau" },
+                      ].map((social) => (
+                        <a
+                          key={social.name}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
+                        >
+                          {social.name}
+                          <ArrowUpRight size={14} />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Signature */}
+                  <div className="pt-12 text-right">
+                    <p className="text-sm text-muted-foreground mb-2">For SnapWeaz</p>
+                    <img src={stamp} alt="SnapWeaz Stamp" className="w-28 h-auto ml-auto my-2" />
+                    <p className="text-sm text-muted-foreground">Founder</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
