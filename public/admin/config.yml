@@ -1,0 +1,231 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  # ============ SITE SETTINGS ============
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings/general.json"
+        fields:
+          - { name: "site_name", label: "Site Name", widget: "string" }
+          - { name: "tagline", label: "Tagline", widget: "string" }
+          - { name: "email", label: "Contact Email", widget: "string" }
+          - { name: "location", label: "Location", widget: "string" }
+          - { name: "response_time", label: "Response Time", widget: "string" }
+          - name: "social"
+            label: "Social Links"
+            widget: "list"
+            fields:
+              - { name: "name", label: "Platform", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+
+      - name: "hero"
+        label: "Homepage Hero"
+        file: "content/settings/hero.json"
+        fields:
+          - { name: "eyebrow", label: "Eyebrow Text", widget: "string" }
+          - { name: "headline_line1", label: "Headline Line 1", widget: "string" }
+          - { name: "headline_accent", label: "Headline Accent Word", widget: "string" }
+          - { name: "headline_line3", label: "Headline Line 3", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "cta_primary", label: "Primary CTA Text", widget: "string" }
+          - { name: "cta_secondary", label: "Secondary CTA Text", widget: "string" }
+          - name: "stats"
+            label: "Stats"
+            widget: "list"
+            fields:
+              - { name: "value", label: "Value", widget: "string" }
+              - { name: "label", label: "Label", widget: "string" }
+
+      - name: "about_section"
+        label: "Homepage About Section"
+        file: "content/settings/about-section.json"
+        fields:
+          - { name: "eyebrow", label: "Eyebrow Text", widget: "string" }
+          - { name: "headline", label: "Headline (use *word* for accent)", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "secondary_text", label: "Secondary Text", widget: "text" }
+          - { name: "cta_text", label: "CTA Text", widget: "string" }
+          - name: "stats"
+            label: "Stats"
+            widget: "list"
+            fields:
+              - { name: "value", label: "Value", widget: "string" }
+              - { name: "label", label: "Label", widget: "string" }
+
+  # ============ ABOUT PAGE ============
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about_main"
+        label: "About Content"
+        file: "content/about/main.json"
+        fields:
+          - { name: "hero_eyebrow", label: "Hero Eyebrow", widget: "string" }
+          - { name: "hero_headline", label: "Hero Headline (use *word* for accent)", widget: "string" }
+          - { name: "hero_description", label: "Hero Description", widget: "text" }
+          - { name: "story_headline", label: "Story Headline (use *word* for accent)", widget: "string" }
+          - name: "story_paragraphs"
+            label: "Story Paragraphs"
+            widget: "list"
+            field: { name: "text", label: "Paragraph", widget: "text" }
+          - name: "values"
+            label: "Values"
+            widget: "list"
+            fields:
+              - { name: "icon", label: "Icon (Heart, Lightbulb, Target, Users)", widget: "string" }
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+          - name: "timeline"
+            label: "Timeline"
+            widget: "list"
+            fields:
+              - { name: "year", label: "Year", widget: "string" }
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+
+  # ============ WORK / PROJECTS ============
+  - name: "projects"
+    label: "Projects"
+    folder: "content/work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "category", label: "Category", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "image", label: "Screenshot", widget: "image" }
+      - { name: "url", label: "Live URL", widget: "string" }
+      - { name: "tags", label: "Tags", widget: "list", field: { name: "tag", label: "Tag", widget: "string" } }
+      - { name: "featured", label: "Featured", widget: "boolean", default: true }
+      - { name: "order", label: "Order (lower = first)", widget: "number", default: 10 }
+      - { name: "body", label: "Detailed Description (optional)", widget: "markdown", required: false }
+
+  # ============ TESTIMONIALS ============
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "quote", label: "Quote", widget: "text" }
+      - { name: "author", label: "Author Name", widget: "string" }
+      - { name: "role", label: "Role & Company", widget: "string" }
+      - { name: "avatar", label: "Initials (2 letters)", widget: "string" }
+      - { name: "featured", label: "Featured (large card)", widget: "boolean", default: false }
+      - { name: "order", label: "Order", widget: "number", default: 10 }
+
+  # ============ DIVISIONS ============
+  - name: "divisions"
+    label: "Divisions"
+    folder: "content/divisions"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "name", label: "Division Name", widget: "string" }
+      - { name: "id", label: "ID (lowercase, no spaces)", widget: "string" }
+      - { name: "icon", label: "Icon (Palette, Code2, Rocket, Cloud, TrendingUp, Shield)", widget: "string" }
+      - { name: "tagline", label: "Tagline", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "services", label: "Services", widget: "list", field: { name: "service", label: "Service", widget: "string" } }
+      - { name: "number", label: "Number (01, 02, etc.)", widget: "string" }
+      - { name: "order", label: "Order", widget: "number", default: 10 }
+
+  # ============ SERVICES ============
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "icon", label: "Icon (Palette, Code2, Megaphone, Layers)", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "problem", label: "Problem Statement", widget: "text" }
+      - { name: "solution", label: "Solution", widget: "text" }
+      - { name: "deliverables", label: "Deliverables", widget: "list", field: { name: "item", label: "Item", widget: "string" } }
+      - { name: "number", label: "Number (01, 02, etc.)", widget: "string" }
+      - { name: "order", label: "Order", widget: "number", default: 10 }
+
+  # ============ CLIENTS ============
+  - name: "clients"
+    label: "Clients"
+    folder: "content/clients"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "name", label: "Client Name", widget: "string" }
+      - { name: "logo", label: "Logo", widget: "image", required: false }
+      - { name: "order", label: "Order", widget: "number", default: 10 }
+
+  # ============ FOUNDER ============
+  - name: "founder"
+    label: "Founder Page"
+    files:
+      - name: "founder_info"
+        label: "Founder Info"
+        file: "content/founder/info.json"
+        fields:
+          - { name: "photo", label: "Photo", widget: "image", required: false }
+          - name: "sections"
+            label: "Content Sections"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+          - name: "social"
+            label: "Social Links"
+            widget: "list"
+            fields:
+              - { name: "name", label: "Platform", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+
+  # ============ BLOG POSTS ============
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "excerpt", label: "Excerpt", widget: "text" }
+      - { name: "featured_image", label: "Featured Image", widget: "image", required: false }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "category", label: "Category", widget: "string" }
+      - { name: "read_time", label: "Read Time", widget: "string" }
+      - { name: "featured", label: "Featured Post", widget: "boolean", default: false }
+      - { name: "draft", label: "Draft", widget: "boolean", default: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  # ============ OTHER WORK ============
+  - name: "other_work"
+    label: "Other Work (Stats)"
+    folder: "content/other-work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "category", label: "Category", widget: "string" }
+      - { name: "count", label: "Count (e.g. 12+)", widget: "string" }
+      - { name: "order", label: "Order", widget: "number", default: 10 }
+
+  # ============ PROCESS STEPS ============
+  - name: "process"
+    label: "Process Steps"
+    folder: "content/process"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "icon", label: "Icon (Search, Lightbulb, PenTool, Rocket)", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "number", label: "Number (01, 02, etc.)", widget: "string" }
+      - { name: "order", label: "Order", widget: "number", default: 10 }
