@@ -51,7 +51,7 @@ export const Header = () => {
               <img
                 src={logo}
                 alt="SnapWeaz Logo"
-                className="w-11 h-11 md:w-12 md:h-12 object-contain"
+                className={`w-11 h-11 md:w-12 md:h-12 object-contain transition-all duration-700 ${!isScrolled ? "brightness-0 invert" : ""}`}
               />
             </motion.div>
           </Link>
