@@ -20,7 +20,12 @@ const Contact = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
     try {
-      await fetch("/", { method: "POST", body: formData });
+      const urlEncoded = new URLSearchParams(formData as any).toString();
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: urlEncoded,
+      });
       setIsSubmitted(true);
       toast.success("Thanks! We'll get back to you within 24 hours.");
       form.reset();
