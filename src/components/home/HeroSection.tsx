@@ -91,9 +91,14 @@ export const HeroSection = () => {
               <WordReveal delay={0.24}>digital</WordReveal>
             </div>
             <div className="overflow-hidden">
-              <WordReveal delay={0.31}>
-                <span className="text-accent">experiences</span>
-              </WordReveal>{" "}
+              <motion.span
+                className="inline-block text-accent"
+                initial={{ opacity: 0, y: 60, rotateX: -40 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.9, delay: 0.31, ease: [0.22, 1, 0.36, 1] }}
+              >
+                experiences
+              </motion.span>{" "}
               <WordReveal delay={0.38}>that</WordReveal>
             </div>
             <div className="overflow-hidden">
