@@ -37,7 +37,7 @@ const Blog = () => {
         {/* Hero */}
         <section className="relative min-h-[50vh] flex items-end overflow-hidden bg-foreground text-background">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[22vw] text-background/[0.03] whitespace-nowrap">Press</span>
+            <span className="font-serif text-[22vw] text-background/[0.03] whitespace-nowrap">Blog</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
