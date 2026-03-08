@@ -122,7 +122,7 @@ const Blog = () => {
                         <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">{post.title}</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">{post.date}</span>
+                          <span className="text-muted-foreground">{formatDate(post.date)}</span>
                           <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">Read <ArrowUpRight size={14} /></span>
                         </div>
                       </motion.article>
