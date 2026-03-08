@@ -12,7 +12,7 @@ import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Press from "./pages/Press";
-import Blog from "./pages/Blog";
+// Blog removed — Press & Media is the new blog
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Founder from "./pages/Founder";
@@ -37,7 +37,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/press" element={<Press />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<Press />} /> {/* Redirect old blog to press */}
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/founder" element={<Founder />} />
