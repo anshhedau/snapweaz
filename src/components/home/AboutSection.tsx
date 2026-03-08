@@ -55,7 +55,7 @@ export const AboutSection = () => {
             </p>
             <p className="text-background/40 leading-relaxed mb-10">
               Design with love. Engineer with precision. Build for the future.
-              Every pixel, every line of code — crafted with intentionality.
+              Every pixel, every line of code, crafted with intentionality.
             </p>
             <Button
               variant="outline"

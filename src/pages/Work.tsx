@@ -34,7 +34,7 @@ const projects = [
     title: "Laxmi Printers",
     category: "Corporate Website & Digital Presence",
     description:
-      "Industrial printing company's digital transformation — modern corporate site with service showcases, machinery portfolio, certification displays, and an integrated enquiry system.",
+      "Industrial printing company's digital transformation: a modern corporate site with service showcases, machinery portfolio, certification displays, and an integrated enquiry system.",
     image: workLaxmi,
     url: "https://www.laxmiprinters.com/",
     tags: ["Corporate", "CMS", "Lead Gen", "Performance"],
@@ -86,7 +86,7 @@ const Work = () => {
                 <span className="text-accent italic">for themselves</span>
               </h1>
               <p className="text-xl text-background/60 max-w-xl">
-                Real projects, real results — websites and brands we've crafted for clients across industries.
+                Real projects, real results. Websites and brands we've crafted for clients across industries.
               </p>
             </motion.div>
           </div>
