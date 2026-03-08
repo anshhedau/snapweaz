@@ -94,7 +94,9 @@ export const Header = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2.5 text-foreground hover:bg-secondary rounded-full transition-colors"
+            className={`lg:hidden p-2.5 rounded-full transition-colors ${
+              isScrolled ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10"
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
