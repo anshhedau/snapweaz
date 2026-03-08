@@ -133,7 +133,7 @@ const serviceFiles = import.meta.glob('/content/services/*.md', { eager: true, q
 const processFiles = import.meta.glob('/content/process/*.md', { eager: true, query: '?raw', import: 'default' });
 const otherWorkFiles = import.meta.glob('/content/other-work/*.md', { eager: true, query: '?raw', import: 'default' });
 const clientFiles = import.meta.glob('/content/clients/*.md', { eager: true, query: '?raw', import: 'default' });
-const pressFiles = import.meta.glob('/content/press/*.md', { eager: true, query: '?raw', import: 'default' });
+const blogFiles = import.meta.glob('/content/blog/*.md', { eager: true, query: '?raw', import: 'default' });
 
 // JSON settings
 const settingsFiles = import.meta.glob('/content/settings/*.json', { eager: true, import: 'default' });
