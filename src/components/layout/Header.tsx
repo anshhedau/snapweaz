@@ -53,7 +53,7 @@ export const Header = () => {
             </motion.div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5 glass rounded-full px-1.5 py-1.5">
+          <nav className="hidden lg:flex items-center gap-0.5 rounded-full px-1.5 py-1.5">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
