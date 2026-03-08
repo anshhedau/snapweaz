@@ -108,40 +108,36 @@ const Work = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group block cursor-pointer"
                 >
-                  <div className={`${project.accent} rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl border border-border/20`}>
+                  <div className="bg-background rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl border border-border/30 group-hover:border-accent/20">
                     <div className="grid lg:grid-cols-2 gap-0">
                       {/* Screenshot */}
                       <div className={`relative overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                        <div className="aspect-[16/10] overflow-hidden">
+                        <div className="aspect-[16/10] overflow-hidden bg-secondary/30">
                           <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                           />
-                        </div>
-                        {/* Year badge */}
-                        <div className="absolute top-6 left-6 px-3 py-1.5 bg-foreground/80 text-background text-xs font-medium rounded-full backdrop-blur-sm">
-                          {project.year}
                         </div>
                       </div>
 
                       {/* Content */}
                       <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                        <span className="text-xs text-accent uppercase tracking-[0.2em] mb-4 block font-medium">
+                        <span className="text-xs text-accent uppercase tracking-[0.2em] mb-5 block font-medium">
                           {project.category}
                         </span>
                         <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300 flex items-start gap-3">
                           {project.title}
-                          <ExternalLink size={20} className="opacity-0 group-hover:opacity-100 transition-opacity mt-2 shrink-0" />
+                          <ExternalLink size={18} className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0 mt-2 shrink-0" />
                         </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-6">
+                        <p className="text-muted-foreground leading-relaxed mb-8 text-[0.95rem]">
                           {project.description}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="px-3 py-1 text-xs font-medium bg-foreground/5 text-foreground/70 rounded-full border border-border/30"
+                              className="px-3.5 py-1.5 text-xs font-medium bg-secondary/60 text-foreground/60 rounded-full"
                             >
                               {tag}
                             </span>
