@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar, Clock, User } from "lucide-react";
 import { Header } from "@/components/layout/Header";
@@ -21,9 +22,13 @@ const posts = [
   { title: "Design Systems: A Complete Guide", excerpt: "Building and maintaining a design system that scales.", author: "Design Team", date: "December 5, 2024", readTime: "12 min", category: "Design" },
 ];
 
-const categories = ["All", "Design", "Development", "Branding", "UX Design", "Growth", "Cloud"];
+const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredPosts = activeCategory === "All" ? posts : posts.filter((p) => p.category === activeCategory);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -54,11 +59,12 @@ const Blog = () => {
         <section className="py-6 bg-background border-b border-border/30 sticky top-[72px] z-30 backdrop-blur-xl bg-background/90">
           <div className="container-wide">
             <div className="flex flex-wrap gap-2 overflow-x-auto scrollbar-hide">
-              {categories.map((category, index) => (
+              {categories.map((category) => (
                 <button
                   key={category}
+                  onClick={() => setActiveCategory(category)}
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 shrink-0 ${
-                    index === 0
+                    activeCategory === category
                       ? "bg-foreground text-background"
                       : "bg-secondary/50 text-foreground/70 hover:bg-accent hover:text-background border border-border/30"
                   }`}
@@ -108,7 +114,7 @@ const Blog = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post, index) => (
+              {filteredPosts.map((post, index) => (
                 <motion.article
                   key={post.title}
                   initial={{ opacity: 0, y: 30 }}
