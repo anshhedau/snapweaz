@@ -34,10 +34,8 @@ export const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-          isScrolled
-            ? "bg-transparent backdrop-blur-md py-2.5"
-            : "bg-transparent py-5"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-transparent ${
+          isScrolled ? "py-2.5" : "py-5"
         }`}
       >
         <div className="container-wide flex items-center justify-between">
