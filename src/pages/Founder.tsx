@@ -64,11 +64,11 @@ const Founder = () => {
                     },
                     {
                       title: "Our Philosophy",
-                      text: "We don't just build products — we craft experiences. Every project is an opportunity to push boundaries, embrace innovation, and create something that truly makes a difference. Our work is driven by passion, precision, and a relentless pursuit of excellence."
+                      text: "We don't just build products; we craft experiences. Every project is an opportunity to push boundaries, embrace innovation, and create something that truly makes a difference. Our work is driven by passion, precision, and a relentless pursuit of excellence."
                     },
                     {
                       title: "The Journey",
-                      text: "What started as a small team passionate about beautiful, functional products has grown into a full-service creative technology studio serving clients worldwide. Our specialized divisions work in harmony — from brand strategy and design to development, cloud infrastructure, and growth marketing."
+                      text: "What started as a small team passionate about beautiful, functional products has grown into a full-service creative technology studio serving clients worldwide. Our specialized divisions work in harmony: from brand strategy and design to development, cloud infrastructure, and growth marketing."
                     },
                   ].map((section, index) => (
                     <motion.div

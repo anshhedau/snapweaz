@@ -36,7 +36,7 @@ export const CTASection = () => {
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed">
             Whether you're launching a startup, scaling a product, or reimagining
-            your brand — we're here to help.
+            your brand, we're here to help.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

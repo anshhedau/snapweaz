@@ -26,7 +26,7 @@ const values = [
   {
     icon: Users,
     title: "Partnership Mindset",
-    description: "We're not vendors — we're partners. Your success is our success, and we're invested in your journey.",
+    description: "We're not vendors; we're partners. Your success is our success, and we're invested in your journey.",
   },
 ];
 
@@ -102,7 +102,7 @@ const About = () => {
                     full-service creative technology studio serving clients worldwide.
                   </p>
                   <p>
-                    Today, our six specialized divisions work in harmony — from brand
+                    Today, our six specialized divisions work in harmony: from brand
                     strategy and design to development, cloud infrastructure, and growth.
                   </p>
                 </div>
