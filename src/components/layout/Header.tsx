@@ -37,8 +37,9 @@ export const Header = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
             ? "glass py-2.5 shadow-lg"
-            : "bg-transparent py-5"
+            : "py-5"
         }`}
+        style={!isScrolled ? { background: 'hsl(0 0% 0%)' } : undefined}
       >
         <div className="container-wide flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
@@ -50,20 +51,26 @@ export const Header = () => {
               <img
                 src={logo}
                 alt="SnapWeaz Logo"
-                className="w-11 h-11 md:w-12 md:h-12 object-contain"
+                className={`w-11 h-11 md:w-12 md:h-12 object-contain transition-all duration-700 ${!isScrolled ? "brightness-0 invert" : ""}`}
               />
             </motion.div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5 glass rounded-full px-1.5 py-1.5">
+          <nav className={`hidden lg:flex items-center gap-0.5 rounded-full px-1.5 py-1.5 transition-all duration-700 ${
+            isScrolled ? "glass" : "bg-white/10 border border-white/10"
+          }`}>
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
                 className={`px-5 py-2 text-[13px] font-medium transition-all duration-300 rounded-full ${
                   location.pathname === link.href
-                    ? "bg-foreground text-background shadow-md"
-                    : "text-foreground/70 hover:text-foreground hover:bg-background/50"
+                    ? isScrolled
+                      ? "bg-foreground text-background shadow-md"
+                      : "bg-white/20 text-white shadow-md"
+                    : isScrolled
+                      ? "text-foreground/70 hover:text-foreground hover:bg-background/50"
+                      : "text-white/30 hover:text-white/60"
                 }`}
               >
                 {link.name}
@@ -74,7 +81,11 @@ export const Header = () => {
           <div className="hidden lg:flex items-center">
             <Button
               size="sm"
-              className="bg-foreground text-background hover:bg-accent rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500 shadow-md hover:shadow-xl"
+              className={`rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500 shadow-md hover:shadow-xl ${
+                isScrolled
+                  ? "bg-foreground text-background hover:bg-accent"
+                  : "bg-white text-black hover:bg-white/80"
+              }`}
               asChild
             >
               <Link to="/contact">Start a project</Link>
@@ -83,7 +94,9 @@ export const Header = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2.5 text-foreground hover:bg-secondary rounded-full transition-colors"
+            className={`lg:hidden p-2.5 rounded-full transition-colors ${
+              isScrolled ? "text-foreground hover:bg-secondary" : "text-white hover:bg-white/10"
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
