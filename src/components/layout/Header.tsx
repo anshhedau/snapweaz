@@ -74,7 +74,7 @@ export const Header = () => {
           <div className="hidden lg:flex items-center">
             <Button
               size="sm"
-              className="bg-foreground text-background hover:bg-accent rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500 shadow-md hover:shadow-xl"
+                    className="border border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500"
               asChild
             >
               <Link to="/contact">Start a project</Link>
