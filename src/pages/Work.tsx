@@ -1,52 +1,66 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import workVicarage from "@/assets/work-vicarage.png";
+import workDesignflu from "@/assets/work-designflu.png";
+import workLaxmi from "@/assets/work-laxmiprinters.png";
 
 const projects = [
   {
-    title: "DesignFlu Rebrand",
-    category: "Brand Identity",
-    description: "Complete brand transformation for a leading design agency — logo, visual system, and digital presence.",
-    image: "DF",
-    accent: "bg-accent/10",
+    title: "Vicarage Nurseries",
+    category: "Web Design & Development",
+    description:
+      "Complete website redesign for a UK-based soft fruit farm. Featuring immersive storytelling, before/after transformation sliders, and a modern editorial layout that captures their 25+ year legacy.",
+    image: workVicarage,
+    url: "https://www.vicaragenurseries.co.uk/",
+    tags: ["React", "Framer Motion", "Responsive", "SEO"],
+    year: "2024",
+    accent: "bg-[hsl(350,70%,96%)]",
   },
   {
-    title: "TechStart Platform",
-    category: "Web Application",
-    description: "Comprehensive startup management platform with investor dashboards and analytics.",
-    image: "TS",
-    accent: "bg-secondary",
+    title: "DesignFlu",
+    category: "Brand Identity & Web Platform",
+    description:
+      "Premium design studio website with bold typography, dark theme aesthetics, and smooth scroll-driven animations. Built to showcase creative work with an immersive portfolio experience.",
+    image: workDesignflu,
+    url: "https://designflu.in/",
+    tags: ["Branding", "UI/UX", "Dark Theme", "Animation"],
+    year: "2024",
+    accent: "bg-[hsl(45,80%,96%)]",
   },
   {
-    title: "CloudNine SaaS",
-    category: "Product Design & Dev",
-    description: "End-to-end cloud storage solution with real-time sync and collaboration.",
-    image: "CN",
-    accent: "bg-accent/10",
+    title: "Laxmi Printers",
+    category: "Corporate Website & Digital Presence",
+    description:
+      "Industrial printing company's digital transformation — modern corporate site with service showcases, machinery portfolio, certification displays, and an integrated enquiry system.",
+    image: workLaxmi,
+    url: "https://www.laxmiprinters.com/",
+    tags: ["Corporate", "CMS", "Lead Gen", "Performance"],
+    year: "2024",
+    accent: "bg-[hsl(185,70%,96%)]",
   },
-  {
-    title: "InnovateCo Mobile",
-    category: "Mobile Development",
-    description: "Native iOS and Android apps for a productivity suite with offline support.",
-    image: "IC",
-    accent: "bg-secondary",
-  },
-  {
-    title: "StartupX Growth",
-    category: "Growth Strategy",
-    description: "Digital marketing campaign that increased user acquisition by 300% in six months.",
-    image: "SX",
-    accent: "bg-accent/10",
-  },
-  {
-    title: "Laxmi Group Website",
-    category: "Web Design",
-    description: "Modern corporate website with CMS, multilingual support, and optimized performance.",
-    image: "LG",
-    accent: "bg-secondary",
-  },
+];
+
+const otherWork = [
+  { title: "E-Commerce Landing Pages", category: "Landing Pages", count: "12+" },
+  { title: "SaaS Product Microsites", category: "Web Design", count: "8+" },
+  { title: "Brand Identity Systems", category: "Branding", count: "15+" },
+  { title: "Marketing Campaign Pages", category: "Growth", count: "20+" },
+  { title: "Mobile App UI Designs", category: "UI/UX", count: "6+" },
+  { title: "Corporate Presentations", category: "Design", count: "10+" },
+];
+
+const clients = [
+  "Vicarage Nurseries",
+  "DesignFlu",
+  "Laxmi Printers",
+  "Startups",
+  "E-Commerce Brands",
+  "Local Businesses",
+  "UK Enterprises",
+  "Indian SMBs",
 ];
 
 const Work = () => {
@@ -72,50 +86,147 @@ const Work = () => {
                 <span className="text-accent italic">for themselves</span>
               </h1>
               <p className="text-xl text-background/60 max-w-xl">
-                A selection of recent work across design, development, and strategy.
+                Real projects, real results — websites and brands we've crafted for clients across industries.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Projects - Alternating large/small layout */}
+        {/* Featured Projects */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <div className="space-y-8">
+            <div className="space-y-10">
               {projects.map((project, index) => (
-                <motion.div
+                <motion.a
                   key={project.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="group cursor-pointer"
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group block cursor-pointer"
                 >
-                  <div className={`${project.accent} rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-xl`}>
-                    <div className="grid md:grid-cols-2 gap-0">
-                      {/* Image area */}
-                      <div className={`aspect-[4/3] md:aspect-auto flex items-center justify-center p-12 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                        <span className="font-serif text-8xl md:text-9xl text-foreground/10 group-hover:text-accent/20 transition-colors duration-500">
-                          {project.image}
-                        </span>
+                  <div className={`${project.accent} rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl border border-border/20`}>
+                    <div className="grid lg:grid-cols-2 gap-0">
+                      {/* Screenshot */}
+                      <div className={`relative overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                        <div className="aspect-[16/10] overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </div>
+                        {/* Year badge */}
+                        <div className="absolute top-6 left-6 px-3 py-1.5 bg-foreground/80 text-background text-xs font-medium rounded-full backdrop-blur-sm">
+                          {project.year}
+                        </div>
                       </div>
 
                       {/* Content */}
-                      <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                        <span className="text-xs text-accent uppercase tracking-[0.2em] mb-4 block">
+                      <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                        <span className="text-xs text-accent uppercase tracking-[0.2em] mb-4 block font-medium">
                           {project.category}
                         </span>
                         <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300 flex items-start gap-3">
                           {project.title}
-                          <ArrowUpRight size={24} className="opacity-0 group-hover:opacity-100 transition-opacity mt-1 shrink-0" />
+                          <ExternalLink size={20} className="opacity-0 group-hover:opacity-100 transition-opacity mt-2 shrink-0" />
                         </h3>
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed mb-6">
                           {project.description}
                         </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1 text-xs font-medium bg-foreground/5 text-foreground/70 rounded-full border border-border/30"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Other Work / Landing Pages */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-14"
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-8 h-px bg-accent" />
+                <p className="text-sm text-accent uppercase tracking-[0.2em]">And Many More</p>
+              </div>
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-2xl">
+                Landing pages, campaigns & <span className="text-accent italic">beyond</span>
+              </h2>
+              <p className="text-muted-foreground mt-4 max-w-xl text-lg">
+                Beyond featured projects, we've delivered dozens of landing pages, marketing sites,
+                and brand assets for clients worldwide.
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {otherWork.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="bg-background rounded-2xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300 group"
+                >
+                  <span className="font-serif text-4xl text-accent mb-3 block">{item.count}</span>
+                  <h3 className="font-serif text-xl text-foreground mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.category}</p>
                 </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Clients */}
+        <section className="section-padding bg-background">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-8 h-px bg-accent" />
+                <p className="text-sm text-accent uppercase tracking-[0.2em]">Client Portfolio</p>
+              </div>
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
+                Trusted by <span className="text-accent italic">ambitious</span> brands
+              </h2>
+            </motion.div>
+
+            <div className="flex flex-wrap gap-3">
+              {clients.map((client, index) => (
+                <motion.span
+                  key={client}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="px-6 py-3 rounded-full border border-border/40 text-foreground/80 hover:border-accent hover:text-accent transition-colors duration-300 text-sm font-medium"
+                >
+                  {client}
+                </motion.span>
               ))}
             </div>
           </div>
