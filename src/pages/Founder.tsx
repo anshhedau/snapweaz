@@ -44,7 +44,7 @@ const Founder = () => {
               >
                 <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center sticky top-32 overflow-hidden">
                   {founder.photo ? (
-                    <img src={founder.photo} alt="Founder" loading="lazy" className="w-full h-full object-cover" />
+                    <img src={founder.photo} alt="Founder" className="w-full h-full object-cover" />
                   ) : (
                     <div className="text-center">
                       <img src={logo} alt="SnapWeaz" className="w-28 h-28 object-contain opacity-60 mx-auto mb-4" />
@@ -98,7 +98,7 @@ const Founder = () => {
                   {/* Signature */}
                   <div className="pt-12 text-right">
                     <p className="text-sm text-muted-foreground mb-2">For SnapWeaz</p>
-                    <img src={stamp} alt="SnapWeaz Stamp" loading="lazy" className="w-28 h-auto ml-auto my-2" />
+                    <img src={stamp} alt="SnapWeaz Stamp" className="w-28 h-auto ml-auto my-2" />
                     <p className="text-sm text-muted-foreground">Founder</p>
                   </div>
                 </div>

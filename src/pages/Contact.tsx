@@ -212,8 +212,8 @@ const Contact = () => {
                 <div className="pt-8 border-t border-border/30">
                   <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">Trusted by</h3>
                   <div className="flex flex-wrap items-center gap-6">
-                    <img src={clientDesignFlu} alt="Design Flu" loading="lazy" className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
-                    <img src={clientLaxmiPrinters} alt="Laxmi Printers" loading="lazy" className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                    <img src={clientDesignFlu} alt="Design Flu" className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                    <img src={clientLaxmiPrinters} alt="Laxmi Printers" className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
                   </div>
                 </div>
               </motion.div>
