@@ -50,6 +50,7 @@ export const Header = () => {
               <img
                 src={logo}
                 alt="SnapWeaz Logo"
+                loading="lazy"
                 className="w-11 h-11 md:w-12 md:h-12 object-contain"
               />
             </motion.div>
