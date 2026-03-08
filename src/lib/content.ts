@@ -66,6 +66,18 @@ export interface ClientItem {
   order: number;
 }
 
+export interface PressPost {
+  title: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  date: string;
+  featured: boolean;
+  draft: boolean;
+  order: number;
+  body?: string;
+}
+
 export interface HeroSettings {
   eyebrow: string;
   headline_line1: string;
