@@ -118,10 +118,7 @@ const About = () => {
                 <div className="aspect-square rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-accent/5" />
                   <div className="relative text-center">
-                    <img src={logo} alt="SnapWeaz" className="w-28 h-28 mx-auto object-contain mb-4" />
-                    <p className="text-xs text-muted-foreground uppercase tracking-[0.2em]">
-                      Est. 2020
-                    </p>
+                    <img src={logo} alt="SnapWeaz" className="w-28 h-28 mx-auto object-contain" />
                   </div>
                 </div>
               </motion.div>
