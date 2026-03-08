@@ -66,12 +66,13 @@ export interface ClientItem {
   order: number;
 }
 
-export interface PressPost {
+export interface BlogPost {
   title: string;
   excerpt: string;
   category: string;
   author: string;
   date: string;
+  readTime: string;
   featured: boolean;
   draft: boolean;
   order: number;
