@@ -11,8 +11,7 @@ import Divisions from "./pages/Divisions";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
-import Press from "./pages/Press";
-// Blog removed — Press & Media is the new blog
+import Blog from "./pages/Blog";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Founder from "./pages/Founder";
