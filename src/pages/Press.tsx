@@ -43,7 +43,7 @@ const Blog = () => {
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-8 h-px bg-accent" />
-                <span className="text-sm text-accent uppercase tracking-[0.3em]">Press & Media</span>
+                <span className="text-sm text-accent uppercase tracking-[0.3em]">Blog</span>
               </div>
               <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-6">
                 Insights & <span className="text-accent italic">perspectives</span>
