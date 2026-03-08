@@ -3,67 +3,13 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import workVicarage from "@/assets/work-vicarage.png";
-import workDesignflu from "@/assets/work-designflu.png";
-import workLaxmi from "@/assets/work-laxmiprinters.png";
-
-const projects = [
-  {
-    title: "Vicarage Nurseries",
-    category: "Web Design & Development",
-    description:
-      "Complete website redesign for a UK-based soft fruit farm. Featuring immersive storytelling, before/after transformation sliders, and a modern editorial layout that captures their 25+ year legacy.",
-    image: workVicarage,
-    url: "https://www.vicaragenurseries.co.uk/",
-    tags: ["React", "Framer Motion", "Responsive", "SEO"],
-    year: "2024",
-    accent: "bg-[hsl(350,70%,96%)]",
-  },
-  {
-    title: "DesignFlu",
-    category: "Brand Identity & Web Platform",
-    description:
-      "Premium design studio website with bold typography, dark theme aesthetics, and smooth scroll-driven animations. Built to showcase creative work with an immersive portfolio experience.",
-    image: workDesignflu,
-    url: "https://designflu.in/",
-    tags: ["Branding", "UI/UX", "Dark Theme", "Animation"],
-    year: "2024",
-    accent: "bg-[hsl(45,80%,96%)]",
-  },
-  {
-    title: "Laxmi Printers",
-    category: "Corporate Website & Digital Presence",
-    description:
-      "Industrial printing company's digital transformation: a modern corporate site with service showcases, machinery portfolio, certification displays, and an integrated enquiry system.",
-    image: workLaxmi,
-    url: "https://www.laxmiprinters.com/",
-    tags: ["Corporate", "CMS", "Lead Gen", "Performance"],
-    year: "2024",
-    accent: "bg-[hsl(185,70%,96%)]",
-  },
-];
-
-const otherWork = [
-  { title: "E-Commerce Landing Pages", category: "Landing Pages", count: "12+" },
-  { title: "SaaS Product Microsites", category: "Web Design", count: "8+" },
-  { title: "Brand Identity Systems", category: "Branding", count: "15+" },
-  { title: "Marketing Campaign Pages", category: "Growth", count: "20+" },
-  { title: "Mobile App UI Designs", category: "UI/UX", count: "6+" },
-  { title: "Corporate Presentations", category: "Design", count: "10+" },
-];
-
-const clients = [
-  "Vicarage Nurseries",
-  "DesignFlu",
-  "Laxmi Printers",
-  "Startups",
-  "E-Commerce Brands",
-  "Local Businesses",
-  "UK Enterprises",
-  "Indian SMBs",
-];
+import { getProjects, getOtherWork, getClients } from "@/lib/content";
 
 const Work = () => {
+  const projects = getProjects();
+  const otherWork = getOtherWork();
+  const clients = getClients();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -110,7 +56,6 @@ const Work = () => {
                 >
                   <div className="bg-background rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl border border-border/30 group-hover:border-accent/20">
                     <div className="grid lg:grid-cols-2 gap-0">
-                      {/* Screenshot */}
                       <div className={`relative overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                         <div className="aspect-[16/10] overflow-hidden bg-secondary/30">
                           <img
@@ -120,8 +65,6 @@ const Work = () => {
                           />
                         </div>
                       </div>
-
-                      {/* Content */}
                       <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}>
                         <span className="text-xs text-accent uppercase tracking-[0.2em] mb-5 block font-medium">
                           {project.category}
@@ -152,7 +95,7 @@ const Work = () => {
           </div>
         </section>
 
-        {/* Other Work / Landing Pages */}
+        {/* Other Work */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <motion.div
@@ -214,14 +157,14 @@ const Work = () => {
             <div className="flex flex-wrap gap-3">
               {clients.map((client, index) => (
                 <motion.span
-                  key={client}
+                  key={client.name}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   className="px-6 py-3 rounded-full border border-border/40 text-foreground/80 hover:border-accent hover:text-accent transition-colors duration-300 text-sm font-medium"
                 >
-                  {client}
+                  {client.name}
                 </motion.span>
               ))}
             </div>

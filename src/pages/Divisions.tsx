@@ -3,47 +3,16 @@ import { ArrowUpRight, Palette, Code2, Rocket, Cloud, TrendingUp, Shield } from 
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { getDivisions } from "@/lib/content";
+import type { LucideIcon } from "lucide-react";
 
-const divisions = [
-  {
-    id: "design", icon: Palette, name: "SnapWeaz Design", tagline: "Where creativity takes form",
-    description: "Visual experiences that captivate, communicate, and convert.",
-    services: ["Brand Identity", "UI/UX Design", "Motion Graphics", "Campaign Design", "Illustration", "Packaging"],
-    number: "01",
-  },
-  {
-    id: "software", icon: Code2, name: "SnapWeaz Software", tagline: "Engineering excellence",
-    description: "Robust, scalable software using modern tech and best practices.",
-    services: ["Web Applications", "Mobile Apps", "Custom Software", "API Development", "E-commerce", "SaaS Platforms"],
-    number: "02",
-  },
-  {
-    id: "ventures", icon: Rocket, name: "SnapWeaz Ventures", tagline: "Launching tomorrow's leaders",
-    description: "Partnering with founders to transform ideas into successful products.",
-    services: ["Startup Incubation", "MVP Development", "Go-to-Market Strategy", "Pitch Deck Design", "Investor Readiness", "Product Strategy"],
-    number: "03",
-  },
-  {
-    id: "cloud", icon: Cloud, name: "SnapWeaz Cloud", tagline: "Infrastructure that scales",
-    description: "Cloud solutions that grow with your business: secure, reliable, and cost-effective.",
-    services: ["Cloud Architecture", "DevOps & CI/CD", "SaaS Development", "Database Design", "Security & Compliance", "Performance Optimization"],
-    number: "04",
-  },
-  {
-    id: "growth", icon: TrendingUp, name: "SnapWeaz Growth", tagline: "Accelerating your reach",
-    description: "Data-driven marketing that finds, engages, and converts your ideal customers.",
-    services: ["Digital Marketing", "SEO & Content", "Social Media", "Email Marketing", "Analytics", "Conversion Optimization"],
-    number: "05",
-  },
-  {
-    id: "ops", icon: Shield, name: "SnapWeaz Ops", tagline: "Reliable delivery, always",
-    description: "Solid operational foundation ensuring on-time, on-budget delivery.",
-    services: ["Project Management", "Quality Assurance", "Security Audits", "Documentation", "Maintenance & Support", "Process Optimization"],
-    number: "06",
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  Palette, Code2, Rocket, Cloud, TrendingUp, Shield,
+};
 
 const Divisions = () => {
+  const divisions = getDivisions();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -72,61 +41,57 @@ const Divisions = () => {
           </div>
         </section>
 
-        {/* Divisions List - Editorial */}
+        {/* Divisions List */}
         <section className="section-padding bg-background">
           <div className="container-wide">
             <div className="space-y-0 border-t border-border/30">
-              {divisions.map((division, index) => (
-                <motion.div
-                  key={division.id}
-                  id={division.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="group border-b border-border/30 py-14 md:py-20"
-                >
-                  <div className="grid lg:grid-cols-12 gap-8 items-start">
-                    {/* Number + Icon */}
-                    <div className="lg:col-span-2 flex items-center gap-4">
-                      <span className="font-serif text-5xl text-foreground/[0.08]">{division.number}</span>
-                      <div className="inline-flex p-3 rounded-2xl bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                        <division.icon size={22} className="text-accent" />
+              {divisions.map((division, index) => {
+                const Icon = iconMap[division.icon] || Palette;
+                return (
+                  <motion.div
+                    key={division.id}
+                    id={division.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="group border-b border-border/30 py-14 md:py-20"
+                  >
+                    <div className="grid lg:grid-cols-12 gap-8 items-start">
+                      <div className="lg:col-span-2 flex items-center gap-4">
+                        <span className="font-serif text-5xl text-foreground/[0.08]">{division.number}</span>
+                        <div className="inline-flex p-3 rounded-2xl bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                          <Icon size={22} className="text-accent" />
+                        </div>
+                      </div>
+                      <div className="lg:col-span-4">
+                        <h2 className="font-serif text-3xl text-foreground mb-2 group-hover:text-accent transition-colors">
+                          {division.name}
+                        </h2>
+                        <p className="text-sm text-accent italic mb-4">{division.tagline}</p>
+                        <p className="text-muted-foreground leading-relaxed">{division.description}</p>
+                      </div>
+                      <div className="lg:col-span-5">
+                        <div className="flex flex-wrap gap-2">
+                          {division.services.map((service) => (
+                            <span
+                              key={service}
+                              className="px-4 py-2 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground"
+                            >
+                              {service}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="lg:col-span-1 flex justify-end">
+                        <Link to="/contact" className="text-muted-foreground/30 group-hover:text-accent transition-colors">
+                          <ArrowUpRight size={24} />
+                        </Link>
                       </div>
                     </div>
-
-                    {/* Title + Description */}
-                    <div className="lg:col-span-4">
-                      <h2 className="font-serif text-3xl text-foreground mb-2 group-hover:text-accent transition-colors">
-                        {division.name}
-                      </h2>
-                      <p className="text-sm text-accent italic mb-4">{division.tagline}</p>
-                      <p className="text-muted-foreground leading-relaxed">{division.description}</p>
-                    </div>
-
-                    {/* Services tags */}
-                    <div className="lg:col-span-5">
-                      <div className="flex flex-wrap gap-2">
-                        {division.services.map((service) => (
-                          <span
-                            key={service}
-                            className="px-4 py-2 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground"
-                          >
-                            {service}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Arrow */}
-                    <div className="lg:col-span-1 flex justify-end">
-                      <Link to="/contact" className="text-muted-foreground/30 group-hover:text-accent transition-colors">
-                        <ArrowUpRight size={24} />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
