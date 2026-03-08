@@ -67,7 +67,7 @@ export const Footer = () => {
             <div className="flex items-center gap-3 mb-6">
               <img src={logo} alt="SnapWeaz" className="w-10 h-10 object-contain" />
             </div>
-            <p className="text-background/40 text-xs uppercase tracking-[0.2em] mb-8 whitespace-nowrap">
+            <p className="text-background/40 text-[10px] uppercase tracking-[0.15em] mb-8 whitespace-nowrap">
               Design · Engineering · Innovation
             </p>
             <div className="space-y-3 text-sm text-background/40">
