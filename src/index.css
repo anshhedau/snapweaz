@@ -133,6 +133,11 @@
     cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🔎</text></svg>") 16 16, auto !important;
   }
 
+  a:hover, button:hover, [role='button']:hover, input[type='submit']:hover, select:hover, .cursor-pointer:hover {
+    filter: drop-shadow(0 0 8px hsl(var(--accent) / 0.6));
+    transition: filter 0.3s ease;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'DM Serif Display', Georgia, serif;
     @apply tracking-tight;
