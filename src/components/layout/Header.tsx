@@ -19,9 +19,7 @@ export const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -36,41 +34,39 @@ export const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
-            ? "bg-background/90 backdrop-blur-2xl border-b border-border/50 py-3"
+            ? "glass py-2.5 shadow-lg"
             : "bg-transparent py-5"
         }`}
       >
         <div className="container-wide flex items-center justify-between">
-          {/* Logo - Only image + tagline, no "SNAPWEAZ" text */}
           <Link to="/" className="flex items-center gap-3 group">
             <motion.div
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
               className="flex items-center gap-3"
             >
-              <img 
-                src={logo} 
-                alt="SnapWeaz Logo" 
-                className="w-12 h-12 md:w-14 md:h-14 object-contain" 
+              <img
+                src={logo}
+                alt="SnapWeaz Logo"
+                className="w-11 h-11 md:w-12 md:h-12 object-contain"
               />
-              <span className="hidden sm:block text-[11px] text-muted-foreground tracking-[0.2em] uppercase font-medium">
+              <span className="hidden sm:block text-[10px] text-muted-foreground tracking-[0.25em] uppercase font-medium">
                 Design · Engineering · Innovation
               </span>
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 glass rounded-full px-1.5 py-1.5">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-full ${
+                className={`px-5 py-2 text-[13px] font-medium transition-all duration-300 rounded-full ${
                   location.pathname === link.href
-                    ? "text-accent bg-accent/5"
-                    : "text-foreground/70 hover:text-foreground hover:bg-secondary"
+                    ? "bg-foreground text-background shadow-md"
+                    : "text-foreground/70 hover:text-foreground hover:bg-background/50"
                 }`}
               >
                 {link.name}
@@ -78,18 +74,16 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center">
             <Button
               size="sm"
-              className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6 h-10 text-sm font-medium transition-all duration-300"
+              className="bg-foreground text-background hover:bg-accent rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500 shadow-md hover:shadow-xl"
               asChild
             >
               <Link to="/contact">Start a project</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2.5 text-foreground hover:bg-secondary rounded-full transition-colors"
@@ -100,7 +94,6 @@ export const Header = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -110,12 +103,12 @@ export const Header = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <motion.div 
+            <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 bg-background pt-24"
+              className="absolute inset-0 bg-background/95 backdrop-blur-3xl pt-24"
             >
               <nav className="container-wide flex flex-col gap-1 pt-4">
                 {navLinks.map((link, index) => (

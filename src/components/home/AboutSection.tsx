@@ -17,10 +17,13 @@ export const AboutSection = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-foreground text-background">
+    <section ref={ref} className="relative overflow-hidden bg-background">
+      {/* Mesh gradient */}
+      <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }} />
+
       <motion.div
         style={{ y: bgY }}
-        className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[100px] pointer-events-none"
+        className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-accent/[0.06] blur-[120px] pointer-events-none"
       />
 
       <div className="container-wide section-padding relative z-10">
@@ -37,20 +40,20 @@ export const AboutSection = () => {
                 {content.eyebrow}
               </p>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] mb-8">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] mb-8">
               {headline.before}
               {headline.accent && <span className="text-accent italic">{headline.accent}</span>}
               {headline.after}
             </h2>
-            <p className="text-background/60 text-lg leading-relaxed mb-6">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               {content.description}
             </p>
-            <p className="text-background/40 leading-relaxed mb-10">
+            <p className="text-muted-foreground/60 leading-relaxed mb-10">
               {content.secondary_text}
             </p>
             <Button
               variant="outline"
-              className="rounded-full px-8 h-12 border-background/30 bg-transparent text-background hover:border-accent hover:text-accent hover:bg-accent/10 group transition-all duration-300"
+              className="rounded-full px-8 h-12 border-border hover:border-accent hover:text-accent hover:bg-accent/5 group transition-all duration-300"
               asChild
             >
               <Link to="/about">
@@ -65,19 +68,19 @@ export const AboutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="grid grid-cols-2 gap-px bg-background/10 rounded-3xl overflow-hidden"
+            className="grid grid-cols-2 gap-4"
           >
             {content.stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className="bg-foreground p-8 md:p-12 flex flex-col justify-center"
+                className="glass-card rounded-3xl p-8 md:p-10 flex flex-col justify-center"
               >
-                <AnimatedStat value={stat.value} className="font-serif text-5xl md:text-6xl text-background mb-2 block" />
-                <span className="text-xs text-background/40 uppercase tracking-[0.2em]">
+                <AnimatedStat value={stat.value} className="font-serif text-5xl md:text-6xl text-foreground mb-3 block" />
+                <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">
                   {stat.label}
                 </span>
               </motion.div>
