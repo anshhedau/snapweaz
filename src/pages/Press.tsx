@@ -24,7 +24,7 @@ const posts = [
 
 const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
-const Press = () => {
+const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredPosts = activeCategory === "All" ? posts : posts.filter((p) => p.category === activeCategory);
