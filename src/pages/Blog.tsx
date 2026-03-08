@@ -5,6 +5,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPosts } from "@/lib/content";
 
+function formatDate(d: unknown): string {
+  if (d instanceof Date) return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  return String(d ?? "");
+}
+
 const Blog = () => {
   const allPosts = getBlogPosts();
   const featuredPost = allPosts.find((p) => p.featured);
@@ -84,7 +89,7 @@ const Blog = () => {
                       <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
                       <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
                         <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
-                        <span className="flex items-center gap-2"><Calendar size={14} />{featuredPost.date}</span>
+                        <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(featuredPost.date)}</span>
                         <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
                       </div>
                     </div>
@@ -117,7 +122,7 @@ const Blog = () => {
                         <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">{post.title}</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">{post.date}</span>
+                          <span className="text-muted-foreground">{formatDate(post.date)}</span>
                           <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">Read <ArrowUpRight size={14} /></span>
                         </div>
                       </motion.article>
