@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AnimatedStat } from "@/components/ui/AnimatedStat";
 import { useRef } from "react";
 import { getHeroSettings } from "@/lib/content";
 
@@ -134,7 +135,7 @@ export const HeroSection = () => {
               <div className="text-right space-y-4">
                 {hero.stats.map((stat) => (
                   <div key={stat.label}>
-                    <span className="block font-serif text-4xl text-foreground">{stat.value}</span>
+                    <AnimatedStat value={stat.value} className="block font-serif text-4xl text-foreground" />
                     <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">{stat.label}</span>
                   </div>
                 ))}
