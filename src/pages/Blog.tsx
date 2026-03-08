@@ -5,6 +5,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPosts } from "@/lib/content";
 
+function formatDate(d: unknown): string {
+  if (d instanceof Date) return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  return String(d ?? "");
+}
+
 const Blog = () => {
   const allPosts = getBlogPosts();
   const featuredPost = allPosts.find((p) => p.featured);
