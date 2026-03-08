@@ -81,7 +81,11 @@ export const Header = () => {
           <div className="hidden lg:flex items-center">
             <Button
               size="sm"
-              className="bg-foreground text-background hover:bg-accent rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500 shadow-md hover:shadow-xl"
+              className={`rounded-full px-7 h-10 text-[13px] font-medium transition-all duration-500 shadow-md hover:shadow-xl ${
+                isScrolled
+                  ? "bg-foreground text-background hover:bg-accent"
+                  : "bg-white text-black hover:bg-white/80"
+              }`}
               asChild
             >
               <Link to="/contact">Start a project</Link>
