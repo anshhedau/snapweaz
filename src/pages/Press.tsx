@@ -1,24 +1,34 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Download, Calendar, FileText, User, Clock } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock, User } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
-import { getPressPosts, type PressPost } from "@/lib/content";
 
-const pressPosts = getPressPosts();
+const featuredPost = {
+  title: "The Future of Digital Design: Trends Shaping 2025",
+  excerpt: "Explore the emerging design trends that will define the digital landscape in 2025, from AI-powered interfaces to sustainable design practices.",
+  author: "SnapWeaz Team",
+  date: "January 10, 2025",
+  readTime: "8 min read",
+  category: "Design Trends",
+};
 
-const featuredPost = pressPosts.find((p) => p.featured) ?? pressPosts[0];
-const otherPosts = pressPosts.filter((p) => p !== featuredPost);
-
-const categories = ["All", ...Array.from(new Set(pressPosts.map((p) => p.category)))];
-
-const mediaFeatures = [
-  { outlet: "TechCrunch", title: "How SnapWeaz is Redefining Digital Agency Standards", date: "November 2024" },
-  { outlet: "Forbes India", title: "Rising Design Studios Shaping India's Tech Landscape", date: "September 2024" },
-  { outlet: "Product Hunt", title: "Top Design Agencies for Startups in 2024", date: "July 2024" },
+const posts = [
+  { title: "Building Scalable Web Applications with Modern Architecture", excerpt: "Learn how to architect web applications that grow with your business.", author: "Software Team", date: "January 5, 2025", readTime: "6 min", category: "Development" },
+  { title: "Brand Identity: More Than Just a Logo", excerpt: "Why a comprehensive brand identity system is essential for success.", author: "Design Team", date: "December 28, 2024", readTime: "5 min", category: "Branding" },
+  { title: "The Art of User-Centered Design", excerpt: "Putting users at the center leads to products people want to use.", author: "UX Team", date: "December 20, 2024", readTime: "7 min", category: "UX Design" },
+  { title: "Startup Growth Strategies That Actually Work", excerpt: "Proven tactics for early-stage startups to acquire and retain users.", author: "Growth Team", date: "December 15, 2024", readTime: "10 min", category: "Growth" },
+  { title: "Cloud Infrastructure Best Practices", excerpt: "Essential guidelines for secure, reliable cloud infrastructure.", author: "Cloud Team", date: "December 10, 2024", readTime: "8 min", category: "Cloud" },
+  { title: "Design Systems: A Complete Guide", excerpt: "Building and maintaining a design system that scales.", author: "Design Team", date: "December 5, 2024", readTime: "12 min", category: "Design" },
 ];
 
+const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
+
 const Press = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredPosts = activeCategory === "All" ? posts : posts.filter((p) => p.category === activeCategory);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -36,10 +46,10 @@ const Press = () => {
                 <span className="text-sm text-accent uppercase tracking-[0.3em]">Press & Media</span>
               </div>
               <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-6">
-                News & <span className="text-accent italic">announcements</span>
+                Insights & <span className="text-accent italic">perspectives</span>
               </h1>
               <p className="text-xl text-background/60 max-w-xl">
-                Stay updated with the latest from SnapWeaz.
+                Thoughts, tutorials, and insights on design, development, and digital products.
               </p>
             </motion.div>
           </div>
@@ -49,11 +59,12 @@ const Press = () => {
         <section className="py-6 bg-background border-b border-border/30 sticky top-[72px] z-30 backdrop-blur-xl bg-background/90">
           <div className="container-wide">
             <div className="flex flex-wrap gap-2 overflow-x-auto scrollbar-hide">
-              {categories.map((category, index) => (
+              {categories.map((category) => (
                 <button
                   key={category}
+                  onClick={() => setActiveCategory(category)}
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 shrink-0 ${
-                    index === 0
+                    activeCategory === category
                       ? "bg-foreground text-background"
                       : "bg-secondary/50 text-foreground/70 hover:bg-accent hover:text-background border border-border/30"
                   }`}
@@ -65,148 +76,95 @@ const Press = () => {
           </div>
         </section>
 
-        {/* Press Kit */}
-        <section className="py-16 bg-background">
+        {/* Featured Post */}
+        <section className="section-padding bg-background">
           <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="flex flex-col md:flex-row items-center justify-between gap-6 bg-secondary/30 rounded-3xl p-8 md:p-10 border border-border/30"
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group cursor-pointer"
             >
-              <div>
-                <h3 className="font-serif text-2xl text-foreground mb-2">Press Kit</h3>
-                <p className="text-muted-foreground">Download logos, brand assets, and company information.</p>
+              <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
+                <div className="absolute top-8 right-8 md:top-12 md:right-12">
+                  <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
+                </div>
+                <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">
+                  Featured
+                </span>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">
+                  {featuredPost.title}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
+                <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
+                  <span className="flex items-center gap-2"><Calendar size={14} />{featuredPost.date}</span>
+                  <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
+                </div>
               </div>
-              <Button variant="outline" className="rounded-full group shrink-0"
-                onClick={() => window.open('mailto:info@snapweaz.in?subject=Press Kit Request', '_blank')}
-              >
-                <Download size={18} className="mr-2" />
-                Request Press Kit
-              </Button>
             </motion.div>
           </div>
         </section>
 
-        {/* Featured Post */}
-        {featuredPost && (
-          <section className="section-padding bg-background">
-            <div className="container-wide">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group cursor-pointer"
-              >
-                <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
-                  <div className="absolute top-8 right-8 md:top-12 md:right-12">
-                    <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
-                  </div>
-                  <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">
-                    Featured
-                  </span>
-                  <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">
-                    {featuredPost.title}
-                  </h2>
-                  <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
-                  <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
-                    <span className="flex items-center gap-2"><Calendar size={14} />{featuredPost.date}</span>
-                    <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{featuredPost.category}</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </section>
-        )}
-
         {/* Posts Grid */}
-        {otherPosts.length > 0 && (
-          <section className="section-padding bg-secondary/30">
-            <div className="container-wide">
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground">Latest updates</h2>
-              </motion.div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {otherPosts.map((post, index) => (
-                  <motion.article
-                    key={post.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
-                  >
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
-                    </div>
-                    <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">{post.date}</span>
-                      <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                        Read <ArrowUpRight size={14} />
-                      </span>
-                    </div>
-                  </motion.article>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Media Features */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-secondary/30">
           <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-8 h-px bg-accent" />
-                <p className="text-sm text-accent uppercase tracking-[0.2em]">In The Media</p>
-              </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-foreground">Featured coverage</h2>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl text-foreground">Latest articles</h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {mediaFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredPosts.map((post, index) => (
+                <motion.article
+                  key={post.title}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group bg-secondary/30 rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-colors cursor-pointer"
+                  transition={{ delay: index * 0.08 }}
+                  className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-2 mb-6">
-                    <FileText size={16} className="text-accent" />
-                    <span className="text-sm font-medium text-accent">{feature.outlet}</span>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
+                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
                   </div>
-                  <h3 className="font-serif text-lg text-foreground mb-4 group-hover:text-accent transition-colors">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.date}</p>
-                </motion.div>
+                  <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{post.date}</span>
+                    <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      Read <ArrowUpRight size={14} />
+                    </span>
+                  </div>
+                </motion.article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Media Contact */}
+        {/* Newsletter */}
         <section className="section-padding bg-foreground text-background">
           <div className="container-wide">
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto"
+              className="text-center max-w-2xl mx-auto"
             >
               <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-6">
-                Media <span className="text-accent italic">inquiries</span>
+                Stay in the <span className="text-accent italic">loop</span>
               </h2>
               <p className="text-lg text-background/60 mb-10">
-                For press inquiries, interview requests, or media opportunities.
+                Subscribe for the latest insights and updates.
               </p>
-              <a
-                href="mailto:info@snapweaz.in"
-                className="inline-flex items-center gap-2 px-10 py-4 bg-background text-foreground rounded-full font-medium hover:bg-accent hover:text-background transition-all duration-300 group"
-              >
-                info@snapweaz.in
-                <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </a>
+              <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 h-14 px-6 rounded-full bg-background/10 border border-background/20 text-background placeholder:text-background/40 focus:outline-none focus:border-accent transition-colors"
+                />
+                <button type="submit" className="h-14 px-8 bg-background text-foreground rounded-full font-medium hover:bg-accent hover:text-background transition-all duration-300">
+                  Subscribe
+                </button>
+              </form>
             </motion.div>
           </div>
         </section>
