@@ -187,22 +187,21 @@ collections:
               - { name: "name", label: "Platform", widget: "string" }
               - { name: "url", label: "URL", widget: "string" }
 
-  # ============ BLOG POSTS ============
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
+  # ============ PRESS & MEDIA ============
+  - name: "press"
+    label: "Press & Media"
+    folder: "content/press"
     create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "excerpt", label: "Excerpt", widget: "text" }
-      - { name: "featured_image", label: "Featured Image", widget: "image", required: false }
-      - { name: "author", label: "Author", widget: "string" }
+      - { name: "category", label: "Category (Company News, Product Launch, Partnership, Award)", widget: "string" }
+      - { name: "author", label: "Author", widget: "string", default: "SnapWeaz Team" }
       - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "category", label: "Category", widget: "string" }
-      - { name: "read_time", label: "Read Time", widget: "string" }
       - { name: "featured", label: "Featured Post", widget: "boolean", default: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false }
+      - { name: "order", label: "Order (lower = first)", widget: "number", default: 10 }
       - { name: "body", label: "Body", widget: "markdown" }
 
   # ============ OTHER WORK ============

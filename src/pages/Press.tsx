@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Download, Calendar, FileText } from "lucide-react";
+import { ArrowUpRight, Download, Calendar, FileText, User, Clock } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { getPressPosts, type PressPost } from "@/lib/content";
 
-const pressReleases = [
-  { date: "January 2025", title: "SnapWeaz Expands Global Operations", excerpt: "Expansion of services to Europe and North America.", category: "Company News" },
-  { date: "December 2024", title: "SnapWeaz Ventures Launches Startup Incubator", excerpt: "New initiative to support early-stage startups.", category: "Product Launch" },
-  { date: "October 2024", title: "SnapWeaz Partners with Leading Tech Firms", excerpt: "Strategic partnerships for enterprise-grade solutions.", category: "Partnership" },
-  { date: "August 2024", title: "SnapWeaz Recognized as Top Design Agency", excerpt: "Industry recognition for excellence in UI/UX design.", category: "Award" },
-];
+const pressPosts = getPressPosts();
+
+const featuredPost = pressPosts.find((p) => p.featured) ?? pressPosts[0];
+const otherPosts = pressPosts.filter((p) => p !== featuredPost);
+
+const categories = ["All", ...Array.from(new Set(pressPosts.map((p) => p.category)))];
 
 const mediaFeatures = [
   { outlet: "TechCrunch", title: "How SnapWeaz is Redefining Digital Agency Standards", date: "November 2024" },
@@ -44,6 +45,26 @@ const Press = () => {
           </div>
         </section>
 
+        {/* Categories */}
+        <section className="py-6 bg-background border-b border-border/30 sticky top-[72px] z-30 backdrop-blur-xl bg-background/90">
+          <div className="container-wide">
+            <div className="flex flex-wrap gap-2 overflow-x-auto scrollbar-hide">
+              {categories.map((category, index) => (
+                <button
+                  key={category}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 shrink-0 ${
+                    index === 0
+                      ? "bg-foreground text-background"
+                      : "bg-secondary/50 text-foreground/70 hover:bg-accent hover:text-background border border-border/30"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Press Kit */}
         <section className="py-16 bg-background">
           <div className="container-wide">
@@ -64,46 +85,78 @@ const Press = () => {
           </div>
         </section>
 
-        {/* Press Releases */}
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-8 h-px bg-accent" />
-                <p className="text-sm text-accent uppercase tracking-[0.2em]">Press Releases</p>
-              </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-foreground">Latest announcements</h2>
-            </motion.div>
-
-            <div className="space-y-3">
-              {pressReleases.map((release, index) => (
-                <motion.div
-                  key={release.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  className="group bg-secondary/30 rounded-2xl p-6 md:p-8 border border-border/30 hover:border-accent/30 transition-all duration-300 cursor-pointer"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-2">
-                        <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{release.category}</span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground"><Calendar size={12} />{release.date}</span>
-                      </div>
-                      <h3 className="font-serif text-xl md:text-2xl text-foreground group-hover:text-accent transition-colors">{release.title}</h3>
-                      <p className="text-muted-foreground text-sm mt-2">{release.excerpt}</p>
-                    </div>
-                    <ArrowUpRight size={20} className="text-muted-foreground/30 group-hover:text-accent shrink-0 transition-colors" />
+        {/* Featured Post */}
+        {featuredPost && (
+          <section className="section-padding bg-background">
+            <div className="container-wide">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="group cursor-pointer"
+              >
+                <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute top-8 right-8 md:top-12 md:right-12">
+                    <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
                   </div>
-                </motion.div>
-              ))}
+                  <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">
+                    Featured
+                  </span>
+                  <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
+                  <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
+                    <span className="flex items-center gap-2"><Calendar size={14} />{featuredPost.date}</span>
+                    <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{featuredPost.category}</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Posts Grid */}
+        {otherPosts.length > 0 && (
+          <section className="section-padding bg-secondary/30">
+            <div className="container-wide">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12">
+                <h2 className="font-serif text-3xl md:text-4xl text-foreground">Latest updates</h2>
+              </motion.div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {otherPosts.map((post, index) => (
+                  <motion.article
+                    key={post.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
+                    </div>
+                    <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">
+                      {post.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">{post.date}</span>
+                      <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        Read <ArrowUpRight size={14} />
+                      </span>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Media Features */}
-        <section className="section-padding bg-secondary/30">
+        <section className="section-padding bg-background">
           <div className="container-wide">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
               <div className="flex items-center gap-4 mb-5">
@@ -121,7 +174,7 @@ const Press = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-colors cursor-pointer"
+                  className="group bg-secondary/30 rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-2 mb-6">
                     <FileText size={16} className="text-accent" />

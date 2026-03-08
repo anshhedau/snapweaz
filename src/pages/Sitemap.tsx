@@ -19,8 +19,7 @@ const sections = [
   {
     title: "Content",
     links: [
-      { name: "Blog", href: "/blog" },
-      { name: "Press", href: "/press" },
+      { name: "Press & Media", href: "/press" },
     ],
   },
   {
