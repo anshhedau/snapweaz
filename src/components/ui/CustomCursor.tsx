@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export const CustomCursor = () => {
@@ -8,39 +8,33 @@ export const CustomCursor = () => {
   const springX = useSpring(cursorX, { stiffness: 800, damping: 40, mass: 0.5 });
   const springY = useSpring(cursorY, { stiffness: 800, damping: 40, mass: 0.5 });
 
+  const addHover = useCallback(() => setIsHovering(true), []);
+  const removeHover = useCallback(() => setIsHovering(false), []);
+
   useEffect(() => {
     const move = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-    };
 
-    const addHover = () => setIsHovering(true);
-    const removeHover = () => setIsHovering(false);
+      // Check if currently over an interactive element
+      const target = e.target as HTMLElement;
+      const interactive = target.closest("a, button, [role='button'], input[type='submit'], select, .cursor-pointer");
+      setIsHovering(!!interactive);
+    };
 
     window.addEventListener("mousemove", move);
-
-    const watchInteractives = () => {
-      const els = document.querySelectorAll("a, button, [role='button'], input[type='submit'], select, .cursor-pointer");
-      els.forEach((el) => {
-        el.addEventListener("mouseenter", addHover);
-        el.addEventListener("mouseleave", removeHover);
-      });
-      return els;
-    };
-
-    const els = watchInteractives();
-    const observer = new MutationObserver(() => watchInteractives());
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => {
-      window.removeEventListener("mousemove", move);
-      observer.disconnect();
-      els.forEach((el) => {
-        el.removeEventListener("mouseenter", addHover);
-        el.removeEventListener("mouseleave", removeHover);
-      });
-    };
+    return () => window.removeEventListener("mousemove", move);
   }, [cursorX, cursorY]);
+
+  // Reset on any click (covers navigation)
+  useEffect(() => {
+    const handleClick = () => {
+      // Small delay to let the new page render
+      setTimeout(() => setIsHovering(false), 50);
+    };
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, []);
 
   // Hide on touch devices
   if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
@@ -54,12 +48,9 @@ export const CustomCursor = () => {
     >
       <motion.div
         className="relative -translate-x-1/2 -translate-y-1/2"
-        animate={{
-          scale: isHovering ? 1.6 : 1,
-        }}
+        animate={{ scale: isHovering ? 1.6 : 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        {/* Glow ring */}
         <motion.div
           className="absolute inset-0 -m-3 rounded-full"
           animate={{
