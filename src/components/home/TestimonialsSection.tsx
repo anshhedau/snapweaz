@@ -4,21 +4,21 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote: "SnapWeaz transformed our vision into a stunning reality. Their attention to detail and strategic thinking elevated our brand beyond expectations.",
-    author: "Sarah Chen",
-    role: "Founder, TechStart",
-    avatar: "SC",
+    author: "Jhanvi Prajapati",
+    role: "Point of Contact, Vicarage Nurseries",
+    avatar: "JP",
   },
   {
     quote: "Working with SnapWeaz felt like having an extended team. They understood our product deeply and delivered solutions that truly resonated with our users.",
-    author: "Michael Rodriguez",
+    author: "Jhanvi Bist",
     role: "CEO, DesignFlu",
-    avatar: "MR",
+    avatar: "JB",
   },
   {
     quote: "The team's ability to blend creative design with robust engineering is rare. They don't just build products — they craft experiences.",
-    author: "Priya Sharma",
-    role: "Product Lead, InnovateCo",
-    avatar: "PS",
+    author: "Sanskruti Mahalungkar",
+    role: "Point of Contact, Laxmi Printers",
+    avatar: "SM",
   },
 ];
 
