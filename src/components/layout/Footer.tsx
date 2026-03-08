@@ -116,7 +116,7 @@ export const Footer = () => {
       {/* Bottom Bar */}
       <div className="container-wide py-6 border-t border-background/10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-background/30">
-          <p>© {new Date().getFullYear()} SnapWeaz. All rights reserved.</p>
+          <p>©SnapWeaz. All rights reserved.</p>
           <p>Crafted with precision & love</p>
         </div>
       </div>
