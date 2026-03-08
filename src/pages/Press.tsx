@@ -175,4 +175,4 @@ const Blog = () => {
   );
 };
 
-export default Press;
+export default Blog;
