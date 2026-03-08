@@ -1,0 +1,13 @@
+{
+  "eyebrow": "About SnapWeaz",
+  "headline": "Where *creativity* meets engineering",
+  "description": "SnapWeaz blends bold creativity with advanced technology to craft solutions that redefine industries. From startups to enterprises, we build future-ready brands and products.",
+  "secondary_text": "Design with love. Engineer with precision. Build for the future. Every pixel, every line of code, crafted with intentionality.",
+  "cta_text": "Read our story",
+  "stats": [
+    { "value": "50+", "label": "Projects" },
+    { "value": "30+", "label": "Clients" },
+    { "value": "6", "label": "Divisions" },
+    { "value": "∞", "label": "Commitment" }
+  ]
+}

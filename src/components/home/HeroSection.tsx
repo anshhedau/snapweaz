@@ -3,8 +3,10 @@ import { ArrowRight, ArrowDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
+import { getHeroSettings } from "@/lib/content";
 
 export const HeroSection = () => {
+  const hero = getHeroSettings();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -20,7 +22,6 @@ export const HeroSection = () => {
       ref={containerRef}
       className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-background"
     >
-      {/* Floating grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="w-full h-full"
@@ -31,7 +32,6 @@ export const HeroSection = () => {
         />
       </div>
 
-      {/* Accent orb */}
       <motion.div
         style={{ y }}
         className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-accent/8 blur-[120px] pointer-events-none"
@@ -40,9 +40,7 @@ export const HeroSection = () => {
       <motion.div style={{ opacity, scale }} className="relative z-10 flex-1 flex items-center">
         <div className="container-wide w-full pt-32 pb-8">
           <div className="grid lg:grid-cols-12 gap-8 items-end">
-            {/* Main content - takes 8 cols */}
             <div className="lg:col-span-8">
-              {/* Eyebrow */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -51,36 +49,32 @@ export const HeroSection = () => {
               >
                 <div className="w-12 h-px bg-accent" />
                 <span className="text-sm text-muted-foreground uppercase tracking-[0.3em] font-medium">
-                  Creative Technology Studio
+                  {hero.eyebrow}
                 </span>
               </motion.div>
 
-              {/* Main Headline - Large, dramatic */}
               <motion.h1
                 initial={{ opacity: 0, y: 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="font-serif text-[clamp(3rem,8vw,7.5rem)] text-foreground leading-[0.95] mb-8 tracking-tight"
               >
-                We design
+                {hero.headline_line1}
                 <br />
-                <span className="text-accent italic">digital</span>
+                <span className="text-accent italic">{hero.headline_accent}</span>
                 <br />
-                futures
+                {hero.headline_line3}
               </motion.h1>
 
-              {/* Description */}
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10"
               >
-                A multidisciplinary studio crafting brands, products & experiences
-                for companies that refuse to blend in.
+                {hero.description}
               </motion.p>
 
-              {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -93,7 +87,7 @@ export const HeroSection = () => {
                   asChild
                 >
                   <Link to="/contact">
-                    Start a project
+                    {hero.cta_primary}
                     <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -101,20 +95,18 @@ export const HeroSection = () => {
                   to="/work"
                   className="group flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors duration-300 text-base"
                 >
-                  See our work
+                  {hero.cta_secondary}
                   <ArrowDownRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
                 </Link>
               </motion.div>
             </div>
 
-            {/* Right column - Rotating badge + stats */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
               className="lg:col-span-4 hidden lg:flex flex-col items-end gap-10 pb-4"
             >
-              {/* Rotating circle badge */}
               <div className="relative w-32 h-32">
                 <motion.svg
                   animate={{ rotate: 360 }}
@@ -139,23 +131,19 @@ export const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Mini stats */}
               <div className="text-right space-y-4">
-                <div>
-                  <span className="block font-serif text-4xl text-foreground">50+</span>
-                  <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Projects</span>
-                </div>
-                <div>
-                  <span className="block font-serif text-4xl text-foreground">6</span>
-                  <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Divisions</span>
-                </div>
+                {hero.stats.map((stat) => (
+                  <div key={stat.label}>
+                    <span className="block font-serif text-4xl text-foreground">{stat.value}</span>
+                    <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">{stat.label}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
       </motion.div>
 
-      {/* Bottom marquee */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -1,1 +1,15 @@
-# redeploy Mon Jan 19 17:09:10 UTC 2026
+# Netlify configuration
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Enable Netlify Identity for CMS
+[build.environment]
+  NODE_VERSION = "18"
+
+# SPA redirects
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

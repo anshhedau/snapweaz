@@ -1,32 +1,17 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "SnapWeaz transformed our vision into a stunning reality. Their attention to detail and strategic thinking elevated our brand beyond expectations.",
-    author: "Jhanvi Prajapati",
-    role: "Point of Contact, Vicarage Nurseries",
-    avatar: "JP",
-  },
-  {
-    quote: "Working with SnapWeaz felt like having an extended team. They understood our product deeply and delivered solutions that truly resonated with our users.",
-    author: "Jhanvi Bist",
-    role: "CEO, DesignFlu",
-    avatar: "JB",
-  },
-  {
-    quote: "The team's ability to blend creative design with robust engineering is rare. They don't just build products; they craft experiences.",
-    author: "Sanskruti Mahalungkar",
-    role: "Point of Contact, Laxmi Printers",
-    avatar: "SM",
-  },
-];
+import { getTestimonials } from "@/lib/content";
 
 export const TestimonialsSection = () => {
+  const testimonials = getTestimonials();
+  const featured = testimonials.find((t) => t.featured) || testimonials[0];
+  const rest = testimonials.filter((t) => t !== featured);
+
+  if (!testimonials.length) return null;
+
   return (
     <section className="section-padding bg-secondary/30 relative overflow-hidden">
       <div className="container-wide relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,9 +31,7 @@ export const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Large featured testimonial + smaller ones */}
         <div className="grid lg:grid-cols-5 gap-6">
-          {/* Featured */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,22 +40,21 @@ export const TestimonialsSection = () => {
           >
             <Quote size={60} className="text-accent/10 absolute top-8 right-8" />
             <p className="font-serif text-2xl md:text-3xl text-foreground leading-snug mb-10">
-              "{testimonials[0].quote}"
+              "{featured.quote}"
             </p>
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center text-accent font-semibold">
-                {testimonials[0].avatar}
+                {featured.avatar}
               </div>
               <div>
-                <p className="font-medium text-foreground text-lg">{testimonials[0].author}</p>
-                <p className="text-muted-foreground">{testimonials[0].role}</p>
+                <p className="font-medium text-foreground text-lg">{featured.author}</p>
+                <p className="text-muted-foreground">{featured.role}</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Smaller */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            {testimonials.slice(1).map((t, index) => (
+            {rest.map((t, index) => (
               <motion.div
                 key={t.author}
                 initial={{ opacity: 0, y: 30 }}

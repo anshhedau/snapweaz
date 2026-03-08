@@ -4,8 +4,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
+import { getFounderInfo } from "@/lib/content";
 
 const Founder = () => {
+  const founder = getFounderInfo();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -33,7 +36,6 @@ const Founder = () => {
         <section className="section-padding bg-background">
           <div className="container-wide">
             <div className="grid lg:grid-cols-12 gap-16">
-              {/* Image */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -41,14 +43,17 @@ const Founder = () => {
                 className="lg:col-span-4"
               >
                 <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center sticky top-32 overflow-hidden">
-                  <div className="text-center">
-                    <img src={logo} alt="SnapWeaz" className="w-28 h-28 object-contain opacity-60 mx-auto mb-4" />
-                    <p className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Founder & CEO</p>
-                  </div>
+                  {founder.photo ? (
+                    <img src={founder.photo} alt="Founder" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-center">
+                      <img src={logo} alt="SnapWeaz" className="w-28 h-28 object-contain opacity-60 mx-auto mb-4" />
+                      <p className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Founder & CEO</p>
+                    </div>
+                  )}
                 </div>
               </motion.div>
 
-              {/* Text */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -57,20 +62,7 @@ const Founder = () => {
                 className="lg:col-span-7 lg:col-start-6"
               >
                 <div className="space-y-10">
-                  {[
-                    {
-                      title: "Vision & Mission",
-                      text: "SnapWeaz was founded with a clear vision: to bridge the gap between exceptional design and robust engineering. We believe that the best digital products emerge when creative thinking and technical excellence work hand in hand from day one."
-                    },
-                    {
-                      title: "Our Philosophy",
-                      text: "We don't just build products; we craft experiences. Every project is an opportunity to push boundaries, embrace innovation, and create something that truly makes a difference. Our work is driven by passion, precision, and a relentless pursuit of excellence."
-                    },
-                    {
-                      title: "The Journey",
-                      text: "What started as a small team passionate about beautiful, functional products has grown into a full-service creative technology studio serving clients worldwide. Our specialized divisions work in harmony: from brand strategy and design to development, cloud infrastructure, and growth marketing."
-                    },
-                  ].map((section, index) => (
+                  {founder.sections.map((section, index) => (
                     <motion.div
                       key={section.title}
                       initial={{ opacity: 0, y: 20 }}
@@ -88,14 +80,10 @@ const Founder = () => {
                   <div className="border-t border-border/30 pt-8">
                     <h2 className="font-serif text-2xl text-foreground mb-6">Connect</h2>
                     <div className="flex flex-wrap gap-2">
-                      {[
-                        { name: "Instagram", href: "https://instagram.com/anshhedau_" },
-                        { name: "LinkedIn", href: "https://linkedin.com/in/anshhedau" },
-                        { name: "Twitter", href: "https://twitter.com/anshhedau" },
-                      ].map((social) => (
+                      {founder.social.map((social) => (
                         <a
                           key={social.name}
-                          href={social.href}
+                          href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 inline-flex items-center gap-2"

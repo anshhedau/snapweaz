@@ -4,47 +4,16 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { getServices } from "@/lib/content";
+import type { LucideIcon } from "lucide-react";
 
-const services = [
-  {
-    icon: Palette,
-    title: "Brand & Identity Design",
-    description: "Distinctive brand identities that capture your essence and resonate with your audience.",
-    problem: "Your brand doesn't stand out in a crowded market",
-    solution: "Strategic brand positioning with cohesive visual systems",
-    deliverables: ["Logo & Visual Identity", "Brand Guidelines", "Marketing Collateral", "Packaging Design"],
-    number: "01",
-  },
-  {
-    icon: Layers,
-    title: "UI/UX Design",
-    description: "User-centered design that transforms complex workflows into intuitive, delightful experiences.",
-    problem: "Users struggle to navigate your product",
-    solution: "Research-driven design focused on user needs",
-    deliverables: ["User Research", "Wireframes & Prototypes", "Visual Design", "Design Systems"],
-    number: "02",
-  },
-  {
-    icon: Code2,
-    title: "Web & Software Development",
-    description: "Full-stack development that brings ideas to life with clean, scalable code.",
-    problem: "Your tech stack isn't keeping up with growth",
-    solution: "Modern architecture built for scale and performance",
-    deliverables: ["Web Applications", "Mobile Apps", "API Development", "Cloud Infrastructure"],
-    number: "03",
-  },
-  {
-    icon: Megaphone,
-    title: "Growth & Marketing",
-    description: "Data-driven strategies to expand reach, acquire customers, and accelerate growth.",
-    problem: "You're not reaching the right audience",
-    solution: "Targeted campaigns with measurable results",
-    deliverables: ["Digital Marketing", "SEO & Content", "Analytics", "Campaign Management"],
-    number: "04",
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  Palette, Code2, Megaphone, Layers,
+};
 
 const Services = () => {
+  const services = getServices();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -77,78 +46,73 @@ const Services = () => {
         <section className="section-padding bg-background">
           <div className="container-wide">
             <div className="space-y-24">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
-                >
-                  <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                    {/* Left - Content */}
-                    <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-2 lg:col-start-6' : ''}`}>
-                      {/* Number + Icon */}
-                      <div className="flex items-center gap-6 mb-8">
-                        <span className="font-serif text-6xl text-foreground/[0.08]">{service.number}</span>
-                        <div className="inline-flex p-3.5 rounded-2xl bg-accent/10">
-                          <service.icon size={24} className="text-accent" />
+              {services.map((service, index) => {
+                const Icon = iconMap[service.icon] || Palette;
+                return (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                      <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-2 lg:col-start-6' : ''}`}>
+                        <div className="flex items-center gap-6 mb-8">
+                          <span className="font-serif text-6xl text-foreground/[0.08]">{service.number}</span>
+                          <div className="inline-flex p-3.5 rounded-2xl bg-accent/10">
+                            <Icon size={24} className="text-accent" />
+                          </div>
                         </div>
+                        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+                          {service.title}
+                        </h2>
+                        <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                          {service.description}
+                        </p>
+                        <div className="space-y-4 mb-10 p-6 rounded-2xl bg-secondary/50 border border-border/30">
+                          <div className="flex items-start gap-4">
+                            <span className="text-[10px] font-semibold text-destructive uppercase tracking-[0.2em] mt-1.5 shrink-0 w-16">
+                              Problem
+                            </span>
+                            <p className="text-foreground">{service.problem}</p>
+                          </div>
+                          <div className="h-px bg-border/30" />
+                          <div className="flex items-start gap-4">
+                            <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em] mt-1.5 shrink-0 w-16">
+                              Solution
+                            </span>
+                            <p className="text-foreground">{service.solution}</p>
+                          </div>
+                        </div>
+                        <Button variant="outline" className="rounded-full group" asChild>
+                          <Link to="/contact">
+                            Discuss your project
+                            <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                        </Button>
                       </div>
-
-                      <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-                        {service.title}
-                      </h2>
-                      <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                        {service.description}
-                      </p>
-
-                      {/* Problem / Solution */}
-                      <div className="space-y-4 mb-10 p-6 rounded-2xl bg-secondary/50 border border-border/30">
-                        <div className="flex items-start gap-4">
-                          <span className="text-[10px] font-semibold text-destructive uppercase tracking-[0.2em] mt-1.5 shrink-0 w-16">
-                            Problem
-                          </span>
-                          <p className="text-foreground">{service.problem}</p>
+                      <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-9'}`}>
+                        <div className="bg-secondary/30 rounded-3xl p-8 md:p-10 border border-border/30 sticky top-32">
+                          <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-8">
+                            What you'll get
+                          </h3>
+                          <ul className="space-y-5">
+                            {service.deliverables.map((item) => (
+                              <li key={item} className="flex items-center gap-4">
+                                <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                                  <Check size={12} className="text-accent" />
+                                </div>
+                                <span className="text-foreground">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        <div className="h-px bg-border/30" />
-                        <div className="flex items-start gap-4">
-                          <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em] mt-1.5 shrink-0 w-16">
-                            Solution
-                          </span>
-                          <p className="text-foreground">{service.solution}</p>
-                        </div>
-                      </div>
-
-                      <Button variant="outline" className="rounded-full group" asChild>
-                        <Link to="/contact">
-                          Discuss your project
-                          <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </div>
-
-                    {/* Right - Deliverables */}
-                    <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-9'}`}>
-                      <div className="bg-secondary/30 rounded-3xl p-8 md:p-10 border border-border/30 sticky top-32">
-                        <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-8">
-                          What you'll get
-                        </h3>
-                        <ul className="space-y-5">
-                          {service.deliverables.map((item) => (
-                            <li key={item} className="flex items-center gap-4">
-                              <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                                <Check size={12} className="text-accent" />
-                              </div>
-                              <span className="text-foreground">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -1,0 +1,12 @@
+{
+  "site_name": "SnapWeaz",
+  "tagline": "Design · Engineering · Innovation",
+  "email": "info@snapweaz.in",
+  "location": "India · Serving globally",
+  "response_time": "Usually within 24 hours",
+  "social": [
+    { "name": "Instagram", "url": "https://instagram.com/snapweaz.in" },
+    { "name": "LinkedIn", "url": "https://linkedin.com/company/snapweaz" },
+    { "name": "Twitter", "url": "https://twitter.com/snapweaz" }
+  ]
+}
