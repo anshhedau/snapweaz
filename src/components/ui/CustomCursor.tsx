@@ -5,8 +5,8 @@ export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  const springX = useSpring(cursorX, { stiffness: 300, damping: 28 });
-  const springY = useSpring(cursorY, { stiffness: 300, damping: 28 });
+  const springX = useSpring(cursorX, { stiffness: 800, damping: 40, mass: 0.5 });
+  const springY = useSpring(cursorY, { stiffness: 800, damping: 40, mass: 0.5 });
 
   useEffect(() => {
     const move = (e: MouseEvent) => {
