@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatedStat } from "@/components/ui/AnimatedStat";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -75,9 +76,7 @@ export const AboutSection = () => {
                 transition={{ delay: 0.3 + index * 0.1 }}
                 className="bg-foreground p-8 md:p-12 flex flex-col justify-center"
               >
-                <span className="font-serif text-5xl md:text-6xl text-background mb-2 block">
-                  {stat.value}
-                </span>
+                <AnimatedStat value={stat.value} className="font-serif text-5xl md:text-6xl text-background mb-2 block" />
                 <span className="text-xs text-background/40 uppercase tracking-[0.2em]">
                   {stat.label}
                 </span>
