@@ -186,8 +186,8 @@ export function getClients(): ClientItem[] {
   return parseMdFiles<ClientItem>(clientFiles);
 }
 
-export function getPressPosts(): PressPost[] {
-  return parseMdFiles<PressPost>(pressFiles).filter((p) => !p.draft);
+export function getBlogPosts(): BlogPost[] {
+  return parseMdFiles<BlogPost>(blogFiles).filter((p) => !p.draft);
 }
 
 export function getHeroSettings(): HeroSettings {
