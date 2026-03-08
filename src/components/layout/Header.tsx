@@ -52,9 +52,6 @@ export const Header = () => {
                 alt="SnapWeaz Logo"
                 className="w-11 h-11 md:w-12 md:h-12 object-contain"
               />
-              <span className="hidden sm:block text-[10px] text-muted-foreground tracking-[0.25em] uppercase font-medium">
-                Design · Engineering · Innovation
-              </span>
             </motion.div>
           </Link>
 
