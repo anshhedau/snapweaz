@@ -45,14 +45,7 @@ const Founder = () => {
                 className="lg:col-span-4"
               >
                 <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center sticky top-32 overflow-hidden">
-                  {founder.photo ? (
-                    <img src={founder.photo} alt="Founder" className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="text-center">
-                      <img src={logo} alt="SnapWeaz" className="w-28 h-28 object-contain opacity-60 mx-auto mb-4" />
-                      <p className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Founder & CEO</p>
-                    </div>
-                  )}
+                  <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
                 </div>
               </motion.div>
 

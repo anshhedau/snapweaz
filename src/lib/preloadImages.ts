@@ -11,6 +11,7 @@ import workVicarage from "@/assets/work-vicarage.png";
 const allImages = [
   logo,
   stamp,
+  founderPhoto,
   clientDesignFlu,
   clientLaxmiPrinters,
   clientVicarage,
