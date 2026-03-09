@@ -26,9 +26,10 @@ const Founder = () => {
                 <div className="w-8 h-px bg-accent" />
                 <span className="text-sm text-accent uppercase tracking-[0.3em]">Leadership</span>
               </div>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95]">
+              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-4">
                 Meet the <span className="text-accent italic">founder</span>
               </h1>
+              <p className="text-2xl md:text-3xl text-background/70 font-serif">Ansh A. Hedau</p>
             </motion.div>
           </div>
         </section>
