@@ -1,5 +1,6 @@
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
+import founderPhoto from "@/assets/founder.jpeg";
 import clientDesignFlu from "@/assets/client-designflu.png";
 import clientLaxmiPrinters from "@/assets/client-laxmiprinters.png";
 import clientVicarage from "@/assets/client-vicarage.png";
