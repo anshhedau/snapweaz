@@ -44,8 +44,14 @@ const Founder = () => {
                 viewport={{ once: true }}
                 className="lg:col-span-4"
               >
-                <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center sticky top-32 overflow-hidden">
-                  <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
+                <div className="sticky top-32">
+                  <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 overflow-hidden">
+                    <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <h3 className="font-serif text-xl text-foreground">Ansh A. Hedau</h3>
+                    <p className="text-sm text-muted-foreground uppercase tracking-[0.2em] mt-1">Founder & CEO</p>
+                  </div>
                 </div>
               </motion.div>
 
