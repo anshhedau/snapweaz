@@ -73,7 +73,11 @@ const Founder = () => {
                       className="border-t border-border/30 pt-8"
                     >
                       <h2 className="font-serif text-2xl text-foreground mb-4">{section.title}</h2>
-                      <p className="text-muted-foreground leading-relaxed text-lg">{section.text}</p>
+                      <div className="space-y-4">
+                        {section.text.split('\n\n').map((para, i) => (
+                          <p key={i} className="text-muted-foreground leading-relaxed text-lg">{para}</p>
+                        ))}
+                      </div>
                     </motion.div>
                   ))}
 
