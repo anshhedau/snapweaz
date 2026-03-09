@@ -49,8 +49,8 @@ const Founder = () => {
                     <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
                   </div>
                   <div className="mt-4 text-center">
-                    <h3 className="font-serif text-xl text-foreground">Ansh A. Hedau</h3>
-                    <p className="text-sm text-muted-foreground uppercase tracking-[0.2em] mt-1">Founder & CEO</p>
+                    <p className="text-sm text-muted-foreground tracking-[0.15em]">Ansh A. Hedau</p>
+                    <p className="text-xs text-muted-foreground/60 uppercase tracking-[0.2em] mt-0.5">Founder & CEO</p>
                   </div>
                 </div>
               </motion.div>
