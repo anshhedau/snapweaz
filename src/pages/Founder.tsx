@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
+import founderPhoto from "@/assets/founder.jpeg";
 import { getFounderInfo } from "@/lib/content";
 
 const Founder = () => {
@@ -25,9 +26,10 @@ const Founder = () => {
                 <div className="w-8 h-px bg-accent" />
                 <span className="text-sm text-accent uppercase tracking-[0.3em]">Leadership</span>
               </div>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95]">
+              <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-4">
                 Meet the <span className="text-accent italic">founder</span>
               </h1>
+              <p className="text-2xl md:text-3xl text-background/70 font-serif">Ansh A. Hedau</p>
             </motion.div>
           </div>
         </section>
@@ -43,14 +45,7 @@ const Founder = () => {
                 className="lg:col-span-4"
               >
                 <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center sticky top-32 overflow-hidden">
-                  {founder.photo ? (
-                    <img src={founder.photo} alt="Founder" className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="text-center">
-                      <img src={logo} alt="SnapWeaz" className="w-28 h-28 object-contain opacity-60 mx-auto mb-4" />
-                      <p className="text-xs text-muted-foreground uppercase tracking-[0.2em]">Founder & CEO</p>
-                    </div>
-                  )}
+                  <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
                 </div>
               </motion.div>
 
