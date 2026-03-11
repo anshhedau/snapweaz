@@ -9,6 +9,7 @@ import { getFounderInfo } from "@/lib/content";
 
 const Founder = () => {
   const founder = getFounderInfo();
+  const founderPhoto = founder.photo || defaultFounderPhoto;
 
   return (
     <div className="min-h-screen bg-background">
