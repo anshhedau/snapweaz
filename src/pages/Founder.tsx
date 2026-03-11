@@ -4,11 +4,12 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
-import founderPhoto from "@/assets/founder.jpeg";
+import defaultFounderPhoto from "@/assets/founder.jpeg";
 import { getFounderInfo } from "@/lib/content";
 
 const Founder = () => {
   const founder = getFounderInfo();
+  const founderPhoto = founder.photo || defaultFounderPhoto;
 
   return (
     <div className="min-h-screen bg-background">
