@@ -40,12 +40,6 @@
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://snapweaz.in/press</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Company -->
   <url>
     <loc>https://snapweaz.in/founder</loc>
@@ -75,6 +69,13 @@
   <url>
     <loc>https://snapweaz.in/terms</loc>
     <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Other -->
+  <url>
+    <loc>https://snapweaz.in/sitemap</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
