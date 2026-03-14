@@ -34,6 +34,7 @@ const sections = [
     links: [
       { name: "Privacy Policy", href: "/privacy" },
       { name: "Terms & Conditions", href: "/terms" },
+      { name: "Sitemap", href: "/sitemap" },
     ],
   },
 ];
