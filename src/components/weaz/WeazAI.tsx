@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Loader2, MessageSquare, Send, Sparkles, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useDismissOnPointerDown } from "@/hooks/use-dismiss-on-pointer-down";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -34,19 +35,29 @@ const initialMessages: ChatMessage[] = [
   {
     role: "assistant",
     content:
-      "Hi — I’m Weaz AI. I can help you explore SnapWeaz, understand services, answer common questions, and guide you to start a project.",
+      "Hi, I’m Weaz AI. I can help you explore SnapWeaz, understand services, answer common questions, and guide you to start a project.",
   },
 ];
 
 export const WeazAI = () => {
   const location = useLocation();
   const endRef = useRef<HTMLDivElement | null>(null);
+  const panelRef = useRef<HTMLElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [cta, setCta] = useState<ChatResponse["cta"]>();
   const [suggestions, setSuggestions] = useState<string[]>(defaultSuggestions);
+  const dismissRefs = useMemo(() => [panelRef, triggerRef], []);
+  const closePanel = useCallback(() => setIsOpen(false), []);
+
+  useDismissOnPointerDown({
+    enabled: isOpen,
+    refs: dismissRefs,
+    onDismiss: closePanel,
+  });
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -102,6 +113,7 @@ export const WeazAI = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.section
+            ref={panelRef}
             id="weaz-ai-panel"
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -128,7 +140,7 @@ export const WeazAI = () => {
 
                 <button
                   type="button"
-                  onClick={() => setIsOpen(false)}
+                  onClick={closePanel}
                   className="rounded-full border border-border/60 p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                   aria-label="Close Weaz AI"
                 >
@@ -231,6 +243,7 @@ export const WeazAI = () => {
 
       <div className="fixed bottom-5 right-5 z-50">
         <Button
+          ref={triggerRef}
           type="button"
           onClick={() => setIsOpen((open) => !open)}
           size="lg"
