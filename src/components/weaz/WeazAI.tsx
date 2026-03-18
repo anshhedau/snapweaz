@@ -39,6 +39,73 @@ const initialMessages: ChatMessage[] = [
   },
 ];
 
+const routeLabels: Record<string, string> = {
+  "/": "Home",
+  "/about": "About",
+  "/services": "Services",
+  "/divisions": "Divisions",
+  "/work": "Work",
+  "/contact": "Contact",
+  "/careers": "Careers",
+  "/blog": "Blog",
+  "/press": "Press",
+  "/privacy": "Privacy",
+  "/terms": "Terms",
+  "/founder": "Founder",
+  "/sitemap": "Sitemap",
+};
+
+const routePattern = /(^|[\s(])((?:\/(?:[a-z0-9-]+)?)+(?:\/[a-z0-9-]+)*)(?=[$\s).,!?:;])/gi;
+
+const getRouteLabel = (path: string) => {
+  const normalizedPath = path.toLowerCase();
+  return routeLabels[normalizedPath] ?? normalizedPath.replace(/^\//, "").replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+const renderMessageContent = (content: string) => {
+  const elements: JSX.Element[] = [];
+  let lastIndex = 0;
+
+  for (const match of content.matchAll(routePattern)) {
+    const fullMatch = match[0];
+    const prefix = match[1] ?? "";
+    const path = match[2];
+    const matchIndex = match.index ?? 0;
+    const pathIndex = matchIndex + prefix.length;
+
+    if (matchIndex > lastIndex) {
+      elements.push(
+        <span key={`text-${lastIndex}`}>{content.slice(lastIndex, matchIndex)}</span>,
+      );
+    }
+
+    if (prefix) {
+      elements.push(<span key={`prefix-${pathIndex}`}>{prefix}</span>);
+    }
+
+    elements.push(
+      <Link
+        key={`link-${pathIndex}-${path}`}
+        to={path}
+        className="font-medium text-accent underline decoration-accent/50 underline-offset-4 transition-colors hover:text-foreground"
+      >
+        {getRouteLabel(path)}
+      </Link>,
+    );
+
+    lastIndex = pathIndex + path.length;
+    if (matchIndex + fullMatch.length > lastIndex) {
+      lastIndex = matchIndex + fullMatch.length;
+    }
+  }
+
+  if (lastIndex < content.length) {
+    elements.push(<span key={`text-${lastIndex}`}>{content.slice(lastIndex)}</span>);
+  }
+
+  return elements.length > 0 ? elements : content;
+};
+
 export const WeazAI = () => {
   const location = useLocation();
   const endRef = useRef<HTMLDivElement | null>(null);
@@ -162,7 +229,9 @@ export const WeazAI = () => {
                             : "max-w-[92%] rounded-[1.5rem] rounded-bl-md bg-secondary px-4 py-3 text-sm leading-6 text-foreground"
                         }
                       >
-                        <p className="whitespace-pre-wrap">{message.content}</p>
+                        <p className="whitespace-pre-wrap">
+                          {message.role === "assistant" ? renderMessageContent(message.content) : message.content}
+                        </p>
                       </div>
                     </div>
                   ))}
