@@ -79,7 +79,7 @@ export const WeazAI = () => {
         body: {
           message: content,
           path: location.pathname,
-          history: nextHistory.slice(-8),
+          history: messages.slice(-8),
         },
       });
 
