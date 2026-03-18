@@ -1,0 +1,4 @@
+project_id = "fnwhiinifkcoeuwyktnk"
+
+[functions.weaz-ai]
+verify_jwt = false
