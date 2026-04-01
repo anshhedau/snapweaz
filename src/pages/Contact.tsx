@@ -100,53 +100,107 @@ const Contact = () => {
 
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">Your name</label>
-                        <Input id="name" name="name" required placeholder="John Doe"
-                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent" />
+                        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                          Your name
+                        </label>
+                        <Input
+                          id="name"
+                          name="name"
+                          required
+                          placeholder="SnapWeaz"
+                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                        />
                       </div>
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">Contact number</label>
-                        <Input id="phone" name="phone" type="tel" required placeholder="+xx xxxxxxxxxx"
-                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent" />
+                        <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                          Contact number
+                        </label>
+                        <Input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          required
+                          placeholder="+91 82750 42440"
+                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                        />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">Email address</label>
-                      <Input id="email" name="email" type="email" required placeholder="john@example.com"
-                        className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent" />
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                        Email address
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="info@snapweaz.com"
+                        className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                      />
                     </div>
 
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">Estimated budget (optional)</label>
-                      <Input id="budget" name="budget" placeholder="₹50,000 - ₹1,00,000"
-                        className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent" />
+                      <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
+                        Estimated budget (optional)
+                      </label>
+                      <Input
+                        id="budget"
+                        name="budget"
+                        placeholder="₹50,000 - ₹1,00,000"
+                        className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                      />
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">Tell us about your project</label>
-                      <Textarea id="message" name="message" required rows={5}
+                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                        Tell us about your project
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={5}
                         placeholder="What's your vision? What challenges are you facing?"
-                        className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none" />
+                        className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none"
+                      />
                     </div>
 
                     <div>
-                      <label htmlFor="additionalDetails" className="block text-sm font-medium text-foreground mb-2">Additional details (optional)</label>
-                      <Textarea id="additionalDetails" name="additionalDetails" rows={3}
+                      <label htmlFor="additionalDetails" className="block text-sm font-medium text-foreground mb-2">
+                        Additional details (optional)
+                      </label>
+                      <Textarea
+                        id="additionalDetails"
+                        name="additionalDetails"
+                        rows={3}
                         placeholder="Any other information..."
-                        className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none" />
+                        className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none"
+                      />
                     </div>
 
                     <Button
-                      type="submit" size="lg" disabled={isSubmitting}
+                      type="submit"
+                      size="lg"
+                      disabled={isSubmitting}
                       className="w-full h-14 bg-foreground text-background hover:bg-accent rounded-full text-base font-medium transition-all duration-300"
                     >
-                      {isSubmitting ? "Sending..." : (<>Send message<Send size={18} className="ml-2" /></>)}
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          Send message
+                          <Send size={18} className="ml-2" />
+                        </>
+                      )}
                     </Button>
 
                     <p className="text-center text-sm text-muted-foreground">
                       By submitting, you agree to our{" "}
-                      <a href="/privacy" className="text-accent hover:underline">Privacy Policy</a>.
+                      <a href="/privacy" className="text-accent hover:underline">
+                        Privacy Policy
+                      </a>
+                      .
                     </p>
                   </form>
                 )}
@@ -169,9 +223,28 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   {[
-                    { icon: Mail, title: "Email us", content: <a href="mailto:info@snapweaz.com" className="text-muted-foreground hover:text-accent transition-colors">info@snapweaz.com</a> },
-                    { icon: MapPin, title: "Location", content: <span className="text-muted-foreground">India · Serving globally</span> },
-                    { icon: Clock, title: "Response time", content: <span className="text-muted-foreground">Usually within 24 hours</span> },
+                    {
+                      icon: Mail,
+                      title: "Email us",
+                      content: (
+                        <a
+                          href="mailto:info@snapweaz.com"
+                          className="text-muted-foreground hover:text-accent transition-colors"
+                        >
+                          info@snapweaz.com
+                        </a>
+                      ),
+                    },
+                    {
+                      icon: MapPin,
+                      title: "Location",
+                      content: <span className="text-muted-foreground">India · Serving globally</span>,
+                    },
+                    {
+                      icon: Clock,
+                      title: "Response time",
+                      content: <span className="text-muted-foreground">Usually within 24 hours</span>,
+                    },
                   ].map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
@@ -187,7 +260,9 @@ const Contact = () => {
 
                 {/* Social */}
                 <div className="pt-8 border-t border-border/30">
-                  <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">Follow us</h3>
+                  <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">
+                    Follow us
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {[
                       { name: "Instagram", href: "https://instagram.com/snapweaz.com" },
@@ -210,10 +285,20 @@ const Contact = () => {
 
                 {/* Trusted By */}
                 <div className="pt-8 border-t border-border/30">
-                  <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">Trusted by</h3>
+                  <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">
+                    Trusted by
+                  </h3>
                   <div className="flex flex-wrap items-center gap-6">
-                    <img src={clientDesignFlu} alt="Design Flu" className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
-                    <img src={clientLaxmiPrinters} alt="Laxmi Printers" className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+                    <img
+                      src={clientDesignFlu}
+                      alt="Design Flu"
+                      className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                    <img
+                      src={clientLaxmiPrinters}
+                      alt="Laxmi Printers"
+                      className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
                   </div>
                 </div>
               </motion.div>
