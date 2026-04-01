@@ -73,7 +73,7 @@ export const Footer = () => {
               Design · Engineering · Innovation
             </p>
             <div className="space-y-3 text-sm text-background/30">
-              <a href="mailto:info@snapweaz.in" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href="mailto:info@snapweaz.com" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail size={14} />info@snapweaz.com
               </a>
               <div className="flex items-center gap-2">
