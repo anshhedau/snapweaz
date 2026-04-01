@@ -27,7 +27,7 @@ Brand facts:
 - SnapWeaz is a creative technology studio.
 - Tagline: Design · Engineering · Innovation.
 - Based in India and serving clients globally.
-- Contact email: info@snapweaz.in.
+- Contact email: info@snapweaz.com.
 - Response time: usually within 24 hours.
 
 What visitors can explore:
