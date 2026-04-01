@@ -169,7 +169,7 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   {[
-                    { icon: Mail, title: "Email us", content: <a href="mailto:info@snapweaz.in" className="text-muted-foreground hover:text-accent transition-colors">info@snapweaz.in</a> },
+                    { icon: Mail, title: "Email us", content: <a href="mailto:info@snapweaz.com" className="text-muted-foreground hover:text-accent transition-colors">info@snapweaz.com</a> },
                     { icon: MapPin, title: "Location", content: <span className="text-muted-foreground">India · Serving globally</span> },
                     { icon: Clock, title: "Response time", content: <span className="text-muted-foreground">Usually within 24 hours</span> },
                   ].map((item) => (

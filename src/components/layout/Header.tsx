@@ -151,7 +151,7 @@ export const Header = () => {
                   >
                     <Link to="/contact">Start a project</Link>
                   </Button>
-                  <p className="mt-6 text-center text-sm text-muted-foreground">info@snapweaz.in</p>
+                  <p className="mt-6 text-center text-sm text-muted-foreground">info@snapweaz.com</p>
                 </motion.div>
               </nav>
             </motion.div>

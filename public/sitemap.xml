@@ -3,78 +3,78 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://snapweaz.in/</loc>
+    <loc>https://www.snapweaz.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Core Pages -->
   <url>
-    <loc>https://snapweaz.in/about</loc>
+    <loc>https://www.snapweaz.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://snapweaz.in/services</loc>
+    <loc>https://www.snapweaz.com/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://snapweaz.in/divisions</loc>
+    <loc>https://www.snapweaz.com/divisions</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://snapweaz.in/work</loc>
+    <loc>https://www.snapweaz.com/work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Content / Growth -->
   <url>
-    <loc>https://snapweaz.in/blog</loc>
+    <loc>https://www.snapweaz.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Company -->
   <url>
-    <loc>https://snapweaz.in/founder</loc>
+    <loc>https://www.snapweaz.com/founder</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://snapweaz.in/careers</loc>
+    <loc>https://www.snapweaz.com/careers</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://snapweaz.in/contact</loc>
+    <loc>https://www.snapweaz.com/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Legal -->
   <url>
-    <loc>https://snapweaz.in/privacy</loc>
+    <loc>https://www.snapweaz.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://snapweaz.in/terms</loc>
+    <loc>https://www.snapweaz.com/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Other -->
   <url>
-    <loc>https://snapweaz.in/sitemap</loc>
+    <loc>https://www.snapweaz.com/sitemap</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

@@ -1,3 +1,7 @@
-   http://snapweaz.in/* https://www.snapweaz.in/:splat 301!
-   http://www.snapweaz.in/* https://www.snapweaz.in/:splat 301!
-   https://snapweaz.in/* https://www.snapweaz.in/:splat 301!
+http://snapweaz.com/* https://www.snapweaz.com/:splat 301!
+http://www.snapweaz.com/* https://www.snapweaz.com/:splat 301!
+https://snapweaz.com/* https://www.snapweaz.com/:splat 301!
+http://snapweaz.in/* https://www.snapweaz.com/:splat 301!
+http://www.snapweaz.in/* https://www.snapweaz.com/:splat 301!
+https://snapweaz.in/* https://www.snapweaz.com/:splat 301!
+https://www.snapweaz.in/* https://www.snapweaz.com/:splat 301!

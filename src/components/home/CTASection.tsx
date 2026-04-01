@@ -58,11 +58,11 @@ export const CTASection = () => {
               </Link>
             </Button>
             <a
-              href="mailto:info@snapweaz.in"
+              href="mailto:info@snapweaz.com"
               className="glass-card-dark inline-flex items-center gap-2 px-8 h-14 rounded-full text-background/60 hover:text-accent transition-all duration-300"
             >
               <Mail size={18} />
-              info@snapweaz.in
+              info@snapweaz.com
             </a>
           </div>
 
