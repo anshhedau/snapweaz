@@ -190,7 +190,7 @@ const Contact = () => {
                   <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">Follow us</h3>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { name: "Instagram", href: "https://instagram.com/snapweaz.in" },
+                      { name: "Instagram", href: "https://instagram.com/snapweaz.com" },
                       { name: "LinkedIn", href: "https://linkedin.com/company/snapweaz" },
                       { name: "Twitter", href: "https://twitter.com/snapweaz" },
                     ].map((social) => (

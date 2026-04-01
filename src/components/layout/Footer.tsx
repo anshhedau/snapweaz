@@ -21,7 +21,7 @@ const footerLinks = {
     { name: "Terms & Conditions", href: "/terms" },
   ],
   social: [
-    { name: "Instagram", href: "https://instagram.com/snapweaz.in" },
+    { name: "Instagram", href: "https://instagram.com/snapweaz.com" },
     { name: "LinkedIn", href: "https://linkedin.com/company/snapweaz" },
     { name: "Twitter", href: "https://twitter.com/snapweaz" },
   ],
