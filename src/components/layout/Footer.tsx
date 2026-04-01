@@ -46,8 +46,7 @@ export const Footer = () => {
             <span className="text-sm text-accent uppercase tracking-[0.3em]">Let's collaborate</span>
           </div>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-[0.95] max-w-4xl">
-            Ready to build something{" "}
-            <span className="text-accent italic">meaningful</span>?
+            Ready to build something <span className="text-accent italic">meaningful</span>?
           </h2>
           <Link
             to="/contact"
@@ -69,15 +68,18 @@ export const Footer = () => {
             <div className="flex items-center gap-3 mb-6">
               <img src={logo} alt="SnapWeaz" className="w-10 h-10 object-contain" />
             </div>
-            <p className="text-background/30 text-[10px] uppercase tracking-[0.15em] mb-8 whitespace-nowrap">
-              Design · Engineering · Innovation
-            </p>
+
             <div className="space-y-3 text-sm text-background/30">
-              <a href="mailto:info@snapweaz.com" className="flex items-center gap-2 hover:text-accent transition-colors">
-                <Mail size={14} />info@snapweaz.com
+              <a
+                href="mailto:info@snapweaz.com"
+                className="flex items-center gap-2 hover:text-accent transition-colors"
+              >
+                <Mail size={14} />
+                info@snapweaz.com
               </a>
               <div className="flex items-center gap-2">
-                <MapPin size={14} />India · Global
+                <MapPin size={14} />
+                India · Global
               </div>
             </div>
           </div>
@@ -96,14 +98,21 @@ export const Footer = () => {
                 {col.links.map((link) => (
                   <li key={link.name}>
                     {col.internal ? (
-                      <Link to={link.href} className="text-sm text-background/40 hover:text-accent transition-colors duration-300">
+                      <Link
+                        to={link.href}
+                        className="text-sm text-background/40 hover:text-accent transition-colors duration-300"
+                      >
                         {link.name}
                       </Link>
                     ) : (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer"
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-sm text-background/40 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
                       >
-                        {link.name}<ArrowUpRight size={10} />
+                        {link.name}
+                        <ArrowUpRight size={10} />
                       </a>
                     )}
                   </li>
