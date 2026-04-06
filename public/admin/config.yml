@@ -199,11 +199,11 @@ collections:
       - { name: "category", label: "Category (Design, Development, Branding, UX Design, Growth, Cloud)", widget: "string" }
       - { name: "author", label: "Author", widget: "string", default: "SnapWeaz Team" }
       - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "readTime", label: "Read Time (e.g. 6 min)", widget: "string", default: "5 min" }
+      - { name: "readTime", label: "Read Time (e.g. 5 min)", widget: "string", default: "5 min", required: false }
       - { name: "featured", label: "Featured Post", widget: "boolean", default: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false }
       - { name: "order", label: "Order (lower = first)", widget: "number", default: 10 }
-      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "body", label: "Full Article Content", widget: "markdown" }
 
   # ============ OTHER WORK ============
   - name: "other_work"
