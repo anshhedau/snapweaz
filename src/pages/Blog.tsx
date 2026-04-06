@@ -111,25 +111,26 @@ const Blog = () => {
                   </motion.div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredPosts.map((post, index) => (
-                      <motion.article
-                        key={post.title}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.08 }}
-                        className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
-                      >
-                        <div className="flex items-center justify-between mb-6">
-                          <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
-                          <span className="text-xs text-muted-foreground">{post.readTime}</span>
-                        </div>
-                        <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">{post.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">{formatDate(post.date)}</span>
-                          <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">Read <ArrowUpRight size={14} /></span>
-                        </div>
-                      </motion.article>
+                      <Link key={post.title} to={`/blog/${slugify(post.title)}`}>
+                        <motion.article
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.08 }}
+                          className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300 h-full"
+                        >
+                          <div className="flex items-center justify-between mb-6">
+                            <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
+                            <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                          </div>
+                          <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">{post.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="text-muted-foreground">{formatDate(post.date)}</span>
+                            <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">Read <ArrowUpRight size={14} /></span>
+                          </div>
+                        </motion.article>
+                      </Link>
                     ))}
                   </div>
                 </div>
