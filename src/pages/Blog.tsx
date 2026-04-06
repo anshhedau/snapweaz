@@ -81,21 +81,23 @@ const Blog = () => {
             {featuredPost && (
               <section className="section-padding bg-background">
                 <div className="container-wide">
-                  <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group cursor-pointer">
-                    <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
-                      <div className="absolute top-8 right-8 md:top-12 md:right-12">
-                        <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
-                      </div>
-                      <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
-                      <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">{featuredPost.title}</h2>
-                      <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
-                      <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
-                        <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(featuredPost.date)}</span>
-                        <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
-                      </div>
+              <Link to={`/blog/${slugify(featuredPost.title)}`}>
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group cursor-pointer">
+                  <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
+                    <div className="absolute top-8 right-8 md:top-12 md:right-12">
+                      <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
                     </div>
-                  </motion.div>
+                    <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
+                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">{featuredPost.title}</h2>
+                    <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
+                    <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
+                      <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(featuredPost.date)}</span>
+                      <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </Link>
                 </div>
               </section>
             )}
