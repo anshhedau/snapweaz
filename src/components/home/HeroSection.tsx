@@ -43,31 +43,39 @@ export const HeroSection = () => {
       {/* Mesh gradient background */}
       <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }} />
 
-      {/* Subtle grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
+      {/* Subtle grid - hidden on mobile for performance */}
+      {!isMobile && (
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+              backgroundSize: "80px 80px",
+            }}
+          />
+        </div>
+      )}
 
-      {/* Mouse-following orb */}
-      <motion.div
-        style={{ x: springX, y: springY }}
-        className="hidden lg:block absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0"
-      >
-        <div className="w-full h-full rounded-full bg-accent/[0.06] blur-[100px]" />
-      </motion.div>
+      {/* Mouse-following orb - desktop only */}
+      {!isMobile && (
+        <motion.div
+          style={{ x: springX, y: springY }}
+          className="hidden lg:block absolute w-[500px] h-[500px] rounded-full pointer-events-none z-0"
+        >
+          <div className="w-full h-full rounded-full bg-accent/[0.06] blur-[100px]" />
+        </motion.div>
+      )}
 
-      {/* Static orbs */}
-      <motion.div
-        style={{ y }}
-        className="absolute top-[15%] right-[10%] w-[350px] h-[350px] rounded-full bg-accent/[0.08] blur-[120px] pointer-events-none"
-      />
-      <div className="absolute bottom-[20%] left-[5%] w-[250px] h-[250px] rounded-full bg-blue-400/[0.04] blur-[100px] pointer-events-none" />
+      {/* Static orbs - simplified on mobile */}
+      {!isMobile && (
+        <>
+          <motion.div
+            style={{ y }}
+            className="absolute top-[15%] right-[10%] w-[350px] h-[350px] rounded-full bg-accent/[0.08] blur-[120px] pointer-events-none"
+          />
+          <div className="absolute bottom-[20%] left-[5%] w-[250px] h-[250px] rounded-full bg-blue-400/[0.04] blur-[100px] pointer-events-none" />
+        </>
+      )}
 
       <motion.div style={{ opacity, scale }} className="relative z-10 flex-1 flex items-center">
         <div className="container-wide w-full pt-32 pb-8">
