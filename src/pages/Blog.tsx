@@ -12,6 +12,7 @@ function formatDate(d: unknown): string {
 }
 
 const Blog = () => {
+  const slugify = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   const allPosts = getBlogPosts();
   const featuredPost = allPosts.find((p) => p.featured);
   const posts = allPosts.filter((p) => !p.featured);
