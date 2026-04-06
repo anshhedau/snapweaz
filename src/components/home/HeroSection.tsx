@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedStat } from "@/components/ui/AnimatedStat";
 import { useRef, useEffect } from "react";
 import { getHeroSettings } from "@/lib/content";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const HeroSection = () => {
   const hero = getHeroSettings();
