@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
-import defaultFounderPhoto from "@/assets/founder.jpeg";
+import defaultFounderPhoto from "@/assets/founder.png";
 import { getFounderInfo } from "@/lib/content";
 
 const Founder = () => {
@@ -47,7 +47,7 @@ const Founder = () => {
               >
                 <div className="sticky top-32">
                   <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 overflow-hidden">
-                    {/* <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" /> */}
+                    <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
                   </div>
                   <div className="mt-4 text-center">
                     <p className="text-sm text-muted-foreground tracking-[0.15em]">Ansh A. Hedau</p>

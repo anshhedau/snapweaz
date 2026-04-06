@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar, Clock, User } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPosts } from "@/lib/content";
@@ -11,6 +12,7 @@ function formatDate(d: unknown): string {
 }
 
 const Blog = () => {
+  const slugify = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   const allPosts = getBlogPosts();
   const featuredPost = allPosts.find((p) => p.featured);
   const posts = allPosts.filter((p) => !p.featured);
@@ -79,21 +81,23 @@ const Blog = () => {
             {featuredPost && (
               <section className="section-padding bg-background">
                 <div className="container-wide">
-                  <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group cursor-pointer">
-                    <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
-                      <div className="absolute top-8 right-8 md:top-12 md:right-12">
-                        <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
-                      </div>
-                      <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
-                      <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">{featuredPost.title}</h2>
-                      <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
-                      <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
-                        <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(featuredPost.date)}</span>
-                        <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
-                      </div>
+              <Link to={`/blog/${slugify(featuredPost.title)}`}>
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group cursor-pointer">
+                  <div className="bg-accent/5 rounded-3xl p-10 md:p-16 border border-border/30 hover:border-accent/30 transition-all duration-500 relative overflow-hidden">
+                    <div className="absolute top-8 right-8 md:top-12 md:right-12">
+                      <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
                     </div>
-                  </motion.div>
+                    <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
+                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">{featuredPost.title}</h2>
+                    <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
+                    <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-2"><User size={14} />{featuredPost.author}</span>
+                      <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(featuredPost.date)}</span>
+                      <span className="flex items-center gap-2"><Clock size={14} />{featuredPost.readTime}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </Link>
                 </div>
               </section>
             )}
@@ -107,25 +111,26 @@ const Blog = () => {
                   </motion.div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredPosts.map((post, index) => (
-                      <motion.article
-                        key={post.title}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.08 }}
-                        className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
-                      >
-                        <div className="flex items-center justify-between mb-6">
-                          <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
-                          <span className="text-xs text-muted-foreground">{post.readTime}</span>
-                        </div>
-                        <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">{post.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">{formatDate(post.date)}</span>
-                          <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">Read <ArrowUpRight size={14} /></span>
-                        </div>
-                      </motion.article>
+                      <Link key={post.title} to={`/blog/${slugify(post.title)}`}>
+                        <motion.article
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.08 }}
+                          className="group cursor-pointer bg-background rounded-3xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300 h-full"
+                        >
+                          <div className="flex items-center justify-between mb-6">
+                            <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{post.category}</span>
+                            <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                          </div>
+                          <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-accent transition-colors leading-snug">{post.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed mb-6">{post.excerpt}</p>
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="text-muted-foreground">{formatDate(post.date)}</span>
+                            <span className="inline-flex items-center gap-1 text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity">Read <ArrowUpRight size={14} /></span>
+                          </div>
+                        </motion.article>
+                      </Link>
                     ))}
                   </div>
                 </div>

@@ -187,7 +187,12 @@ export function getClients(): ClientItem[] {
 }
 
 export function getBlogPosts(): BlogPost[] {
-  return parseMdFiles<BlogPost>(blogFiles).filter((p) => !p.draft);
+  return parseMdFiles<BlogPost>(blogFiles)
+    .filter((p) => !p.draft)
+    .map((p) => ({
+      ...p,
+      readTime: p.readTime || `${Math.max(1, Math.ceil(((p.body || p.excerpt || "").split(/\s+/).length) / 200))} min`,
+    }));
 }
 
 export function getHeroSettings(): HeroSettings {
