@@ -8,6 +8,7 @@ import { getHeroSettings } from "@/lib/content";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export const HeroSection = () => {
+  const isMobile = useIsMobile();
   const hero = getHeroSettings();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
