@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
-import defaultFounderPhoto from "@/assets/founder.jpeg";
+import defaultFounderPhoto from "@/assets/founder.png";
 import { getFounderInfo } from "@/lib/content";
 
 const Founder = () => {
