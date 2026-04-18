@@ -58,7 +58,7 @@ const Founder = () => {
                       href={founder.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors duration-300 w-full justify-center group"
+                      className="mt-5 inline-flex items-center gap-1.5 text-xs text-accent hover:text-accent/80 transition-colors duration-300 w-full justify-center group"
                     >
                       <span className="tracking-[0.15em]">Know more about the founder</span>
                       <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
