@@ -58,10 +58,10 @@ const Founder = () => {
                       href={founder.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-6 w-full px-6 py-3.5 rounded-full bg-accent text-background text-sm font-medium hover:bg-accent/90 transition-all duration-300 inline-flex items-center justify-center gap-2 group"
+                      className="mt-5 inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors duration-300 w-full justify-center group"
                     >
-                      Visit Personal Website
-                      <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <span className="tracking-[0.15em]">Know more about the founder</span>
+                      <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </a>
                   )}
                 </div>
