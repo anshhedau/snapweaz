@@ -16,7 +16,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
-import Founder from "./pages/Founder";
+// import Founder from "./pages/Founder";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
@@ -42,7 +42,7 @@ const App = () => (
           <Route path="/press" element={<Blog />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/founder" element={<Founder />} />
+          {/* <Route path="/founder" element={<Founder />} /> */}
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
