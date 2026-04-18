@@ -120,6 +120,7 @@ export interface AboutContent {
 
 export interface FounderInfo {
   photo: string;
+  website?: string;
   sections: { title: string; text: string }[];
   social: { name: string; url: string }[];
 }
