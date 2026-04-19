@@ -25,7 +25,7 @@ const sections = [
   {
     title: "Company",
     links: [
-      { name: "Founder", href: "/founder" },
+      // { name: "Founder", href: "/founder" },
       { name: "Careers", href: "/careers" },
     ],
   },
