@@ -333,9 +333,12 @@
     @apply transition-transform duration-500 ease-out hover:scale-[1.02];
   }
 
-  .text-background { color: hsl(var(--foreground)); }
+  .text-background { color: hsl(var(--foreground)) !important; }
   .bg-foreground-elev { background: hsl(240 14% 8%); }
 }
+
+/* Force any legacy "bg-foreground" footer/section to stay dark-elevated */
+.legacy-dark-surface { background: hsl(240 18% 5%) !important; color: hsl(var(--foreground)) !important; }
 
 /* Mobile performance */
 @media (max-width: 767px) {
