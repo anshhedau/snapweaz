@@ -29,7 +29,7 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="legacy-dark-surface relative overflow-hidden noise-overlay border-t border-border/40">
+    <footer className="bg-foreground text-background relative overflow-hidden noise-overlay">
       {/* Orb */}
       <div className="absolute top-[30%] right-[10%] w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px] pointer-events-none" />
 
