@@ -49,7 +49,7 @@ export const CTASection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               size="lg"
-              className="bg-background text-foreground hover:bg-accent hover:text-background rounded-full px-10 h-14 text-base font-medium group transition-all duration-500 shadow-lg hover:shadow-xl"
+              className="btn-glow bg-accent text-accent-foreground hover:bg-accent rounded-full px-10 h-14 text-base font-medium group"
               asChild
             >
               <Link to="/contact">
