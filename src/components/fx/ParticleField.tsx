@@ -142,7 +142,7 @@ export const ParticleField = () => {
     <div
       ref={containerRef}
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 opacity-70 mix-blend-screen"
+      className="pointer-events-none fixed inset-0 z-0 opacity-60"
       style={{ contain: "strict" }}
     />
   );

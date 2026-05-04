@@ -136,7 +136,7 @@ export const HeroSection = () => {
               >
                 <Button
                   size="lg"
-                  className="bg-foreground text-background hover:bg-accent rounded-full px-10 h-14 text-base font-medium group transition-all duration-500 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                  className="bg-foreground text-background hover:bg-accent rounded-full px-10 h-14 text-base font-medium group transition-all duration-500 shadow-lg hover:shadow-xl hover:scale-[1.02] pulse-accent glow-accent light-sweep"
                   asChild
                 >
                   <Link to="/contact">
