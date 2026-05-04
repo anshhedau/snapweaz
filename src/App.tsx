@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { WeazAI } from "@/components/weaz/WeazAI";
+import { SmoothScroll } from "@/components/fx/SmoothScroll";
+import { ParticleField } from "@/components/fx/ParticleField";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -29,6 +31,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <SmoothScroll />
+        <ParticleField />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

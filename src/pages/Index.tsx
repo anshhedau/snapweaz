@@ -7,19 +7,20 @@ import { ProcessSection } from "@/components/home/ProcessSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { ClientsSection } from "@/components/home/ClientsSection";
 import { CTASection } from "@/components/home/CTASection";
+import { SceneReveal } from "@/components/fx/SceneReveal";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <Header />
-      <main>
+      <main className="relative">
         <HeroSection />
-        <ClientsSection />
-        <ServicesSection />
-        <AboutSection />
-        <ProcessSection />
-        <TestimonialsSection />
-        <CTASection />
+        <SceneReveal><ClientsSection /></SceneReveal>
+        <SceneReveal><ServicesSection /></SceneReveal>
+        <SceneReveal><AboutSection /></SceneReveal>
+        <SceneReveal><ProcessSection /></SceneReveal>
+        <SceneReveal><TestimonialsSection /></SceneReveal>
+        <SceneReveal><CTASection /></SceneReveal>
       </main>
       <Footer />
     </div>

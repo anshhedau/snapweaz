@@ -314,3 +314,40 @@
     -webkit-backdrop-filter: none !important;
   }
 }
+
+/* ================= Cinematic polish ================= */
+@layer utilities {
+  .glow-accent {
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0);
+    transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .glow-accent:hover {
+    box-shadow:
+      0 0 24px -4px hsl(var(--accent) / 0.45),
+      0 0 60px -12px hsl(var(--accent) / 0.35);
+  }
+
+  @keyframes ambient-pulse {
+    0%, 100% { box-shadow: 0 8px 24px -8px hsl(var(--accent) / 0.25); }
+    50%      { box-shadow: 0 14px 40px -8px hsl(var(--accent) / 0.55); }
+  }
+  .pulse-accent { animation: ambient-pulse 4s ease-in-out infinite; }
+
+  @keyframes light-sweep {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(120%); }
+  }
+  .light-sweep { position: relative; overflow: hidden; }
+  .light-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, hsl(var(--accent) / 0.10) 50%, transparent 70%);
+    transform: translateX(-120%);
+    pointer-events: none;
+  }
+  .light-sweep:hover::after { animation: light-sweep 1.2s ease-out; }
+}
+
+/* Keep interactive page chrome above the fixed particle layer */
+main, header, footer { position: relative; z-index: 1; }
