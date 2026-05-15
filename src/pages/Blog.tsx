@@ -87,7 +87,7 @@ const Blog = () => {
                     <div className="absolute top-8 right-8 md:top-12 md:right-12">
                       <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
                     </div>
-                    <span className="inline-block px-4 py-1.5 bg-accent text-foreground text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
+                    <span className="inline-block px-4 py-1.5 bg-accent text-accent-foreground text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
                     <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">{featuredPost.title}</h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
                     <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">

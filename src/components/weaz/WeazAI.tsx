@@ -225,7 +225,7 @@ export const WeazAI = () => {
                       <div
                         className={
                           message.role === "user"
-                            ? "max-w-[85%] rounded-[1.5rem] rounded-br-md bg-accent px-4 py-3 text-sm leading-6 text-foreground shadow-md"
+                            ? "max-w-[85%] rounded-[1.5rem] rounded-br-md bg-accent px-4 py-3 text-sm leading-6 text-accent-foreground shadow-md"
                             : "max-w-[92%] rounded-[1.5rem] rounded-bl-md bg-secondary px-4 py-3 text-sm leading-6 text-foreground"
                         }
                       >
