@@ -17,9 +17,9 @@ const Founder = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative min-h-[50vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[50vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[18vw] text-background/[0.03] whitespace-nowrap">Founder</span>
+            <span className="font-serif text-[18vw] text-foreground/[0.03] whitespace-nowrap">Founder</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -30,7 +30,7 @@ const Founder = () => {
               <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-4">
                 Meet the <span className="text-accent italic">founder</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-background/70 font-serif">Ansh A. Hedau</p>
+              <p className="text-2xl md:text-3xl text-foreground/70 font-serif">Ansh A. Hedau</p>
             </motion.div>
           </div>
         </section>
@@ -103,7 +103,7 @@ const Founder = () => {
                           href={social.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
+                          className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
                         >
                           {social.name}
                           <ArrowUpRight size={14} />

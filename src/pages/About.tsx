@@ -28,7 +28,7 @@ const About = () => {
 
       <main>
         {/* Hero */}
-        <section ref={heroRef} className="relative min-h-[70vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section ref={heroRef} className="relative min-h-[70vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 opacity-[0.03]">
             <div className="w-full h-full" style={{
               backgroundImage: `linear-gradient(hsl(var(--background)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--background)) 1px, transparent 1px)`,
@@ -51,7 +51,7 @@ const About = () => {
                 )}
                 {heroHeadline.after}
               </h1>
-              <p className="text-xl text-background/60 max-w-2xl leading-relaxed">
+              <p className="text-xl text-foreground/60 max-w-2xl leading-relaxed">
                 {content.hero_description}
               </p>
             </motion.div>
@@ -182,7 +182,7 @@ const About = () => {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-foreground text-background">
+        <section className="section-padding section-dark">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -194,12 +194,12 @@ const About = () => {
                 <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6">
                   Ready to work <span className="text-accent italic">together</span>?
                 </h2>
-                <p className="text-lg text-background/60 mb-8">
+                <p className="text-lg text-foreground/60 mb-8">
                   Let's discuss how we can help bring your vision to life.
                 </p>
                 <Button
                   size="lg"
-                  className="bg-background text-foreground hover:bg-accent hover:text-background rounded-full px-8 h-14 group transition-all duration-300"
+                  className="bg-accent text-accent-foreground hover:opacity-90 hover:text-accent-foreground rounded-full px-8 h-14 group transition-all duration-300"
                   asChild
                 >
                   <Link to="/contact">

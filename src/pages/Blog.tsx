@@ -26,9 +26,9 @@ const Blog = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative min-h-[50vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[50vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[22vw] text-background/[0.03] whitespace-nowrap">Blog</span>
+            <span className="font-serif text-[22vw] text-foreground/[0.03] whitespace-nowrap">Blog</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -39,7 +39,7 @@ const Blog = () => {
               <h1 className="font-serif text-5xl md:text-6xl lg:text-[5rem] leading-[0.95] mb-6">
                 Insights & <span className="text-accent italic">perspectives</span>
               </h1>
-              <p className="text-xl text-background/60 max-w-xl">
+              <p className="text-xl text-foreground/60 max-w-xl">
                 Thoughts, tutorials, and insights on design, development, and digital products.
               </p>
             </motion.div>
@@ -65,8 +65,8 @@ const Blog = () => {
                         onClick={() => setActiveCategory(category)}
                         className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 shrink-0 ${
                           activeCategory === category
-                            ? "bg-foreground text-background"
-                            : "bg-secondary/50 text-foreground/70 hover:bg-accent hover:text-background border border-border/30"
+                            ? "section-dark"
+                            : "bg-secondary/50 text-foreground/70 hover:bg-accent hover:text-accent-foreground border border-border/30"
                         }`}
                       >
                         {category}
@@ -87,7 +87,7 @@ const Blog = () => {
                     <div className="absolute top-8 right-8 md:top-12 md:right-12">
                       <ArrowUpRight size={32} className="text-accent/20 group-hover:text-accent transition-colors" />
                     </div>
-                    <span className="inline-block px-4 py-1.5 bg-accent text-background text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
+                    <span className="inline-block px-4 py-1.5 bg-accent text-accent-foreground text-[10px] font-semibold uppercase tracking-[0.2em] rounded-full mb-8">Featured</span>
                     <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6 max-w-3xl group-hover:text-accent transition-colors">{featuredPost.title}</h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{featuredPost.excerpt}</p>
                     <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">

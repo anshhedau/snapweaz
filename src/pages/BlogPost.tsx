@@ -26,9 +26,9 @@ const BlogPost = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative min-h-[40vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[40vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[14vw] text-background/[0.03] whitespace-nowrap">{post.category}</span>
+            <span className="font-serif text-[14vw] text-foreground/[0.03] whitespace-nowrap">{post.category}</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -40,7 +40,7 @@ const BlogPost = () => {
                 <span className="text-sm text-accent uppercase tracking-[0.3em]">{post.category}</span>
               </div>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-[4rem] leading-[1.05] mb-6 max-w-4xl">{post.title}</h1>
-              <div className="flex flex-wrap items-center gap-5 text-sm text-background/60">
+              <div className="flex flex-wrap items-center gap-5 text-sm text-foreground/60">
                 <span className="flex items-center gap-2"><User size={14} />{post.author}</span>
                 <span className="flex items-center gap-2"><Calendar size={14} />{formatDate(post.date)}</span>
                 <span className="flex items-center gap-2"><Clock size={14} />{post.readTime}</span>

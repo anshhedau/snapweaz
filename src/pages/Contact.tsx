@@ -42,9 +42,9 @@ const Contact = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative min-h-[50vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[50vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[18vw] text-background/[0.03] whitespace-nowrap">Contact</span>
+            <span className="font-serif text-[18vw] text-foreground/[0.03] whitespace-nowrap">Contact</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -57,7 +57,7 @@ const Contact = () => {
                 <br />
                 <span className="text-accent italic">meaningful</span>
               </h1>
-              <p className="text-xl text-background/60 max-w-xl">
+              <p className="text-xl text-foreground/60 max-w-xl">
                 Have a project in mind? We'd love to hear about it. We respond within 24 hours.
               </p>
             </motion.div>
@@ -183,7 +183,7 @@ const Contact = () => {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full h-14 bg-foreground text-background hover:bg-accent rounded-full text-base font-medium transition-all duration-300"
+                      className="w-full h-14 bg-accent text-accent-foreground hover:opacity-90 rounded-full text-base font-medium transition-all duration-300"
                     >
                       {isSubmitting ? (
                         "Sending..."
@@ -274,7 +274,7 @@ const Contact = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
+                        className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
                       >
                         {social.name}
                         <ArrowUpRight size={14} />

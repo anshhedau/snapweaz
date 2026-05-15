@@ -8,6 +8,7 @@ const footerLinks = {
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
+    { name: "Limited", href: "https://limited.snapweaz.com/", external: true },
     // { name: "Founder", href: "/founder" },
   ],
   services: [
@@ -29,7 +30,7 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden noise-overlay">
+    <footer className="section-dark relative overflow-hidden noise-overlay">
       {/* Orb */}
       <div className="absolute top-[30%] right-[10%] w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px] pointer-events-none" />
 
@@ -50,7 +51,7 @@ export const Footer = () => {
           </h2>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 px-10 py-5 glass-card-dark rounded-full font-medium hover:bg-accent/10 hover:border-accent/30 transition-all duration-500 group text-lg text-background"
+            className="inline-flex items-center gap-3 px-10 py-5 glass-card-dark rounded-full font-medium hover:bg-accent/10 hover:border-accent/30 transition-all duration-500 group text-lg text-foreground"
           >
             Start a conversation
             <ArrowUpRight
@@ -69,7 +70,7 @@ export const Footer = () => {
               <img src={logo} alt="SnapWeaz" className="w-10 h-10 object-contain" />
             </div>
 
-            <div className="space-y-3 text-sm text-background/30">
+            <div className="space-y-3 text-sm text-foreground/30">
               <a
                 href="mailto:info@snapweaz.com"
                 className="flex items-center gap-2 hover:text-accent transition-colors"
@@ -91,32 +92,35 @@ export const Footer = () => {
             { title: "Connect", links: footerLinks.social, internal: false },
           ].map((col) => (
             <div key={col.title}>
-              <h4 className="text-[10px] font-medium mb-6 text-background/20 uppercase tracking-[0.2em]">
+              <h4 className="text-[10px] font-medium mb-6 text-foreground/20 uppercase tracking-[0.2em]">
                 {col.title}
               </h4>
               <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.name}>
-                    {col.internal ? (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-background/40 hover:text-accent transition-colors duration-300"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-background/40 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
-                      >
-                        {link.name}
-                        <ArrowUpRight size={10} />
-                      </a>
-                    )}
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const isExternal = !col.internal || (link as { external?: boolean }).external;
+                  return (
+                    <li key={link.name}>
+                      {!isExternal ? (
+                        <Link
+                          to={link.href}
+                          className="text-sm text-foreground/40 hover:text-accent transition-colors duration-300"
+                        >
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-foreground/40 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
+                        >
+                          {link.name}
+                          <ArrowUpRight size={10} />
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -125,7 +129,7 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="container-wide py-6 border-t border-background/10 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-background/20">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-foreground/20">
           <p>©SnapWeaz. All rights reserved.</p>
           <p>Designed with precision and care.</p>
         </div>
