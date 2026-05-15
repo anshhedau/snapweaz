@@ -96,28 +96,31 @@ export const Footer = () => {
                 {col.title}
               </h4>
               <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.name}>
-                    {col.internal ? (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-foreground/40 hover:text-accent transition-colors duration-300"
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-foreground/40 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
-                      >
-                        {link.name}
-                        <ArrowUpRight size={10} />
-                      </a>
-                    )}
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const isExternal = !col.internal || (link as { external?: boolean }).external;
+                  return (
+                    <li key={link.name}>
+                      {!isExternal ? (
+                        <Link
+                          to={link.href}
+                          className="text-sm text-foreground/40 hover:text-accent transition-colors duration-300"
+                        >
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-foreground/40 hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
+                        >
+                          {link.name}
+                          <ArrowUpRight size={10} />
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
