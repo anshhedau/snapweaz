@@ -16,9 +16,9 @@ const Work = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[60vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[20vw] text-background/[0.03] whitespace-nowrap">Work</span>
+            <span className="font-serif text-[20vw] text-foreground/[0.03] whitespace-nowrap">Work</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -31,7 +31,7 @@ const Work = () => {
                 <br />
                 <span className="text-accent italic">for themselves</span>
               </h1>
-              <p className="text-xl text-background/60 max-w-xl">
+              <p className="text-xl text-foreground/60 max-w-xl">
                 Real projects, real results. Websites and brands we've crafted for clients across industries.
               </p>
             </motion.div>
@@ -188,7 +188,7 @@ const Work = () => {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-10 py-4 bg-foreground text-background rounded-full font-medium hover:bg-accent transition-colors duration-300 group"
+                className="inline-flex items-center gap-2 px-10 py-4 section-dark rounded-full font-medium hover:bg-accent transition-colors duration-300 group"
               >
                 Get in touch
                 <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

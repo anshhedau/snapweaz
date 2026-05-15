@@ -45,7 +45,7 @@ const Sitemap = () => {
       <Header />
 
       <main>
-        <section className="relative min-h-[40vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[40vh] flex items-end overflow-hidden section-dark">
           <div className="container-wide relative z-10 pb-16 md:pb-20 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <div className="flex items-center gap-4 mb-6">
@@ -55,7 +55,7 @@ const Sitemap = () => {
               <h1 className="font-serif text-5xl md:text-6xl leading-[0.95] mb-4">
                 Site<span className="text-accent italic">map</span>
               </h1>
-              <p className="text-lg text-background/60 max-w-lg">
+              <p className="text-lg text-foreground/60 max-w-lg">
                 All pages at a glance.
               </p>
             </motion.div>

@@ -26,9 +26,9 @@ const Careers = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[60vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[18vw] text-background/[0.03] whitespace-nowrap">Careers</span>
+            <span className="font-serif text-[18vw] text-foreground/[0.03] whitespace-nowrap">Careers</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -41,7 +41,7 @@ const Careers = () => {
                 <br />
                 <span className="text-accent italic">with us</span>
               </h1>
-              <p className="text-xl text-background/60 max-w-xl">
+              <p className="text-xl text-foreground/60 max-w-xl">
                 Join a team of passionate designers, developers, and strategists shaping the digital landscape.
               </p>
             </motion.div>
@@ -145,7 +145,7 @@ const Careers = () => {
                   <p className="text-muted-foreground">Completed an internship at SnapWeaz? Verify your certificate here.</p>
                 </div>
               </div>
-              <Button size="lg" className="bg-foreground text-background hover:bg-accent rounded-full px-8 h-14 group shrink-0" asChild>
+              <Button size="lg" className="section-dark hover:bg-accent rounded-full px-8 h-14 group shrink-0" asChild>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6RU_WrIqzlyjOJ3rnPYvxVd-VMMlEZ7wGz816cnjRVC8Nqg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
                   Verify <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </a>
@@ -164,7 +164,7 @@ const Careers = () => {
                 Don't see your <span className="text-accent italic">role</span>?
               </h2>
               <p className="text-lg text-muted-foreground mb-10">We're always looking for talented people.</p>
-              <Button size="lg" className="bg-foreground text-background hover:bg-accent rounded-full px-10 h-14 group" asChild>
+              <Button size="lg" className="section-dark hover:bg-accent rounded-full px-10 h-14 group" asChild>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScqO3QH7jjqdnazh3DG7WdWFYbjyxKY6O9cgkvip0MtCkSZ2Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
                   Get in touch <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </a>

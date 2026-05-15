@@ -73,7 +73,7 @@ export const Header = () => {
                 to={link.href}
                 className={`rounded-full px-5 py-2 text-[13px] font-medium transition-all duration-300 ${
                   location.pathname === link.href
-                    ? "bg-foreground text-background shadow-md"
+                    ? "section-dark shadow-md"
                     : "text-foreground/70 hover:bg-background/50 hover:text-foreground"
                 }`}
               >
@@ -85,7 +85,7 @@ export const Header = () => {
           <div className="hidden items-center lg:flex">
             <Button
               size="sm"
-              className="h-10 rounded-full bg-foreground px-7 text-[13px] font-medium text-background shadow-md transition-all duration-500 hover:bg-accent hover:shadow-xl"
+              className="h-10 rounded-full bg-accent px-7 text-[13px] font-medium text-foreground shadow-md transition-all duration-500 hover:bg-accent hover:shadow-xl"
               asChild
             >
               <Link to="/contact">Start a project</Link>
@@ -148,7 +148,7 @@ export const Header = () => {
                 >
                   <Button
                     size="lg"
-                    className="h-14 w-full rounded-full bg-foreground text-base font-medium text-background"
+                    className="h-14 w-full rounded-full bg-accent text-base font-medium text-foreground"
                     asChild
                   >
                     <Link to="/contact">Start a project</Link>

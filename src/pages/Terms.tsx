@@ -53,7 +53,7 @@ const Terms = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative flex items-end overflow-hidden section-dark">
           <div className="container-wide relative z-10 pb-12 md:pb-16 pt-36 md:pt-40">
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <div className="flex items-center gap-4 mb-5">
@@ -61,7 +61,7 @@ const Terms = () => {
                 <span className="text-sm text-accent uppercase tracking-[0.3em]">Legal</span>
               </div>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[0.95]">Terms & Conditions</h1>
-              <p className="text-background/50 mt-4 text-sm">Last Updated: January 2026</p>
+              <p className="text-foreground/50 mt-4 text-sm">Last Updated: January 2026</p>
             </motion.div>
           </div>
         </section>

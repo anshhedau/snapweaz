@@ -42,7 +42,7 @@ const NotFound = () => {
           </p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-accent transition-colors duration-300 group"
+            className="inline-flex items-center gap-2 px-8 py-4 section-dark rounded-full font-medium hover:bg-accent transition-colors duration-300 group"
           >
             Back to home
             <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />

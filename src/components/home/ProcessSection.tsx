@@ -28,7 +28,7 @@ export const ProcessSection = () => {
               <div className="w-8 h-px bg-accent" />
               <p className="text-sm font-medium text-accent uppercase tracking-[0.2em]">Process</p>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-background leading-[1.05]">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.05]">
               From <span className="text-accent italic">concept</span>
               <br />
               to launch
@@ -41,7 +41,7 @@ export const ProcessSection = () => {
             transition={{ delay: 0.1 }}
             className="lg:col-span-4 lg:col-start-9 flex items-end"
           >
-            <p className="text-background/40 leading-relaxed">
+            <p className="text-foreground/40 leading-relaxed">
               A proven methodology that turns complex challenges into elegant,
               scalable solutions.
             </p>
@@ -62,19 +62,19 @@ export const ProcessSection = () => {
               >
                 <div className="glass-card-dark rounded-3xl p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
                   {/* Large faded number */}
-                  <span className="absolute top-4 right-4 font-serif text-8xl text-background/[0.03] select-none leading-none">
+                  <span className="absolute top-4 right-4 font-serif text-8xl text-foreground/[0.03] select-none leading-none">
                     {step.number}
                   </span>
                   <div className="inline-flex p-3.5 rounded-2xl bg-accent/10 mb-8 w-fit group-hover:bg-accent/20 transition-colors duration-300 relative z-10">
                     <Icon size={22} className="text-accent" />
                   </div>
-                  <span className="text-[10px] text-background/30 uppercase tracking-[0.3em] mb-3 block font-mono relative z-10">
+                  <span className="text-[10px] text-foreground/30 uppercase tracking-[0.3em] mb-3 block font-mono relative z-10">
                     Step {step.number}
                   </span>
-                  <h3 className="font-serif text-2xl text-background mb-4 group-hover:text-accent transition-colors duration-300 relative z-10">
+                  <h3 className="font-serif text-2xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300 relative z-10">
                     {step.title}
                   </h3>
-                  <p className="text-background/40 leading-relaxed text-[15px] flex-grow relative z-10">
+                  <p className="text-foreground/40 leading-relaxed text-[15px] flex-grow relative z-10">
                     {step.description}
                   </p>
                 </div>

@@ -20,9 +20,9 @@ const Services = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative min-h-[60vh] flex items-end overflow-hidden bg-foreground text-background">
+        <section className="relative min-h-[60vh] flex items-end overflow-hidden section-dark">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <span className="font-serif text-[18vw] text-background/[0.03] whitespace-nowrap">Services</span>
+            <span className="font-serif text-[18vw] text-foreground/[0.03] whitespace-nowrap">Services</span>
           </div>
           <div className="container-wide relative z-10 pb-16 md:pb-24 pt-40">
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -35,7 +35,7 @@ const Services = () => {
                 <br />
                 <span className="text-accent italic">real problems</span>
               </h1>
-              <p className="text-xl text-background/60 max-w-xl">
+              <p className="text-xl text-foreground/60 max-w-xl">
                 We understand your challenges and craft solutions that drive meaningful impact.
               </p>
             </motion.div>
@@ -134,7 +134,7 @@ const Services = () => {
               </p>
               <Button
                 size="lg"
-                className="bg-foreground text-background hover:bg-accent rounded-full px-10 h-14 group transition-all duration-300"
+                className="section-dark hover:bg-accent rounded-full px-10 h-14 group transition-all duration-300"
                 asChild
               >
                 <Link to="/contact">

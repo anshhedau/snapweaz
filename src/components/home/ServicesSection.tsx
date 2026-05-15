@@ -32,7 +32,7 @@ export const ServicesSection = () => {
                 Our Divisions
               </p>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-background leading-[1.05]">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.05]">
               Six expert
               <br />
               <span className="text-accent italic">teams</span>, one
@@ -47,7 +47,7 @@ export const ServicesSection = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-4 lg:col-start-8 flex items-end"
           >
-            <p className="text-lg text-background/50 leading-relaxed">
+            <p className="text-lg text-foreground/50 leading-relaxed">
               Specialized divisions working in harmony to deliver end-to-end
               solutions. From first concept to final deployment.
             </p>
@@ -69,28 +69,28 @@ export const ServicesSection = () => {
                   to={`/divisions#${division.id}`}
                   className="group grid grid-cols-12 gap-4 py-8 md:py-10 border-b border-background/10 items-center hover:bg-background/5 -mx-5 px-5 md:-mx-8 md:px-8 transition-all duration-500 rounded-xl"
                 >
-                  <span className="col-span-2 md:col-span-1 text-sm text-background/30 font-mono">
+                  <span className="col-span-2 md:col-span-1 text-sm text-foreground/30 font-mono">
                     {division.number}
                   </span>
                   <div className="col-span-10 md:col-span-3 flex items-center gap-4">
                     <div className="w-10 h-10 glass-card-dark rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <Icon size={18} className="text-accent" />
                     </div>
-                    <h3 className="font-serif text-2xl md:text-3xl text-background group-hover:text-accent transition-colors duration-300">
+                    <h3 className="font-serif text-2xl md:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                       {division.name.replace("SnapWeaz ", "")}
                     </h3>
                   </div>
-                  <span className="hidden md:block col-span-2 text-xs text-background/30 uppercase tracking-[0.15em]">
+                  <span className="hidden md:block col-span-2 text-xs text-foreground/30 uppercase tracking-[0.15em]">
                     {division.name}
                   </span>
-                  <p className="hidden md:block col-span-4 text-background/40 text-sm leading-relaxed">
+                  <p className="hidden md:block col-span-4 text-foreground/40 text-sm leading-relaxed">
                     {division.description}
                   </p>
                   <div className="hidden md:flex col-span-2 justify-end">
                     <div className="w-10 h-10 rounded-full border border-background/10 flex items-center justify-center group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-300">
                       <ArrowUpRight
                         size={16}
-                        className="text-background/20 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                        className="text-foreground/20 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
                       />
                     </div>
                   </div>

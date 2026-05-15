@@ -194,7 +194,7 @@ export const WeazAI = () => {
 
               <div className="relative flex items-center justify-between border-b border-border/60 px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-foreground text-background shadow-md">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl section-dark shadow-md">
                     <Sparkles size={18} />
                   </div>
                   <div>
@@ -225,7 +225,7 @@ export const WeazAI = () => {
                       <div
                         className={
                           message.role === "user"
-                            ? "max-w-[85%] rounded-[1.5rem] rounded-br-md bg-foreground px-4 py-3 text-sm leading-6 text-background shadow-md"
+                            ? "max-w-[85%] rounded-[1.5rem] rounded-br-md bg-accent px-4 py-3 text-sm leading-6 text-foreground shadow-md"
                             : "max-w-[92%] rounded-[1.5rem] rounded-bl-md bg-secondary px-4 py-3 text-sm leading-6 text-foreground"
                         }
                       >
