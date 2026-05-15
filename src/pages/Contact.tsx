@@ -183,7 +183,7 @@ const Contact = () => {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full h-14 section-dark hover:bg-accent rounded-full text-base font-medium transition-all duration-300"
+                      className="w-full h-14 bg-accent text-accent-foreground hover:opacity-90 rounded-full text-base font-medium transition-all duration-300"
                     >
                       {isSubmitting ? (
                         "Sending..."
