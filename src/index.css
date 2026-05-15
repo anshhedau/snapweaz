@@ -151,12 +151,12 @@
 }
 
 @layer components {
-  /* ========= LIQUID GLASS ========= */
+  /* ========= LIQUID GLASS (dark theme) ========= */
   .glass {
-    background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.3);
+    background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(40px) saturate(160%);
+    -webkit-backdrop-filter: blur(40px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.08);
     box-shadow: var(--shadow-glass);
   }
 
@@ -169,17 +169,18 @@
   }
 
   .glass-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 100%);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.25);
-    box-shadow: 0 4px 24px rgb(0 0 0 / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.4);
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 0.4), inset 0 1px 0 rgb(255 255 255 / 0.06);
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .glass-card:hover {
-    background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.25) 100%);
-    box-shadow: 0 20px 48px rgb(0 0 0 / 0.1), inset 0 1px 0 rgb(255 255 255 / 0.5);
+    background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
+    border-color: hsl(var(--accent) / 0.30);
+    box-shadow: 0 20px 48px rgb(0 0 0 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.08);
     transform: translateY(-4px);
   }
 
@@ -199,9 +200,10 @@
     transform: translateY(-4px);
   }
 
-  /* ========= DARK SECTION ========= */
+  /* ========= DARK SECTION (elevated wine surface w/ light text) ========= */
   .section-dark {
-    @apply bg-foreground text-background;
+    background: linear-gradient(135deg, hsl(350 32% 8%) 0%, hsl(350 25% 5%) 100%);
+    color: hsl(var(--foreground));
   }
 
   /* ========= PREMIUM CARD ========= */
