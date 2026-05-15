@@ -73,7 +73,7 @@ export const Header = () => {
                 to={link.href}
                 className={`rounded-full px-5 py-2 text-[13px] font-medium transition-all duration-300 ${
                   location.pathname === link.href
-                    ? "section-dark shadow-md"
+                    ? "bg-accent text-accent-foreground shadow-md"
                     : "text-foreground/70 hover:bg-background/50 hover:text-foreground"
                 }`}
               >
