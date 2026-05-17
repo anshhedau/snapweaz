@@ -14,6 +14,7 @@ export const SmoothScroll = () => {
       wheelMultiplier: 1,
       touchMultiplier: 1.2,
     });
+    (window as any).__lenis = lenis;
 
     let rafId: number;
     const raf = (time: number) => {
@@ -25,6 +26,7 @@ export const SmoothScroll = () => {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete (window as any).__lenis;
     };
   }, []);
 
