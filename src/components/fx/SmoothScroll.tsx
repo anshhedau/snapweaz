@@ -8,6 +8,12 @@ export const SmoothScroll = () => {
     if (reduce) return;
 
     const lenis = new Lenis({
+    } as any);
+    (window as any).__lenis = lenis;
+    Object.assign(lenis, {} as any);
+    // re-init below
+    lenis.destroy();
+    const realLenis = new Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
