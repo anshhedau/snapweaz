@@ -8,7 +8,7 @@ const footerLinks = {
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
-    { name: "Limited", href: "https://limited.snapweaz.com/", external: true },
+    { name: "Free Website For You", href: "https://free.snapweaz.com/", external: true },
     // { name: "Founder", href: "/founder" },
   ],
   services: [

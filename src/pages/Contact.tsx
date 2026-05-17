@@ -292,12 +292,12 @@ const Contact = () => {
                     <img
                       src={clientDesignFlu}
                       alt="Design Flu"
-                      className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="h-14 w-auto object-contain rounded-2xl"
                     />
                     <img
                       src={clientLaxmiPrinters}
                       alt="Laxmi Printers"
-                      className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="h-14 w-auto object-contain rounded-2xl"
                     />
                   </div>
                 </div>

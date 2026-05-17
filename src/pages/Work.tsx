@@ -188,7 +188,7 @@ const Work = () => {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-10 py-4 section-dark rounded-full font-medium hover:bg-accent transition-colors duration-300 group"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition-all duration-300 group"
               >
                 Get in touch
                 <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

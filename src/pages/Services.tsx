@@ -134,7 +134,7 @@ const Services = () => {
               </p>
               <Button
                 size="lg"
-                className="section-dark hover:bg-accent rounded-full px-10 h-14 group transition-all duration-300"
+                className="bg-accent text-accent-foreground hover:opacity-90 rounded-full px-10 h-14 group transition-all duration-300"
                 asChild
               >
                 <Link to="/contact">
