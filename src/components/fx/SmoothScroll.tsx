@@ -8,18 +8,13 @@ export const SmoothScroll = () => {
     if (reduce) return;
 
     const lenis = new Lenis({
-    } as any);
-    (window as any).__lenis = lenis;
-    Object.assign(lenis, {} as any);
-    // re-init below
-    lenis.destroy();
-    const realLenis = new Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.2,
     });
+    (window as any).__lenis = lenis;
 
     let rafId: number;
     const raf = (time: number) => {
@@ -31,6 +26,7 @@ export const SmoothScroll = () => {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete (window as any).__lenis;
     };
   }, []);
 
