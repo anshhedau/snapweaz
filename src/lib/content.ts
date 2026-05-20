@@ -216,6 +216,14 @@ export function getFounderInfo(): FounderInfo {
   return getJsonFile<FounderInfo>(founderFiles, 'info');
 }
 
+export interface PageVisibility {
+  founder_enabled?: boolean;
+}
+
+export function getPageVisibility(): PageVisibility {
+  return getJsonFile<PageVisibility>(settingsFiles, 'page-visibility');
+}
+
 // Helper to parse *accent* from headline strings
 export function parseAccentText(text: string): { before: string; accent: string; after: string } {
   const match = text.match(/^(.*?)\*(.+?)\*(.*)$/);
