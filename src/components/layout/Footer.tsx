@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { getPageVisibility } from "@/lib/content";
+
+const { founder_enabled } = getPageVisibility();
 
 const footerLinks = {
   company: [
@@ -9,7 +12,7 @@ const footerLinks = {
     { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
     { name: "Free Website For You", href: "https://free.snapweaz.com/", external: true },
-    // { name: "Founder", href: "/founder" },
+    ...(founder_enabled ? [{ name: "Founder", href: "/founder" }] : []),
   ],
   services: [
     { name: "Design", href: "/services#design" },
