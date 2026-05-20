@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { getPageVisibility } from "@/lib/content";
+
+const { founder_enabled } = getPageVisibility();
 
 const sections = [
   {
@@ -25,7 +28,7 @@ const sections = [
   {
     title: "Company",
     links: [
-      // { name: "Founder", href: "/founder" },
+      ...(founder_enabled ? [{ name: "Founder", href: "/founder" }] : []),
       { name: "Careers", href: "/careers" },
     ],
   },
