@@ -254,7 +254,10 @@ export const WeazAI = () => {
                 </div>
               </div>
 
-              <div className="border-t border-border/60 px-5 py-4">
+              <div className="shrink-0 border-t border-border/60 px-5 py-4">
+                <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                  Quick actions
+                </p>
                 <div className="mb-4 flex flex-wrap gap-2">
                   {suggestions.map((suggestion) => (
                     <button
@@ -279,8 +282,15 @@ export const WeazAI = () => {
                   </Link>
                 )}
 
-                <div className="flex items-center gap-2">
+                <label
+                  htmlFor="weaz-ai-input"
+                  className="mb-2 block text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground"
+                >
+                  Ask Weaz AI
+                </label>
+                <div className="flex items-center gap-2 rounded-full border border-accent/40 bg-background p-1 pl-2 focus-within:border-accent">
                   <Input
+                    id="weaz-ai-input"
                     value={input}
                     onChange={(event) => setInput(event.target.value)}
                     onKeyDown={(event) => {
@@ -290,8 +300,8 @@ export const WeazAI = () => {
                       }
                     }}
                     maxLength={500}
-                    placeholder="Ask about services, work, or starting a project..."
-                    className="h-12 rounded-full border-border/60 bg-background"
+                    placeholder="Type your question here..."
+                    className="h-10 flex-1 border-0 bg-transparent px-2 shadow-none focus-visible:ring-0"
                     aria-label="Ask Weaz AI"
                   />
                   <Button
@@ -299,7 +309,7 @@ export const WeazAI = () => {
                     onClick={() => void sendMessage()}
                     disabled={!canSend}
                     size="icon"
-                    className="h-12 w-12 rounded-full"
+                    className="h-10 w-10 shrink-0 rounded-full"
                     aria-label="Send message"
                   >
                     <Send size={16} />
@@ -310,10 +320,7 @@ export const WeazAI = () => {
                   Weaz AI shares SnapWeaz site guidance and can point you to the best next step.
                 </p>
               </div>
-            </div>
-          </motion.section>
-        )}
-      </AnimatePresence>
+
 
       <div className="fixed bottom-5 right-5 z-50">
         <Button
