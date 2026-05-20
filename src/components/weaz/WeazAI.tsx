@@ -320,6 +320,12 @@ export const WeazAI = () => {
                   Weaz AI shares SnapWeaz site guidance and can point you to the best next step.
                 </p>
               </div>
+            </div>
+          </motion.section>
+        )}
+      </AnimatePresence>
+
+
 
 
       <div className="fixed bottom-5 right-5 z-50">
