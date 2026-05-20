@@ -189,10 +189,10 @@ export const WeazAI = () => {
             className="fixed inset-x-4 bottom-24 z-50 sm:inset-x-auto sm:right-5 sm:w-[24rem]"
             aria-label="Weaz AI chat panel"
           >
-            <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-background/95 shadow-xl backdrop-blur-2xl">
-              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-warm opacity-10" />
+            <div className="relative flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-[2rem] border border-border/60 bg-background/95 shadow-xl backdrop-blur-2xl">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-warm opacity-10" />
 
-              <div className="relative flex items-center justify-between border-b border-border/60 px-5 py-4">
+              <div className="relative flex shrink-0 items-center justify-between border-b border-border/60 px-5 py-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl section-dark shadow-md">
                     <Sparkles size={18} />
@@ -215,7 +215,12 @@ export const WeazAI = () => {
                 </button>
               </div>
 
-              <div className="relative max-h-[60vh] overflow-y-auto px-5 py-5">
+              <div
+                data-lenis-prevent
+                onWheel={(e) => e.stopPropagation()}
+                onTouchMove={(e) => e.stopPropagation()}
+                className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5"
+              >
                 <div className="space-y-4">
                   {messages.map((message, index) => (
                     <div
@@ -249,7 +254,10 @@ export const WeazAI = () => {
                 </div>
               </div>
 
-              <div className="border-t border-border/60 px-5 py-4">
+              <div className="shrink-0 border-t border-border/60 px-5 py-4">
+                <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                  Quick actions
+                </p>
                 <div className="mb-4 flex flex-wrap gap-2">
                   {suggestions.map((suggestion) => (
                     <button
@@ -274,8 +282,15 @@ export const WeazAI = () => {
                   </Link>
                 )}
 
-                <div className="flex items-center gap-2">
+                <label
+                  htmlFor="weaz-ai-input"
+                  className="mb-2 block text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground"
+                >
+                  Ask Weaz AI
+                </label>
+                <div className="flex items-center gap-2 rounded-full border border-accent/40 bg-background p-1 pl-2 focus-within:border-accent">
                   <Input
+                    id="weaz-ai-input"
                     value={input}
                     onChange={(event) => setInput(event.target.value)}
                     onKeyDown={(event) => {
@@ -285,8 +300,8 @@ export const WeazAI = () => {
                       }
                     }}
                     maxLength={500}
-                    placeholder="Ask about services, work, or starting a project..."
-                    className="h-12 rounded-full border-border/60 bg-background"
+                    placeholder="Type your question here..."
+                    className="h-10 flex-1 border-0 bg-transparent px-2 shadow-none focus-visible:ring-0"
                     aria-label="Ask Weaz AI"
                   />
                   <Button
@@ -294,7 +309,7 @@ export const WeazAI = () => {
                     onClick={() => void sendMessage()}
                     disabled={!canSend}
                     size="icon"
-                    className="h-12 w-12 rounded-full"
+                    className="h-10 w-10 shrink-0 rounded-full"
                     aria-label="Send message"
                   >
                     <Send size={16} />
@@ -309,6 +324,9 @@ export const WeazAI = () => {
           </motion.section>
         )}
       </AnimatePresence>
+
+
+
 
       <div className="fixed bottom-5 right-5 z-50">
         <Button
