@@ -18,7 +18,8 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
-// import Founder from "./pages/Founder";
+import Founder from "./pages/Founder";
+import { getPageVisibility } from "@/lib/content";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
