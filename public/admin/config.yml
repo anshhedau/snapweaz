@@ -6,6 +6,17 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
+  # ============ PAGE VISIBILITY ============
+  - name: "page_visibility"
+    label: "Page Visibility"
+    description: "Show or hide standalone pages across the site"
+    files:
+      - name: "visibility"
+        label: "Page Visibility Toggles"
+        file: "content/settings/page-visibility.json"
+        fields:
+          - { name: "founder_enabled", label: "Show Founder Page", widget: "boolean", default: false, hint: "When ON, the Founder page is publicly accessible and linked in the footer and sitemap." }
+
   # ============ SITE SETTINGS ============
   - name: "settings"
     label: "Site Settings"
