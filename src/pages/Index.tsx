@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { ClientsSection } from "@/components/home/ClientsSection";
 import { CTASection } from "@/components/home/CTASection";
 import { SceneReveal } from "@/components/fx/SceneReveal";
+import { StoryScrollSection } from "@/components/home/StoryScrollSection";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Header />
       <main className="relative">
         <HeroSection />
+        <StoryScrollSection />
         <SceneReveal><ClientsSection /></SceneReveal>
         <SceneReveal><ServicesSection /></SceneReveal>
         <SceneReveal><AboutSection /></SceneReveal>
