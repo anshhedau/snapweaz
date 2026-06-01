@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SceneReveal } from "@/components/fx/SceneReveal";
 import { getBlogPosts } from "@/lib/content";
 
 function formatDate(d: unknown): string {
@@ -51,26 +50,24 @@ const BlogPost = () => {
         </section>
 
         {/* Content */}
-        <SceneReveal>
-          <section className="section-padding bg-background">
-            <div className="container-wide">
-              <div className="max-w-3xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="prose prose-lg prose-neutral dark:prose-invert max-w-none"
-                >
-                  {post.body ? (
-                    <div dangerouslySetInnerHTML={{ __html: post.body.replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }} />
-                  ) : (
-                    <p className="text-muted-foreground text-lg leading-relaxed">{post.excerpt}</p>
-                  )}
-                </motion.div>
-              </div>
+        <section className="section-padding bg-background">
+          <div className="container-wide">
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="prose prose-lg prose-neutral dark:prose-invert max-w-none"
+              >
+                {post.body ? (
+                  <div dangerouslySetInnerHTML={{ __html: post.body.replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }} />
+                ) : (
+                  <p className="text-muted-foreground text-lg leading-relaxed">{post.excerpt}</p>
+                )}
+              </motion.div>
             </div>
-          </section>
-        </SceneReveal>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

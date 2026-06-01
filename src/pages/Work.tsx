@@ -3,7 +3,6 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SceneReveal } from "@/components/fx/SceneReveal";
 import { getProjects, getOtherWork, getClients } from "@/lib/content";
 
 const Work = () => {
@@ -40,171 +39,163 @@ const Work = () => {
         </section>
 
         {/* Featured Projects */}
-        <SceneReveal>
-          <section className="section-padding bg-background">
-            <div className="container-wide">
-              <div className="space-y-10">
-                {projects.map((project, index) => (
-                  <motion.a
-                    key={project.title}
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="group block cursor-pointer"
-                  >
-                    <div className="bg-background rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl border border-border/30 group-hover:border-accent/20">
-                      <div className="grid lg:grid-cols-2 gap-0">
-                        <div className={`relative overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                          <div className="aspect-[16/10] overflow-hidden bg-secondary/30">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                            />
-                          </div>
+        <section className="section-padding bg-background">
+          <div className="container-wide">
+            <div className="space-y-10">
+              {projects.map((project, index) => (
+                <motion.a
+                  key={project.title}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group block cursor-pointer"
+                >
+                  <div className="bg-background rounded-3xl overflow-hidden transition-all duration-500 group-hover:shadow-2xl border border-border/30 group-hover:border-accent/20">
+                    <div className="grid lg:grid-cols-2 gap-0">
+                      <div className={`relative overflow-hidden ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                        <div className="aspect-[16/10] overflow-hidden bg-secondary/30">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                          />
                         </div>
-                        <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                          <span className="text-xs text-accent uppercase tracking-[0.2em] mb-5 block font-medium">
-                            {project.category}
-                          </span>
-                          <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300 flex items-start gap-3">
-                            {project.title}
-                            <ExternalLink size={18} className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0 mt-2 shrink-0" />
-                          </h3>
-                          <p className="text-muted-foreground leading-relaxed mb-8 text-[0.95rem]">
-                            {project.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="px-3.5 py-1.5 text-xs font-medium bg-secondary/60 text-foreground/60 rounded-full"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                      </div>
+                      <div className={`p-10 md:p-14 flex flex-col justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                        <span className="text-xs text-accent uppercase tracking-[0.2em] mb-5 block font-medium">
+                          {project.category}
+                        </span>
+                        <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4 group-hover:text-accent transition-colors duration-300 flex items-start gap-3">
+                          {project.title}
+                          <ExternalLink size={18} className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0 mt-2 shrink-0" />
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed mb-8 text-[0.95rem]">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3.5 py-1.5 text-xs font-medium bg-secondary/60 text-foreground/60 rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
-                  </motion.a>
-                ))}
-              </div>
+                  </div>
+                </motion.a>
+              ))}
             </div>
-          </section>
-        </SceneReveal>
+          </div>
+        </section>
 
         {/* Other Work */}
-        <SceneReveal>
-          <section className="section-padding bg-secondary/30">
-            <div className="container-wide">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mb-14"
-              >
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-8 h-px bg-accent" />
-                  <p className="text-sm text-accent uppercase tracking-[0.2em]">And Many More</p>
-                </div>
-                <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-2xl">
-                  Landing pages, campaigns & <span className="text-accent italic">beyond</span>
-                </h2>
-                <p className="text-muted-foreground mt-4 max-w-xl text-lg">
-                  Beyond featured projects, we've delivered dozens of landing pages, marketing sites,
-                  and brand assets for clients worldwide.
-                </p>
-              </motion.div>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {otherWork.map((item, index) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="bg-background rounded-2xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300 group"
-                  >
-                    <span className="font-serif text-4xl text-accent mb-3 block">{item.count}</span>
-                    <h3 className="font-serif text-xl text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.category}</p>
-                  </motion.div>
-                ))}
+        <section className="section-padding bg-secondary/30">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-14"
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-8 h-px bg-accent" />
+                <p className="text-sm text-accent uppercase tracking-[0.2em]">And Many More</p>
               </div>
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-2xl">
+                Landing pages, campaigns & <span className="text-accent italic">beyond</span>
+              </h2>
+              <p className="text-muted-foreground mt-4 max-w-xl text-lg">
+                Beyond featured projects, we've delivered dozens of landing pages, marketing sites,
+                and brand assets for clients worldwide.
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {otherWork.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="bg-background rounded-2xl p-8 border border-border/30 hover:border-accent/30 transition-all duration-300 group"
+                >
+                  <span className="font-serif text-4xl text-accent mb-3 block">{item.count}</span>
+                  <h3 className="font-serif text-xl text-foreground mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.category}</p>
+                </motion.div>
+              ))}
             </div>
-          </section>
-        </SceneReveal>
+          </div>
+        </section>
 
         {/* Clients */}
-        <SceneReveal>
-          <section className="section-padding bg-background">
-            <div className="container-wide">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mb-12"
-              >
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-8 h-px bg-accent" />
-                  <p className="text-sm text-accent uppercase tracking-[0.2em]">Client Portfolio</p>
-                </div>
-                <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
-                  Trusted by <span className="text-accent italic">ambitious</span> brands
-                </h2>
-              </motion.div>
-
-              <div className="flex flex-wrap gap-3">
-                {clients.map((client, index) => (
-                  <motion.span
-                    key={client.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="px-6 py-3 rounded-full border border-border/40 text-foreground/80 hover:border-accent hover:text-accent transition-colors duration-300 text-sm font-medium"
-                  >
-                    {client.name}
-                  </motion.span>
-                ))}
+        <section className="section-padding bg-background">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-8 h-px bg-accent" />
+                <p className="text-sm text-accent uppercase tracking-[0.2em]">Client Portfolio</p>
               </div>
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
+                Trusted by <span className="text-accent italic">ambitious</span> brands
+              </h2>
+            </motion.div>
+
+            <div className="flex flex-wrap gap-3">
+              {clients.map((client, index) => (
+                <motion.span
+                  key={client.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="px-6 py-3 rounded-full border border-border/40 text-foreground/80 hover:border-accent hover:text-accent transition-colors duration-300 text-sm font-medium"
+                >
+                  {client.name}
+                </motion.span>
+              ))}
             </div>
-          </section>
-        </SceneReveal>
+          </div>
+        </section>
 
         {/* CTA */}
-        <SceneReveal>
-          <section className="section-padding bg-accent/5">
-            <div className="container-wide">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-center max-w-3xl mx-auto"
+        <section className="section-padding bg-accent/5">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight mb-6">
+                Ready to start your <span className="text-accent italic">project</span>?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-10">
+                Let's create something remarkable together.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition-all duration-300 group"
               >
-                <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight mb-6">
-                  Ready to start your <span className="text-accent italic">project</span>?
-                </h2>
-                <p className="text-lg text-muted-foreground mb-10">
-                  Let's create something remarkable together.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-10 py-4 bg-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition-all duration-300 group"
-                >
-                  Get in touch
-                  <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Link>
-              </motion.div>
-            </div>
-          </section>
-        </SceneReveal>
+                Get in touch
+                <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
       </main>
 
       <Footer />

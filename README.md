@@ -1,143 +1,73 @@
-# SnapWeaz
+# Welcome to your Lovable project
 
-Design. Engineering. Innovation.
+## Project info
 
-Official website repository for SnapWeaz — a technology, software, cloud, and design company focused on building digital products, scalable platforms, cloud solutions, automation systems, and innovative user experiences.
+**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
-## 🚀 About SnapWeaz
+## How can I edit this code?
 
-SnapWeaz is a multidisciplinary technology company that combines creativity, engineering, and innovation to develop impactful digital solutions for businesses, startups, organizations, and individuals.
+There are several ways of editing your application.
 
-Our expertise spans across:
+**Use Lovable**
 
-- 🌐 Website Development
-- ☁️ Cloud Infrastructure & Deployment
-- 📱 Software & Application Development
-- 🎨 UI/UX Design
-- 🤖 Automation & AI Solutions
-- 📈 Digital Presence & Optimization
-- 🏢 Enterprise & Business Solutions
+Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
 
-We believe great products are built at the intersection of design, engineering, and innovation.
+Changes made via Lovable will be committed automatically to this repo.
 
----
+**Use your preferred IDE**
 
-## 🌍 Official Website
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-https://www.snapweaz.com
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
----
+Follow these steps:
 
-## ✨ Website Features
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-- Modern Responsive Design
-- SEO Optimized Architecture
-- Cloud-Based Deployment
-- Secure SSL Integration
-- Content Management System (CMS)
-- Mobile-Friendly Experience
-- Performance Optimization
-- Dynamic Content Management
-- Professional Service Showcase
-- Inquiry & Contact System
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
----
+# Step 3: Install the necessary dependencies.
+npm i
 
-## 🏢 SnapWeaz Divisions
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-### 🎨 SnapWeaz Studios
-Creative design, branding, UI/UX, digital experiences, and visual storytelling.
+**Edit a file directly in GitHub**
 
-### ⚙️ SnapWeaz Engineering
-Software development, cloud solutions, deployment, infrastructure, and technical implementation.
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-### 🚀 SnapWeaz Innovation Lab
-Research, experimentation, automation, AI systems, and emerging technologies.
+**Use GitHub Codespaces**
 
----
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## 🛠 Technology Stack
+## What technologies are used for this project?
 
-### Frontend
-- HTML5
-- CSS3
-- JavaScript
+This project is built with:
 
-### Cloud & Infrastructure
-- AWS
-- Netlify
-- DNS Management
-- SSL/TLS
-- Cloud Hosting
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-### Content Management
-- Netlify Decap CMS
-- Netlify Identity
+## How can I deploy this project?
 
-### Development Tools
-- Git
-- GitHub
-- VS Code
+Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
----
+## Can I connect a custom domain to my Lovable project?
 
-## 📌 Services
+Yes, you can!
 
-### 🌐 Web Development
-Professional websites, business portals, landing pages, and custom web applications.
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-### ☁️ Cloud Solutions
-Deployment, hosting, infrastructure setup, DNS configuration, SSL implementation, and cloud management.
-
-### 🎨 UI/UX Design
-Modern interfaces, user-focused experiences, responsive layouts, and visual systems.
-
-### 💻 Software Development
-Custom software solutions tailored to business and operational requirements.
-
-### 🤖 Automation & Innovation
-Workflow automation, AI-powered systems, research-driven solutions, and experimental technologies.
-
-### 📈 Digital Optimization
-Performance enhancement, SEO optimization, website indexing, and digital growth strategies.
-
----
-
-## 🎯 Mission
-
-To empower businesses and individuals through thoughtful design, robust engineering, and continuous innovation while creating meaningful digital experiences that drive real-world impact.
-
----
-
-## 🔮 Vision
-
-To become a globally recognized technology and innovation company delivering next-generation digital solutions across industries through design excellence, engineering precision, and technological advancement.
-
----
-
-## 🤝 Contributing
-
-We welcome contributions, ideas, improvements, and collaborations.
-
-To contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a pull request
-
----
-
-## 📬 Contact
-
-🌐 Website: https://www.snapweaz.com
-
-📧 Email: info@snapweaz.com
-
-🔗 LinkedIn: https://linkedin.com/company/snapweaz
-
----
-
-### Built with ❤️ by Team SnapWeaz
-
-**Design. Engineering. Innovation
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
