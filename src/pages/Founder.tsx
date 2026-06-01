@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SceneReveal } from "@/components/fx/SceneReveal";
 import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
 import defaultFounderPhoto from "@/assets/founder.png";
@@ -36,87 +37,89 @@ const Founder = () => {
         </section>
 
         {/* Content */}
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <div className="grid lg:grid-cols-12 gap-16">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="lg:col-span-4"
-              >
-                <div className="sticky top-32">
-                  <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 overflow-hidden">
-                    <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
+        <SceneReveal>
+          <section className="section-padding bg-background">
+            <div className="container-wide">
+              <div className="grid lg:grid-cols-12 gap-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="lg:col-span-4"
+                >
+                  <div className="sticky top-32">
+                    <div className="aspect-[3/4] rounded-3xl bg-secondary/50 border border-border/30 overflow-hidden">
+                      <img src={founderPhoto} alt="Ansh A. Hedau - Founder" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <p className="text-sm text-muted-foreground tracking-[0.15em]">Ansh A. Hedau</p>
+                      <p className="text-xs text-muted-foreground/60 uppercase tracking-[0.2em] mt-0.5">Founder & CEO</p>
+                    </div>
+                    {founder.website && (
+                      <a
+                        href={founder.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-xs text-accent hover:text-accent/80 transition-colors duration-300 w-full justify-center group"
+                      >
+                        <span className="tracking-[0.15em]">Know more about the founder</span>
+                        <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                      </a>
+                    )}
                   </div>
-                  <div className="mt-4 text-center">
-                    <p className="text-sm text-muted-foreground tracking-[0.15em]">Ansh A. Hedau</p>
-                    <p className="text-xs text-muted-foreground/60 uppercase tracking-[0.2em] mt-0.5">Founder & CEO</p>
-                  </div>
-                  {founder.website && (
-                    <a
-                      href={founder.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 text-xs text-accent hover:text-accent/80 transition-colors duration-300 w-full justify-center group"
-                    >
-                      <span className="tracking-[0.15em]">Know more about the founder</span>
-                      <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                    </a>
-                  )}
-                </div>
-              </motion.div>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="lg:col-span-7 lg:col-start-6"
-              >
-                <div className="space-y-10">
-                  {founder.sections.map((section, index) => (
-                    <motion.div
-                      key={section.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="border-t border-border/30 pt-8"
-                    >
-                      <h2 className="font-serif text-2xl text-foreground mb-4">{section.title}</h2>
-                      <div className="space-y-4">
-                        {section.text.split('\n\n').map((para, i) => (
-                          <p key={i} className="text-muted-foreground leading-relaxed text-lg">{para}</p>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="lg:col-span-7 lg:col-start-6"
+                >
+                  <div className="space-y-10">
+                    {founder.sections.map((section, index) => (
+                      <motion.div
+                        key={section.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="border-t border-border/30 pt-8"
+                      >
+                        <h2 className="font-serif text-2xl text-foreground mb-4">{section.title}</h2>
+                        <div className="space-y-4">
+                          {section.text.split('\n\n').map((para, i) => (
+                            <p key={i} className="text-muted-foreground leading-relaxed text-lg">{para}</p>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ))}
+
+                    {/* Connect */}
+                    <div className="border-t border-border/30 pt-8">
+                      <h2 className="font-serif text-2xl text-foreground mb-6">Connect</h2>
+                      <div className="flex flex-wrap gap-2">
+                        {founder.social.map((social) => (
+                          <a
+                            key={social.name}
+                            href={social.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
+                          >
+                            {social.name}
+                            <ArrowUpRight size={14} />
+                          </a>
                         ))}
                       </div>
-                    </motion.div>
-                  ))}
-
-                  {/* Connect */}
-                  <div className="border-t border-border/30 pt-8">
-                    <h2 className="font-serif text-2xl text-foreground mb-6">Connect</h2>
-                    <div className="flex flex-wrap gap-2">
-                      {founder.social.map((social) => (
-                        <a
-                          key={social.name}
-                          href={social.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
-                        >
-                          {social.name}
-                          <ArrowUpRight size={14} />
-                        </a>
-                      ))}
                     </div>
-                  </div>
 
-                </div>
-              </motion.div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </SceneReveal>
       </main>
 
       <Footer />
