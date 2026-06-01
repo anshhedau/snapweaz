@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock, ArrowUpRight, CheckCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SceneReveal } from "@/components/fx/SceneReveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -65,246 +66,248 @@ const Contact = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
-              {/* Form */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="lg:col-span-7"
-              >
-                {isSubmitted ? (
-                  <div className="bg-secondary/30 rounded-3xl p-12 text-center border border-border/30">
-                    <div className="inline-flex p-4 rounded-full bg-accent/10 mb-6">
-                      <CheckCircle size={48} className="text-accent" />
-                    </div>
-                    <h3 className="font-serif text-2xl text-foreground mb-4">Thank you!</h3>
-                    <p className="text-muted-foreground mb-6">We'll get back to you within 24 hours.</p>
-                    <Button variant="outline" onClick={() => setIsSubmitted(false)} className="rounded-full">
-                      Send another message
-                    </Button>
-                  </div>
-                ) : (
-                  <form
-                    name="contact"
-                    method="POST"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
-                    className="space-y-6"
-                  >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <input type="hidden" name="bot-field" />
-
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                          Your name
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          required
-                          placeholder="SnapWeaz"
-                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
-                        />
+        <SceneReveal>
+          <section className="section-padding bg-background">
+            <div className="container-wide">
+              <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+                {/* Form */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="lg:col-span-7"
+                >
+                  {isSubmitted ? (
+                    <div className="bg-secondary/30 rounded-3xl p-12 text-center border border-border/30">
+                      <div className="inline-flex p-4 rounded-full bg-accent/10 mb-6">
+                        <CheckCircle size={48} className="text-accent" />
                       </div>
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                          Contact number
-                        </label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          required
-                          placeholder="+91 82750 42440"
-                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
-                        />
-                      </div>
+                      <h3 className="font-serif text-2xl text-foreground mb-4">Thank you!</h3>
+                      <p className="text-muted-foreground mb-6">We'll get back to you within 24 hours.</p>
+                      <Button variant="outline" onClick={() => setIsSubmitted(false)} className="rounded-full">
+                        Send another message
+                      </Button>
                     </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email address
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="info@snapweaz.com"
-                        className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
-                        Estimated budget (optional)
-                      </label>
-                      <Input
-                        id="budget"
-                        name="budget"
-                        placeholder="₹50,000 - ₹1,00,000"
-                        className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                        Tell us about your project
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={5}
-                        placeholder="What's your vision? What challenges are you facing?"
-                        className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="additionalDetails" className="block text-sm font-medium text-foreground mb-2">
-                        Additional details (optional)
-                      </label>
-                      <Textarea
-                        id="additionalDetails"
-                        name="additionalDetails"
-                        rows={3}
-                        placeholder="Any other information..."
-                        className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full h-14 bg-accent text-accent-foreground hover:opacity-90 rounded-full text-base font-medium transition-all duration-300"
+                  ) : (
+                    <form
+                      name="contact"
+                      method="POST"
+                      data-netlify="true"
+                      netlify-honeypot="bot-field"
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
                     >
-                      {isSubmitting ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          Send message
-                          <Send size={18} className="ml-2" />
-                        </>
-                      )}
-                    </Button>
+                      <input type="hidden" name="form-name" value="contact" />
+                      <input type="hidden" name="bot-field" />
 
-                    <p className="text-center text-sm text-muted-foreground">
-                      By submitting, you agree to our{" "}
-                      <a href="/privacy" className="text-accent hover:underline">
-                        Privacy Policy
-                      </a>
-                      .
-                    </p>
-                  </form>
-                )}
-              </motion.div>
-
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 }}
-                className="lg:col-span-4 lg:col-start-9 space-y-10"
-              >
-                <div>
-                  <h2 className="font-serif text-3xl text-foreground mb-4">
-                    Other ways to <span className="text-accent italic">reach us</span>
-                  </h2>
-                  <p className="text-muted-foreground">Prefer email or a quick call? We're always happy to chat.</p>
-                </div>
-
-                <div className="space-y-6">
-                  {[
-                    {
-                      icon: Mail,
-                      title: "Email us",
-                      content: (
-                        <a
-                          href="mailto:info@snapweaz.com"
-                          className="text-muted-foreground hover:text-accent transition-colors"
-                        >
-                          info@snapweaz.com
-                        </a>
-                      ),
-                    },
-                    {
-                      icon: MapPin,
-                      title: "Location",
-                      content: <span className="text-muted-foreground">India · Serving globally</span>,
-                    },
-                    {
-                      icon: Clock,
-                      title: "Response time",
-                      content: <span className="text-muted-foreground">Usually within 24 hours</span>,
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
-                        <item.icon size={20} className="text-accent" />
+                      <div className="grid sm:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                            Your name
+                          </label>
+                          <Input
+                            id="name"
+                            name="name"
+                            required
+                            placeholder="SnapWeaz"
+                            className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                            Contact number
+                          </label>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            required
+                            placeholder="+91 82750 42440"
+                            className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                          />
+                        </div>
                       </div>
+
                       <div>
-                        <h3 className="font-medium text-foreground mb-1">{item.title}</h3>
-                        {item.content}
+                        <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                          Email address
+                        </label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          placeholder="info@snapweaz.com"
+                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                        />
                       </div>
-                    </div>
-                  ))}
-                </div>
 
-                {/* Social */}
-                <div className="pt-8 border-t border-border/30">
-                  <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">
-                    Follow us
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      { name: "Instagram", href: "https://instagram.com/snapweaz.com" },
-                      { name: "LinkedIn", href: "https://linkedin.com/company/snapweaz" },
-                      { name: "Twitter", href: "https://twitter.com/snapweaz" },
-                    ].map((social) => (
-                      <a
-                        key={social.name}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
+                      <div>
+                        <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
+                          Estimated budget (optional)
+                        </label>
+                        <Input
+                          id="budget"
+                          name="budget"
+                          placeholder="₹50,000 - ₹1,00,000"
+                          className="h-13 rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                          Tell us about your project
+                        </label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          required
+                          rows={5}
+                          placeholder="What's your vision? What challenges are you facing?"
+                          className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="additionalDetails" className="block text-sm font-medium text-foreground mb-2">
+                          Additional details (optional)
+                        </label>
+                        <Textarea
+                          id="additionalDetails"
+                          name="additionalDetails"
+                          rows={3}
+                          placeholder="Any other information..."
+                          className="rounded-xl border-border/50 bg-secondary/30 focus:border-accent focus:ring-accent resize-none"
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        size="lg"
+                        disabled={isSubmitting}
+                        className="w-full h-14 bg-accent text-accent-foreground hover:opacity-90 rounded-full text-base font-medium transition-all duration-300"
                       >
-                        {social.name}
-                        <ArrowUpRight size={14} />
-                      </a>
+                        {isSubmitting ? (
+                          "Sending..."
+                        ) : (
+                          <>
+                            Send message
+                            <Send size={18} className="ml-2" />
+                          </>
+                        )}
+                      </Button>
+
+                      <p className="text-center text-sm text-muted-foreground">
+                        By submitting, you agree to our{" "}
+                        <a href="/privacy" className="text-accent hover:underline">
+                          Privacy Policy
+                        </a>
+                        .
+                      </p>
+                    </form>
+                  )}
+                </motion.div>
+
+                {/* Contact Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 }}
+                  className="lg:col-span-4 lg:col-start-9 space-y-10"
+                >
+                  <div>
+                    <h2 className="font-serif text-3xl text-foreground mb-4">
+                      Other ways to <span className="text-accent italic">reach us</span>
+                    </h2>
+                    <p className="text-muted-foreground">Prefer email or a quick call? We're always happy to chat.</p>
+                  </div>
+
+                  <div className="space-y-6">
+                    {[
+                      {
+                        icon: Mail,
+                        title: "Email us",
+                        content: (
+                          <a
+                            href="mailto:info@snapweaz.com"
+                            className="text-muted-foreground hover:text-accent transition-colors"
+                          >
+                            info@snapweaz.com
+                          </a>
+                        ),
+                      },
+                      {
+                        icon: MapPin,
+                        title: "Location",
+                        content: <span className="text-muted-foreground">India · Serving globally</span>,
+                      },
+                      {
+                        icon: Clock,
+                        title: "Response time",
+                        content: <span className="text-muted-foreground">Usually within 24 hours</span>,
+                      },
+                    ].map((item) => (
+                      <div key={item.title} className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
+                          <item.icon size={20} className="text-accent" />
+                        </div>
+                        <div>
+                          <h3 className="font-medium text-foreground mb-1">{item.title}</h3>
+                          {item.content}
+                        </div>
+                      </div>
                     ))}
                   </div>
-                </div>
 
-                {/* Trusted By */}
-                <div className="pt-8 border-t border-border/30">
-                  <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">
-                    Trusted by
-                  </h3>
-                  <div className="flex flex-wrap items-center gap-6">
-                    <img
-                      src={clientDesignFlu}
-                      alt="Design Flu"
-                      className="h-14 w-auto object-contain rounded-2xl"
-                    />
-                    <img
-                      src={clientLaxmiPrinters}
-                      alt="Laxmi Printers"
-                      className="h-14 w-auto object-contain rounded-2xl"
-                    />
+                  {/* Social */}
+                  <div className="pt-8 border-t border-border/30">
+                    <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">
+                      Follow us
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { name: "Instagram", href: "https://instagram.com/snapweaz.com" },
+                        { name: "LinkedIn", href: "https://linkedin.com/company/snapweaz" },
+                        { name: "Twitter", href: "https://twitter.com/snapweaz" },
+                      ].map((social) => (
+                        <a
+                          key={social.name}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-5 py-2.5 rounded-full bg-secondary/50 border border-border/30 text-sm text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 inline-flex items-center gap-2"
+                        >
+                          {social.name}
+                          <ArrowUpRight size={14} />
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+
+                  {/* Trusted By */}
+                  <div className="pt-8 border-t border-border/30">
+                    <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-5">
+                      Trusted by
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-6">
+                      <img
+                        src={clientDesignFlu}
+                        alt="Design Flu"
+                        className="h-14 w-auto object-contain rounded-2xl"
+                      />
+                      <img
+                        src={clientLaxmiPrinters}
+                        alt="Laxmi Printers"
+                        className="h-14 w-auto object-contain rounded-2xl"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </SceneReveal>
       </main>
 
       <Footer />
