@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin, Heart, Zap, Users, Coffee, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SceneReveal } from "@/components/fx/SceneReveal";
 import { Button } from "@/components/ui/button";
 
 const openings = [
@@ -49,129 +50,137 @@ const Careers = () => {
         </section>
 
         {/* Benefits */}
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-8 h-px bg-accent" />
-                <p className="text-sm text-accent uppercase tracking-[0.2em]">Why Join SnapWeaz</p>
-              </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-xl">
-                Work that <span className="text-accent italic">matters</span>
-              </h2>
-            </motion.div>
+        <SceneReveal>
+          <section className="section-padding bg-background">
+            <div className="container-wide">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-8 h-px bg-accent" />
+                  <p className="text-sm text-accent uppercase tracking-[0.2em]">Why Join SnapWeaz</p>
+                </div>
+                <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-xl">
+                  Work that <span className="text-accent italic">matters</span>
+                </h2>
+              </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-px bg-border/30 rounded-3xl overflow-hidden">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-background p-10 md:p-14 group"
-                >
-                  <div className="inline-flex p-3.5 rounded-2xl bg-accent/10 mb-8 group-hover:bg-accent/20 transition-colors">
-                    <benefit.icon size={24} className="text-accent" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-foreground mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
-                </motion.div>
-              ))}
+              <div className="grid md:grid-cols-2 gap-px bg-border/30 rounded-3xl overflow-hidden">
+                {benefits.map((benefit, index) => (
+                  <motion.div
+                    key={benefit.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-background p-10 md:p-14 group"
+                  >
+                    <div className="inline-flex p-3.5 rounded-2xl bg-accent/10 mb-8 group-hover:bg-accent/20 transition-colors">
+                      <benefit.icon size={24} className="text-accent" />
+                    </div>
+                    <h3 className="font-serif text-2xl text-foreground mb-3">{benefit.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </SceneReveal>
 
         {/* Open Positions */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-8 h-px bg-accent" />
-                <p className="text-sm text-accent uppercase tracking-[0.2em]">Open Positions</p>
-              </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
-                Find your next <span className="text-accent italic">role</span>
-              </h2>
-            </motion.div>
+        <SceneReveal>
+          <section className="section-padding bg-secondary/30">
+            <div className="container-wide">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-8 h-px bg-accent" />
+                  <p className="text-sm text-accent uppercase tracking-[0.2em]">Open Positions</p>
+                </div>
+                <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
+                  Find your next <span className="text-accent italic">role</span>
+                </h2>
+              </motion.div>
 
-            <div className="space-y-3">
-              {openings.map((job, index) => (
-                <motion.a
-                  key={job.title}
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScqO3QH7jjqdnazh3DG7WdWFYbjyxKY6O9cgkvip0MtCkSZ2Q/viewform?usp=dialog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  className="group block bg-background rounded-2xl p-6 md:p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{job.department}</span>
-                        <span className="text-muted-foreground/30">·</span>
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <MapPin size={12} />{job.location}
-                        </span>
+              <div className="space-y-3">
+                {openings.map((job, index) => (
+                  <motion.a
+                    key={job.title}
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScqO3QH7jjqdnazh3DG7WdWFYbjyxKY6O9cgkvip0MtCkSZ2Q/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="group block bg-background rounded-2xl p-6 md:p-8 border border-border/30 hover:border-accent/30 transition-all duration-300"
+                  >
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-[10px] font-semibold text-accent uppercase tracking-[0.2em]">{job.department}</span>
+                          <span className="text-muted-foreground/30">·</span>
+                          <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                            <MapPin size={12} />{job.location}
+                          </span>
+                        </div>
+                        <h3 className="font-serif text-xl md:text-2xl text-foreground group-hover:text-accent transition-colors">{job.title}</h3>
+                        <p className="text-muted-foreground text-sm mt-2 hidden md:block">{job.description}</p>
                       </div>
-                      <h3 className="font-serif text-xl md:text-2xl text-foreground group-hover:text-accent transition-colors">{job.title}</h3>
-                      <p className="text-muted-foreground text-sm mt-2 hidden md:block">{job.description}</p>
+                      <div className="flex items-center gap-2 text-accent font-medium text-sm shrink-0">
+                        Apply <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-accent font-medium text-sm shrink-0">
-                      Apply <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                    </div>
-                  </div>
-                </motion.a>
-              ))}
+                  </motion.a>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </SceneReveal>
 
         {/* Certificate Verification */}
-        <section className="section-padding bg-background">
-          <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="bg-secondary/30 rounded-3xl p-10 md:p-16 border border-border/30 flex flex-col md:flex-row items-center justify-between gap-8"
-            >
-              <div className="flex items-start gap-6">
-                <div className="inline-flex p-4 rounded-2xl bg-accent/10 shrink-0">
-                  <ShieldCheck size={28} className="text-accent" />
+        <SceneReveal>
+          <section className="section-padding bg-background">
+            <div className="container-wide">
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="bg-secondary/30 rounded-3xl p-10 md:p-16 border border-border/30 flex flex-col md:flex-row items-center justify-between gap-8"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="inline-flex p-4 rounded-2xl bg-accent/10 shrink-0">
+                    <ShieldCheck size={28} className="text-accent" />
+                  </div>
+                  <div>
+                    <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-2">Verify Your Certificate</h2>
+                    <p className="text-muted-foreground">Completed an internship at SnapWeaz? Verify your certificate here.</p>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-2">Verify Your Certificate</h2>
-                  <p className="text-muted-foreground">Completed an internship at SnapWeaz? Verify your certificate here.</p>
-                </div>
-              </div>
-              <Button size="lg" className="bg-accent text-accent-foreground hover:opacity-90 rounded-full px-8 h-14 group shrink-0" asChild>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6RU_WrIqzlyjOJ3rnPYvxVd-VMMlEZ7wGz816cnjRVC8Nqg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
-                  Verify <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
+                <Button size="lg" className="bg-accent text-accent-foreground hover:opacity-90 rounded-full px-8 h-14 group shrink-0" asChild>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6RU_WrIqzlyjOJ3rnPYvxVd-VMMlEZ7wGz816cnjRVC8Nqg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+                    Verify <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
+          </section>
+        </SceneReveal>
 
         {/* CTA */}
-        <section className="section-padding bg-accent/5">
-          <div className="container-wide">
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight mb-6">
-                Don't see your <span className="text-accent italic">role</span>?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-10">We're always looking for talented people.</p>
-              <Button size="lg" className="bg-accent text-accent-foreground hover:opacity-90 rounded-full px-10 h-14 group" asChild>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScqO3QH7jjqdnazh3DG7WdWFYbjyxKY6O9cgkvip0MtCkSZ2Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
-                  Get in touch <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
+        <SceneReveal>
+          <section className="section-padding bg-accent/5">
+            <div className="container-wide">
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="text-center max-w-3xl mx-auto"
+              >
+                <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight mb-6">
+                  Don't see your <span className="text-accent italic">role</span>?
+                </h2>
+                <p className="text-lg text-muted-foreground mb-10">We're always looking for talented people.</p>
+                <Button size="lg" className="bg-accent text-accent-foreground hover:opacity-90 rounded-full px-10 h-14 group" asChild>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScqO3QH7jjqdnazh3DG7WdWFYbjyxKY6O9cgkvip0MtCkSZ2Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+                    Get in touch <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
+          </section>
+        </SceneReveal>
       </main>
 
       <Footer />
