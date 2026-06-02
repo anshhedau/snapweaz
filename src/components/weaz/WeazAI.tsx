@@ -216,7 +216,7 @@ export const WeazAI = () => {
                 data-lenis-prevent
                 onWheel={(e) => e.stopPropagation()}
                 onTouchMove={(e) => e.stopPropagation()}
-                className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5"
+                className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-5 pt-4"
               >
                 <div className="space-y-4">
                   {messages.map((message, index) => (
