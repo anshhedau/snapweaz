@@ -199,9 +199,6 @@ export const WeazAI = () => {
                   </div>
                   <div>
                     <p className="font-serif text-xl leading-none text-foreground">Weaz AI</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                      SnapWeaz helper
-                    </p>
                   </div>
                 </div>
 
@@ -255,23 +252,6 @@ export const WeazAI = () => {
               </div>
 
               <div className="shrink-0 border-t border-border/60 px-5 py-4">
-                <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
-                  Quick actions
-                </p>
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {suggestions.map((suggestion) => (
-                    <button
-                      key={suggestion}
-                      type="button"
-                      onClick={() => void sendMessage(suggestion)}
-                      disabled={isLoading}
-                      className="rounded-full border border-border bg-secondary px-3 py-2 text-left text-xs text-foreground transition-colors hover:border-accent hover:bg-accent/10 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {suggestion}
-                    </button>
-                  ))}
-                </div>
-
                 {cta && (
                   <Link
                     to={cta.href}
@@ -282,12 +262,6 @@ export const WeazAI = () => {
                   </Link>
                 )}
 
-                <label
-                  htmlFor="weaz-ai-input"
-                  className="mb-2 block text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground"
-                >
-                  Ask Weaz AI
-                </label>
                 <div className="flex items-center gap-2 rounded-full border border-accent/40 bg-background p-1 pl-2 focus-within:border-accent">
                   <Input
                     id="weaz-ai-input"
@@ -333,13 +307,13 @@ export const WeazAI = () => {
           ref={triggerRef}
           type="button"
           onClick={() => setIsOpen((open) => !open)}
-          size="lg"
-          className="group h-14 rounded-full px-5 shadow-xl"
+          size="icon"
+          className="group h-14 w-14 rounded-full shadow-xl"
           aria-expanded={isOpen}
           aria-controls="weaz-ai-panel"
+          aria-label="Weaz AI"
         >
-          <MessageSquare size={18} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
-          Weaz AI
+          <MessageSquare size={20} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
         </Button>
       </div>
     </>
