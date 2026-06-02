@@ -262,12 +262,6 @@ export const WeazAI = () => {
                   </Link>
                 )}
 
-                <div
-                  htmlFor="weaz-ai-input"
-                  className="mb-2 block text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground"
-                >
-                  Ask Weaz AI
-                </label>
                 <div className="flex items-center gap-2 rounded-full border border-accent/40 bg-background p-1 pl-2 focus-within:border-accent">
                   <Input
                     id="weaz-ai-input"
