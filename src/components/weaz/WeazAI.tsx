@@ -190,7 +190,7 @@ export const WeazAI = () => {
             aria-label="Weaz AI chat panel"
           >
             <div className="relative flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-[2rem] border border-border/60 bg-background/95 shadow-xl backdrop-blur-2xl">
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-warm opacity-10" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-warm opacity-10" />
 
               <div className="relative flex shrink-0 items-center justify-between border-b border-border/60 px-5 py-4">
                 <div className="flex items-center gap-3">
@@ -216,7 +216,7 @@ export const WeazAI = () => {
                 data-lenis-prevent
                 onWheel={(e) => e.stopPropagation()}
                 onTouchMove={(e) => e.stopPropagation()}
-                className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5"
+                className="relative min-h-0 overflow-y-auto overscroll-contain px-5 pb-5 pt-4"
               >
                 <div className="space-y-4">
                   {messages.map((message, index) => (
