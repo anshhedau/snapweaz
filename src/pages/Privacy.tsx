@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import stamp from "@/assets/stamp.png";
+import { SEO } from "@/components/seo/SEO";
 
 const sections = [
   {
@@ -49,6 +50,11 @@ const sections = [
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Privacy Policy"
+        description="How SnapWeaz collects, uses, and protects your information."
+        path="/privacy"
+      />
       <Header />
 
       <main>

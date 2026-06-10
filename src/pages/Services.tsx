@@ -7,6 +7,7 @@ import { SceneReveal } from "@/components/fx/SceneReveal";
 import { Button } from "@/components/ui/button";
 import { getServices } from "@/lib/content";
 import type { LucideIcon } from "lucide-react";
+import { SEO } from "@/components/seo/SEO";
 
 const iconMap: Record<string, LucideIcon> = {
   Palette, Code2, Megaphone, Layers,
@@ -17,6 +18,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Services"
+        description="Brand & identity, UI/UX, web & software development, and growth marketing — full-service design and engineering from SnapWeaz."
+        path="/services"
+      />
       <Header />
 
       <main>

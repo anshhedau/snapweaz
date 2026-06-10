@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { getDivisions } from "@/lib/content";
 import type { LucideIcon } from "lucide-react";
+import { SEO } from "@/components/seo/SEO";
 
 const iconMap: Record<string, LucideIcon> = {
   Palette, Code2, Rocket, Cloud, TrendingUp, Shield,
@@ -16,6 +17,11 @@ const Divisions = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Divisions"
+        description="Six specialized divisions across design, software, cloud, growth, ops, and ventures — explore the SnapWeaz studio structure."
+        path="/divisions"
+      />
       <Header />
 
       <main>

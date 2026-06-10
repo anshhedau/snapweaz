@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/seo/SEO";
 
 const openings = [
   { title: "Senior UI/UX Designer", department: "Design", location: "Remote / India", description: "Lead design projects from concept to completion, creating intuitive and beautiful experiences." },
@@ -23,6 +24,11 @@ const benefits = [
 const Careers = () => {
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Careers"
+        description="Join SnapWeaz. Explore open roles across design, software, cloud, and growth — work remotely with a global studio."
+        path="/careers"
+      />
       <Header />
 
       <main>
