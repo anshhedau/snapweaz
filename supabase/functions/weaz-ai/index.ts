@@ -1,8 +1,22 @@
 import { z } from "npm:zod@3.25.76";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+const ALLOWED_ORIGINS = new Set([
+  "https://www.snapweaz.com",
+  "https://snapweaz.com",
+  "https://snapweaz.lovable.app",
+]);
+
+const isPreviewOrigin = (origin: string) =>
+  /^https:\/\/[a-z0-9-]+\.lovable\.app$/i.test(origin) ||
+  /^https:\/\/[a-z0-9-]+\.lovableproject\.com$/i.test(origin);
+
+const buildCorsHeaders = (origin: string | null) => {
+  const allow = origin && (ALLOWED_ORIGINS.has(origin) || isPreviewOrigin(origin)) ? origin : "https://www.snapweaz.com";
+  return {
+    "Access-Control-Allow-Origin": allow,
+    "Vary": "Origin",
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+  };
 };
 
 const messageSchema = z.object({
