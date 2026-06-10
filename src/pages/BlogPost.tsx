@@ -23,8 +23,29 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />;
 
+  const published = post.date instanceof Date ? post.date.toISOString() : undefined;
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    author: { "@type": "Person", name: post.author },
+    datePublished: published,
+    mainEntityOfPage: `https://www.snapweaz.com/blog/${slug}`,
+    publisher: { "@type": "Organization", name: "SnapWeaz", logo: { "@type": "ImageObject", url: "https://www.snapweaz.com/favicon.png" } },
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${slug}`}
+        type="article"
+        publishedTime={published}
+        author={post.author}
+        jsonLd={articleLd}
+      />
       <Header />
       <main>
         {/* Hero */}
