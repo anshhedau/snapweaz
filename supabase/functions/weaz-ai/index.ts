@@ -142,19 +142,34 @@ function getSuggestionsForMessage(message: string) {
 }
 
 Deno.serve(async (req) => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = buildCorsHeaders(origin);
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
+  }
+
+  // Block direct/cross-origin abuse: only allow our own origins (and same-origin/no-origin for native fetch)
+  if (origin && !ALLOWED_ORIGINS.has(origin) && !isPreviewOrigin(origin)) {
+    return new Response(JSON.stringify({ error: "Forbidden" }), {
+      status: 403,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 
   try {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+      console.error("weaz-ai: missing API key configuration");
+      return new Response(JSON.stringify({ error: "Service temporarily unavailable. Please try again later." }), {
+        status: 503,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     const body = requestSchema.safeParse(await req.json());
     if (!body.success) {
-      return new Response(JSON.stringify({ error: body.error.flatten() }), {
+      return new Response(JSON.stringify({ error: "Invalid request." }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -182,29 +197,37 @@ Deno.serve(async (req) => {
 
     if (!response.ok) {
       const errorText = await response.text();
+      console.error(`weaz-ai gateway error [${response.status}]:`, errorText);
 
       if (response.status === 429) {
-        return new Response(JSON.stringify({ error: "Rate limit reached. Please try again shortly." }), {
+        return new Response(JSON.stringify({ error: "Too many requests. Please try again shortly." }), {
           status: 429,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
 
       if (response.status === 402) {
-        return new Response(JSON.stringify({ error: "AI usage limit reached. Please top up your workspace credits." }), {
+        return new Response(JSON.stringify({ error: "Service is currently at capacity. Please try again later." }), {
           status: 402,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
 
-      throw new Error(`AI gateway error [${response.status}]: ${errorText}`);
+      return new Response(JSON.stringify({ error: "Something went wrong. Please try again." }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     const data = await response.json();
     const reply = data.choices?.[0]?.message?.content?.trim();
 
     if (!reply) {
-      throw new Error("AI gateway returned an empty response");
+      console.error("weaz-ai: empty gateway response");
+      return new Response(JSON.stringify({ error: "Something went wrong. Please try again." }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     return new Response(
@@ -219,10 +242,8 @@ Deno.serve(async (req) => {
       },
     );
   } catch (error) {
-    console.error("weaz-ai error:", error);
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
-
-    return new Response(JSON.stringify({ error: errorMessage }), {
+    console.error("weaz-ai internal error:", error);
+    return new Response(JSON.stringify({ error: "Something went wrong. Please try again." }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
