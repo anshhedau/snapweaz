@@ -1,0 +1,32 @@
+# SnapWeaz
+
+> SnapWeaz is a creative technology studio offering design, engineering, and innovation services. Tagline: Design · Engineering · Innovation. Based in India, serving clients globally.
+
+## Contact
+- Email: info@snapweaz.com
+- Website: https://www.snapweaz.com
+- Response time: usually within 24 hours
+
+## Core Pages
+- [Home](https://www.snapweaz.com/): Studio overview and featured work
+- [About](https://www.snapweaz.com/about): Studio story, values, and timeline
+- [Services](https://www.snapweaz.com/services): Brand & Identity Design, UI/UX Design, Web & Software Development, Growth & Marketing
+- [Divisions](https://www.snapweaz.com/divisions): Six specialized divisions — design, software, cloud, growth, ops, ventures
+- [Work](https://www.snapweaz.com/work): Selected client and project case studies
+- [Founder](https://www.snapweaz.com/founder): About founder Ansh A. Hedau
+- [Blog](https://www.snapweaz.com/blog): Insights on design, engineering, and product
+- [Careers](https://www.snapweaz.com/careers): Open roles and culture
+- [Contact](https://www.snapweaz.com/contact): Project inquiries
+
+## Services
+- Brand & Identity Design — logo, visual identity, guidelines, collateral, packaging
+- UI/UX Design — research, wireframes, prototypes, visual design, design systems
+- Web & Software Development — web apps, mobile apps, APIs, cloud infrastructure
+- Growth & Marketing — digital marketing, SEO, content, analytics, campaigns
+
+## Legal
+- [Privacy](https://www.snapweaz.com/privacy)
+- [Terms](https://www.snapweaz.com/terms)
+
+## Sitemap
+- https://www.snapweaz.com/sitemap.xml
