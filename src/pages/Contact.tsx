@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import clientDesignFlu from "@/assets/client-designflu.png";
 import clientLaxmiPrinters from "@/assets/client-laxmiprinters.png";
+import { SEO } from "@/components/seo/SEO";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,6 +40,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Contact SnapWeaz"
+        description="Start a project with SnapWeaz. Reach the studio at info@snapweaz.com — we usually reply within 24 hours."
+        path="/contact"
+      />
       <Header />
 
       <main>

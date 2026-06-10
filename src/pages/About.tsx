@@ -9,6 +9,7 @@ import logo from "@/assets/logo.png";
 import { useRef } from "react";
 import { getAboutContent, parseAccentText } from "@/lib/content";
 import type { LucideIcon } from "lucide-react";
+import { SEO } from "@/components/seo/SEO";
 
 const iconMap: Record<string, LucideIcon> = {
   Heart, Lightbulb, Target, Users,
@@ -25,6 +26,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="About SnapWeaz"
+        description="Learn about SnapWeaz — a creative technology studio blending design, engineering, and innovation to build exceptional digital products."
+        path="/about"
+      />
       <Header />
 
       <main>

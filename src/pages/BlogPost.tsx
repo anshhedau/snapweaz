@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
+import { SEO } from "@/components/seo/SEO";
 import { getBlogPosts } from "@/lib/content";
 
 function formatDate(d: unknown): string {
@@ -22,8 +23,29 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />;
 
+  const published = typeof post.date === "string" ? post.date : undefined;
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    author: { "@type": "Person", name: post.author },
+    datePublished: published,
+    mainEntityOfPage: `https://www.snapweaz.com/blog/${slug}`,
+    publisher: { "@type": "Organization", name: "SnapWeaz", logo: { "@type": "ImageObject", url: "https://www.snapweaz.com/favicon.png" } },
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${slug}`}
+        type="article"
+        publishedTime={published}
+        author={post.author}
+        jsonLd={articleLd}
+      />
       <Header />
       <main>
         {/* Hero */}

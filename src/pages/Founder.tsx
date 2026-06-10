@@ -7,6 +7,7 @@ import logo from "@/assets/logo.png";
 import stamp from "@/assets/stamp.png";
 import defaultFounderPhoto from "@/assets/founder.png";
 import { getFounderInfo } from "@/lib/content";
+import { SEO } from "@/components/seo/SEO";
 
 const Founder = () => {
   const founder = getFounderInfo();
@@ -14,6 +15,11 @@ const Founder = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Founder — Ansh A. Hedau"
+        description="Meet Ansh A. Hedau, Founder and CEO of SnapWeaz. Building bridges between exceptional design and robust engineering."
+        path="/founder"
+      />
       <Header />
 
       <main>

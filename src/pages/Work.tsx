@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { getProjects, getOtherWork, getClients } from "@/lib/content";
+import { SEO } from "@/components/seo/SEO";
 
 const Work = () => {
   const projects = getProjects();
@@ -13,6 +14,11 @@ const Work = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Our Work"
+        description="Selected client work and case studies from SnapWeaz — branding, web, and product design for ambitious teams."
+        path="/work"
+      />
       <Header />
 
       <main>

@@ -9,10 +9,16 @@ import { ClientsSection } from "@/components/home/ClientsSection";
 import { CTASection } from "@/components/home/CTASection";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { StoryScrollSection } from "@/components/home/StoryScrollSection";
+import { SEO } from "@/components/seo/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <SEO
+        title="SnapWeaz — Design, Engineering & Innovation Studio"
+        description="SnapWeaz is a premium design and engineering studio crafting exceptional digital experiences for startups, founders, and forward-thinking brands."
+        path="/"
+      />
       <Header />
       <main className="relative">
         <HeroSection />

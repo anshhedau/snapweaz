@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { getBlogPosts } from "@/lib/content";
+import { SEO } from "@/components/seo/SEO";
 
 function formatDate(d: unknown): string {
   if (d instanceof Date) return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -23,6 +24,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+            <SEO
+        title="Blog"
+        description="Insights, tutorials, and perspectives on design, engineering, and digital products from the SnapWeaz studio."
+        path="/blog"
+      />
       <Header />
 
       <main>
