@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <SEO
-        title="SnapWeaz — Design, Engineering & Innovation Studio"
+        title="SnapWeaz"
         description="SnapWeaz is a premium design and engineering studio crafting exceptional digital experiences for startups, founders, and forward-thinking brands."
         path="/"
       />
@@ -23,12 +23,24 @@ const Index = () => {
       <main className="relative">
         <HeroSection />
         <StoryScrollSection />
-        <SceneReveal><ClientsSection /></SceneReveal>
-        <SceneReveal><ServicesSection /></SceneReveal>
-        <SceneReveal><AboutSection /></SceneReveal>
-        <SceneReveal><ProcessSection /></SceneReveal>
-        <SceneReveal><TestimonialsSection /></SceneReveal>
-        <SceneReveal><CTASection /></SceneReveal>
+        <SceneReveal>
+          <ClientsSection />
+        </SceneReveal>
+        <SceneReveal>
+          <ServicesSection />
+        </SceneReveal>
+        <SceneReveal>
+          <AboutSection />
+        </SceneReveal>
+        <SceneReveal>
+          <ProcessSection />
+        </SceneReveal>
+        <SceneReveal>
+          <TestimonialsSection />
+        </SceneReveal>
+        <SceneReveal>
+          <CTASection />
+        </SceneReveal>
       </main>
       <Footer />
     </div>
