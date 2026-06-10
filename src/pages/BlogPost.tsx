@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
+import { SEO } from "@/components/seo/SEO";
 import { getBlogPosts } from "@/lib/content";
 
 function formatDate(d: unknown): string {
