@@ -23,7 +23,7 @@ const BlogPost = () => {
 
   if (!post) return <Navigate to="/blog" replace />;
 
-  const published = post.date instanceof Date ? post.date.toISOString() : (typeof post.date === "string" ? post.date : undefined);
+  const published = typeof post.date === "string" ? post.date : undefined;
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
