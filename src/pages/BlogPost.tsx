@@ -1,11 +1,14 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import { marked } from "marked";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { SEO } from "@/components/seo/SEO";
 import { getBlogPosts } from "@/lib/content";
+
+marked.setOptions({ gfm: true, breaks: false });
 
 function formatDate(d: unknown): string {
   if (d instanceof Date) return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
@@ -84,7 +87,7 @@ const BlogPost = () => {
                   className="prose prose-lg prose-neutral dark:prose-invert max-w-none"
                 >
                   {post.body ? (
-                    <div dangerouslySetInnerHTML={{ __html: post.body.replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }} />
+                    <div dangerouslySetInnerHTML={{ __html: marked.parse(post.body) as string }} />
                   ) : (
                     <p className="text-muted-foreground text-lg leading-relaxed">{post.excerpt}</p>
                   )}

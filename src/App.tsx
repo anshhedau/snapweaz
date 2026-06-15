@@ -46,7 +46,7 @@ const App = () => {
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/press" element={<Blog />} />
+          
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {founder_enabled && <Route path="/founder" element={<Founder />} />}
