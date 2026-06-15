@@ -84,7 +84,7 @@ const BlogPost = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="prose prose-lg prose-neutral dark:prose-invert max-w-none"
+                  className="prose prose-lg prose-invert max-w-none prose-headings:font-serif prose-headings:tracking-tight prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-p:text-foreground/80 prose-p:leading-[1.85] prose-p:my-6 prose-li:my-2 prose-li:text-foreground/80 prose-ul:my-6 prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-em:text-foreground/70"
                 >
                   {post.body ? (
                     <div dangerouslySetInnerHTML={{ __html: marked.parse(post.body) as string }} />
