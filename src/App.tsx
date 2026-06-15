@@ -3,10 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { WeazAI } from "@/components/weaz/WeazAI";
 import { SmoothScroll } from "@/components/fx/SmoothScroll";
-import { ParticleField } from "@/components/fx/ParticleField";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -23,6 +23,11 @@ import { getPageVisibility } from "@/lib/content";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
+// Lazy-load heavy WebGL particle field so it does not block LCP.
+const ParticleField = lazy(() =>
+  import("@/components/fx/ParticleField").then((m) => ({ default: m.ParticleField })),
+);
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -35,7 +40,7 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTop />
         <SmoothScroll />
-        <ParticleField />
+        <Suspense fallback={null}><ParticleField /></Suspense>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -46,7 +51,7 @@ const App = () => {
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/press" element={<Blog />} />
+          
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {founder_enabled && <Route path="/founder" element={<Founder />} />}
