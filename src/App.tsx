@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { WeazAI } from "@/components/weaz/WeazAI";
+import { GoogleOneTap } from "@/components/auth/GoogleOneTap";
 import { SmoothScroll } from "@/components/fx/SmoothScroll";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WeazAI />
+        <GoogleOneTap />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
