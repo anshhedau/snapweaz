@@ -45,15 +45,13 @@ export const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-4 inset-x-4 md:inset-x-6 mx-auto max-w-6xl z-50 rounded-full transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
-            ? "py-2 bg-background/90 backdrop-blur-xl border border-border shadow-[0_8px_32px_-12px_hsl(20_25%_20%/0.15)]"
-            : "py-2.5 bg-background/70 backdrop-blur-lg border border-border/70"
+            ? "py-2.5 backdrop-blur-2xl bg-background/55 border-b border-white/10 shadow-[0_8px_32px_-12px_hsl(var(--accent)/0.25)]"
+            : "bg-transparent py-5"
         }`}
-
-
       >
-        <div className="flex items-center justify-between px-4 pl-6 md:pl-7">
+        <div className="container-wide flex items-center justify-between">
           <Link to="/" className="group flex items-center gap-3">
             <motion.div
               whileHover={{ scale: 1.03 }}
