@@ -52,7 +52,7 @@ export const Header = () => {
         }`}
 
       >
-        <div className="container-wide flex items-center justify-between">
+        <div className="flex items-center justify-between px-4 pl-6 md:pl-7">
           <Link to="/" className="group flex items-center gap-3">
             <motion.div
               whileHover={{ scale: 1.03 }}
