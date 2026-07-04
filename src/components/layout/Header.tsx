@@ -45,11 +45,12 @@ export const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(1200px,calc(100%-2rem))] rounded-full transition-all duration-500 ${
+        className={`fixed top-4 inset-x-4 md:inset-x-6 mx-auto max-w-6xl z-50 rounded-full transition-all duration-500 ${
           isScrolled
             ? "py-2 bg-background/90 backdrop-blur-xl border border-border shadow-[0_8px_32px_-12px_hsl(20_25%_20%/0.15)]"
             : "py-2.5 bg-background/70 backdrop-blur-lg border border-border/70"
         }`}
+
 
       >
         <div className="flex items-center justify-between px-4 pl-6 md:pl-7">
