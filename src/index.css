@@ -194,13 +194,18 @@
 
   /* ========= DARK SECTION (deep espresso contrast band) ========= */
   .section-dark {
+    --background: 20 25% 10%;
+    --foreground: 38 30% 94%;
+    --muted-foreground: 30 15% 70%;
+    --border: 38 30% 94% / 0.12;
+    --card: 20 22% 14%;
+    --card-foreground: 38 30% 94%;
+    --secondary: 20 15% 18%;
+    --secondary-foreground: 38 30% 94%;
     background: linear-gradient(135deg, hsl(20 25% 10%) 0%, hsl(20 22% 14%) 100%);
     color: hsl(38 30% 94%);
   }
-  .section-dark .text-foreground { color: hsl(38 30% 94%); }
-  .section-dark .text-muted-foreground { color: hsl(30 15% 65%); }
-  .section-dark .border-border\/30,
-  .section-dark .border-border\/60 { border-color: hsl(38 30% 94% / 0.12); }
+
 
 
   /* ========= PREMIUM CARD ========= */
