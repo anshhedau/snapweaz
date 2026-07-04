@@ -152,60 +152,61 @@
 }
 
 @layer components {
-  /* ========= LIQUID GLASS (dark theme) ========= */
+  /* ========= LIQUID GLASS (light theme, warm frost) ========= */
   .glass {
-    background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
-    backdrop-filter: blur(40px) saturate(160%);
-    -webkit-backdrop-filter: blur(40px) saturate(160%);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.55) 100%);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid hsl(var(--border));
     box-shadow: var(--shadow-glass);
   }
 
   .glass-dark {
-    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-    backdrop-filter: blur(40px) saturate(150%);
-    -webkit-backdrop-filter: blur(40px) saturate(150%);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid rgba(255,255,255,0.12);
     box-shadow: var(--shadow-glass-dark);
   }
 
   .glass-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 4px 24px rgb(0 0 0 / 0.4), inset 0 1px 0 rgb(255 255 255 / 0.06);
-    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .glass-card:hover {
-    background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
-    border-color: hsl(var(--accent) / 0.30);
-    box-shadow: 0 20px 48px rgb(0 0 0 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.08);
-    transform: translateY(-4px);
+    border-color: hsl(var(--accent) / 0.5);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
   }
 
   .glass-card-dark {
-    background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
-    backdrop-filter: blur(24px) saturate(150%);
-    -webkit-backdrop-filter: blur(24px) saturate(150%);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 4px 24px rgb(0 0 0 / 0.3), inset 0 1px 0 rgb(255 255 255 / 0.05);
-    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 4px 24px rgb(0 0 0 / 0.25);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .glass-card-dark:hover {
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%);
-    border-color: rgba(255,255,255,0.12);
-    box-shadow: 0 20px 48px rgb(0 0 0 / 0.4), inset 0 1px 0 rgb(255 255 255 / 0.08);
-    transform: translateY(-4px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 100%);
+    border-color: hsl(var(--accent) / 0.4);
+    transform: translateY(-3px);
   }
 
-  /* ========= DARK SECTION (elevated wine surface w/ light text) ========= */
+  /* ========= DARK SECTION (deep espresso contrast band) ========= */
   .section-dark {
-    background: linear-gradient(135deg, hsl(350 32% 8%) 0%, hsl(350 25% 5%) 100%);
-    color: hsl(var(--foreground));
+    background: linear-gradient(135deg, hsl(20 25% 10%) 0%, hsl(20 22% 14%) 100%);
+    color: hsl(38 30% 94%);
   }
+  .section-dark .text-foreground { color: hsl(38 30% 94%); }
+  .section-dark .text-muted-foreground { color: hsl(30 15% 65%); }
+  .section-dark .border-border\/30,
+  .section-dark .border-border\/60 { border-color: hsl(38 30% 94% / 0.12); }
+
 
   /* ========= PREMIUM CARD ========= */
   .card-premium {
