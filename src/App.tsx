@@ -20,6 +20,7 @@ import BlogPost from "./pages/BlogPost";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Founder from "./pages/Founder";
+import Certificate from "./pages/Certificate";
 import { getPageVisibility } from "@/lib/content";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {founder_enabled && <Route path="/founder" element={<Founder />} />}
+          <Route path="/certificate/:id" element={<Certificate />} />
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
