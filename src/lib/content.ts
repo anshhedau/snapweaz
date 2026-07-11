@@ -245,3 +245,14 @@ export function parseAccentText(text: string): { before: string; accent: string;
   }
   return { before: text, accent: '', after: '' };
 }
+
+export function getCertificates(): Certificate[] {
+  return parseMdFiles<Certificate>(certificateFiles);
+}
+
+export function getCertificate(id: string): Certificate | undefined {
+  const needle = id.trim().toLowerCase();
+  return getCertificates().find(
+    (c) => String(c.certificate_id).trim().toLowerCase() === needle,
+  );
+}
