@@ -15,10 +15,9 @@
     { "icon": "Users", "title": "Partnership Mindset", "description": "We're not vendors; we're partners. Your success is our success, and we're invested in your journey." }
   ],
   "timeline": [
-    { "year": "2020", "title": "The Beginning", "description": "Founded with a mission: bridge the gap between exceptional design and robust engineering." },
-    { "year": "2021", "title": "Growing the Team", "description": "Expanded capabilities with designers, developers, and strategists who share our vision." },
-    { "year": "2022", "title": "Establishing Divisions", "description": "Launched specialized divisions for deeper expertise in design, software, cloud, and growth." },
-    { "year": "2023", "title": "Global Reach", "description": "Extended services worldwide, working with startups and enterprises across industries." },
-    { "year": "2024", "title": "Innovation Hub", "description": "Launched SnapWeaz Ventures to support and incubate promising startups." }
+    { "year": "2023", "title": "The Beginning", "description": "SnapWeaz was ideated with a mission: bridge the gap between exceptional design and robust engineering." },
+    { "year": "2024", "title": "Building the Team", "description": "Assembled a tight-knit team of designers, developers, and strategists who share the vision." },
+    { "year": "2025", "title": "Establishing Divisions", "description": "Launched specialized divisions for deeper expertise in design, software, cloud, and growth." },
+    { "year": "2026", "title": "Global Reach", "description": "Extended services worldwide, partnering with startups and enterprises across industries." }
   ]
 }

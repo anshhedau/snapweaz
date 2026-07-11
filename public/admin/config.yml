@@ -217,6 +217,24 @@ collections:
       - { name: "order", label: "Order (lower = first)", widget: "number", default: 10 }
       - { name: "body", label: "Full Article Content", widget: "markdown" }
 
+  # ============ CERTIFICATES ============
+  - name: "certificates"
+    label: "Certificates"
+    folder: "content/certificates"
+    create: true
+    slug: "{{certificate_id}}"
+    summary: "{{recipient_name}} — {{certificate_id}}"
+    fields:
+      - { name: "certificate_id", label: "Certificate ID (e.g. 9xh4a8p72k)", widget: "string", hint: "Used in the verification URL: /certificate/{id}" }
+      - { name: "recipient_name", label: "Recipient Name", widget: "string" }
+      - { name: "program", label: "Program / Course", widget: "string" }
+      - { name: "issued_date", label: "Issued Date", widget: "string" }
+      - { name: "duration", label: "Duration (optional)", widget: "string", required: false }
+      - { name: "grade", label: "Grade (optional)", widget: "string", required: false }
+      - { name: "issuer", label: "Issued By", widget: "string", default: "SnapWeaz Studio" }
+      - { name: "valid", label: "Valid", widget: "boolean", default: true, hint: "Uncheck to mark as revoked/invalid" }
+      - { name: "body", label: "Notes (optional)", widget: "text", required: false }
+
   # ============ OTHER WORK ============
   - name: "other_work"
     label: "Other Work (Stats)"

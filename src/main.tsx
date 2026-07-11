@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
@@ -14,8 +14,19 @@ if (redirect) {
   window.history.replaceState(null, "", redirect);
 }
 
-createRoot(document.getElementById("root")!).render(
+const rootEl = document.getElementById("root")!;
+const app = (
   <HelmetProvider>
     <App />
-  </HelmetProvider>,
+  </HelmetProvider>
 );
+
+// react-snap prerenders the app to static HTML at build time — hydrate that
+// markup on load instead of throwing it away. Falls back to createRoot when
+// no prerendered content exists (dev mode, SPA fallback routes).
+if (rootEl.hasChildNodes()) {
+  hydrateRoot(rootEl, app);
+} else {
+  createRoot(rootEl).render(app);
+}
+

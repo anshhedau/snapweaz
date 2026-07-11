@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneReveal } from "@/components/fx/SceneReveal";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import officeImage from "@/assets/snapweaz-office.png";
 import { useRef } from "react";
 import { getAboutContent, parseAccentText } from "@/lib/content";
 import type { LucideIcon } from "lucide-react";
@@ -98,11 +98,14 @@ const About = () => {
                   transition={{ delay: 0.2 }}
                   className="lg:col-span-4 lg:col-start-9"
                 >
-                  <div className="aspect-square rounded-3xl bg-secondary/50 border border-border/30 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-accent/5" />
-                    <div className="relative text-center">
-                      <img src={logo} alt="SnapWeaz" className="w-28 h-28 mx-auto object-contain" />
-                    </div>
+                  <div className="aspect-square rounded-3xl border border-border/30 relative overflow-hidden group">
+                    <img
+                      src={officeImage}
+                      alt="SnapWeaz office space"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </motion.div>
               </div>

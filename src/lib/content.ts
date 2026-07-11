@@ -124,6 +124,18 @@ export interface FounderInfo {
   sections: { title: string; text: string }[];
   social: { name: string; url: string }[];
 }
+export interface Certificate {
+  certificate_id: string;
+  recipient_name: string;
+  program: string;
+  issued_date: string;
+  duration?: string;
+  grade?: string;
+  issuer?: string;
+  valid?: boolean;
+  body?: string;
+}
+
 
 // ============ Markdown loaders using import.meta.glob ============
 
@@ -135,6 +147,7 @@ const processFiles = import.meta.glob('/content/process/*.md', { eager: true, qu
 const otherWorkFiles = import.meta.glob('/content/other-work/*.md', { eager: true, query: '?raw', import: 'default' });
 const clientFiles = import.meta.glob('/content/clients/*.md', { eager: true, query: '?raw', import: 'default' });
 const blogFiles = import.meta.glob('/content/blog/*.md', { eager: true, query: '?raw', import: 'default' });
+const certificateFiles = import.meta.glob('/content/certificates/*.md', { eager: true, query: '?raw', import: 'default' });
 
 // JSON settings
 const settingsFiles = import.meta.glob('/content/settings/*.json', { eager: true, import: 'default' });
@@ -231,4 +244,15 @@ export function parseAccentText(text: string): { before: string; accent: string;
     return { before: match[1], accent: match[2], after: match[3] };
   }
   return { before: text, accent: '', after: '' };
+}
+
+export function getCertificates(): Certificate[] {
+  return parseMdFiles<Certificate>(certificateFiles);
+}
+
+export function getCertificate(id: string): Certificate | undefined {
+  const needle = id.trim().toLowerCase();
+  return getCertificates().find(
+    (c) => String(c.certificate_id).trim().toLowerCase() === needle,
+  );
 }
