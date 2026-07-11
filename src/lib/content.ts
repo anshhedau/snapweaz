@@ -260,3 +260,11 @@ export function getCertificate(id: string): Certificate | undefined {
     (c) => String(c.certificate_id).trim().toLowerCase() === needle,
   );
 }
+
+export function findCertificateByInternId(internId: string): Certificate | undefined {
+  const needle = internId.trim().toLowerCase();
+  if (!needle) return undefined;
+  return getCertificates().find(
+    (c) => String(c.intern_id ?? "").trim().toLowerCase() === needle,
+  );
+}
