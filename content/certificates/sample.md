@@ -1,14 +1,14 @@
 ---
 certificate_id: 9xh4a8p72k
-intern_id: SW-2026-001
-recipient_name: Sample Recipient
-program: SnapWeaz Design Fellowship
-issued_date: 2026-01-15
-duration: 12 months
+intern_id: SWi20260044
+recipient_name: Jhanvi Bist
+program: UX Designer Intern
+issued_date: 2026-05-20
+duration: 2 months
 status: working
-linkedin: https://www.linkedin.com/in/sample
-github: https://github.com/sample
-certificate_pdf: /uploads/work-designflu.png
-issuer: SnapWeaz Studio
+linkedin: https://www.linkedin.com/in/jhanvibist
+github: https://github.com/jhanvibist
+certificate_pdf: ""
+issuer: SnapWeaz
 ---
-Successfully completed the SnapWeaz Design Fellowship covering brand strategy, UI/UX design, and modern product engineering.
+Successfully completed the UX Design Internship
