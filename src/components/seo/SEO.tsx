@@ -9,6 +9,7 @@ type SEOProps = {
   publishedTime?: string;
   author?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 };
 
 const SITE = "https://www.snapweaz.com";
@@ -23,6 +24,7 @@ export const SEO = ({
   publishedTime,
   author,
   jsonLd,
+  noindex,
 }: SEOProps) => {
   const url = `${SITE}${path}`;
   const fullTitle = title.includes("SnapWeaz") ? title : `${title} | SnapWeaz`;
@@ -32,6 +34,7 @@ export const SEO = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content={type} />
