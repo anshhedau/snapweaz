@@ -158,7 +158,7 @@ const Careers = () => {
                   </div>
                 </div>
                 <Button size="lg" className="bg-accent text-accent-foreground hover:opacity-90 rounded-full px-8 h-14 group shrink-0" asChild>
-                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6RU_WrIqzlyjOJ3rnPYvxVd-VMMlEZ7wGz816cnjRVC8Nqg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">
+                  <a href="/verify">
                     Verify <ArrowUpRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
