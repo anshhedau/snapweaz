@@ -127,6 +127,7 @@ export interface FounderInfo {
 export type CertificateStatus = "verified" | "working" | "incomplete";
 export interface Certificate {
   certificate_id: string;
+  intern_id?: string;
   recipient_name: string;
   program: string;
   issued_date: string;
