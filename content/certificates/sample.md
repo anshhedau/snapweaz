@@ -5,7 +5,7 @@ recipient_name: Sample Recipient
 program: SnapWeaz Design Fellowship
 issued_date: 2026-01-15
 duration: 12 months
-status: working
+status: incomplete
 linkedin: https://www.linkedin.com/in/sample
 github: https://github.com/sample
 certificate_pdf: /uploads/work-designflu.png
