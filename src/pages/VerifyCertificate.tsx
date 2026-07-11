@@ -55,12 +55,6 @@ const VerifyCertificate = () => {
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-[11px] text-accent uppercase tracking-[0.25em] mb-6">
               <ShieldCheck size={12} /> Certificate Verification
             </div>
-            <h1 className="font-serif text-4xl md:text-6xl leading-[1.02] mb-5">
-              Verify your <span className="text-accent italic">certificate</span>
-            </h1>
-            <p className="text-foreground/60 leading-relaxed mb-10">
-              Enter your Intern ID below. If it matches our records, you'll be taken to your official certificate page.
-            </p>
 
             <form
               onSubmit={onSubmit}
@@ -75,7 +69,7 @@ const VerifyCertificate = () => {
                     setInternId(e.target.value);
                     if (error) setError(null);
                   }}
-                  placeholder="e.g. SW-2026-001"
+                  placeholder="e.g. SWi2026xxxx"
                   autoFocus
                   className="w-full bg-transparent border-0 outline-none py-3.5 text-foreground placeholder:text-foreground/40 font-mono text-sm"
                 />
@@ -101,8 +95,8 @@ const VerifyCertificate = () => {
 
             <p className="text-xs text-foreground/40 mt-8">
               Lost your Intern ID? Contact us at{" "}
-              <a href="mailto:hello@snapweaz.com" className="text-accent hover:underline">
-                hello@snapweaz.com
+              <a href="mailto:info@snapweaz.com" className="text-accent hover:underline">
+                info@snapweaz.com
               </a>
               .
             </p>
