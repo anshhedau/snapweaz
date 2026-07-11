@@ -246,14 +246,11 @@ const Certificate = () => {
               </div>
             )}
 
-            {/* PDF viewer */}
+            {/* PDF download */}
             {cert.certificate_pdf && (
               <div className="px-8 md:px-14 py-10 border-t border-border/30">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
-                  <div>
-                    <p className="text-xs text-foreground/50 uppercase tracking-[0.3em] mb-2">Certificate Document</p>
-                    <h2 className="font-serif text-2xl">Official PDF</h2>
-                  </div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <p className="text-xs text-foreground/50 uppercase tracking-[0.3em]">Certificate Document</p>
                   <Button
                     asChild
                     className="bg-accent text-accent-foreground hover:opacity-90 hover:text-accent-foreground rounded-full"
@@ -262,26 +259,6 @@ const Certificate = () => {
                       <Download size={16} className="mr-2" /> Download PDF
                     </a>
                   </Button>
-                </div>
-                <div className="rounded-2xl overflow-hidden border border-border/40 bg-background/60">
-                  <object
-                    data={cert.certificate_pdf}
-                    type="application/pdf"
-                    className="w-full h-[600px] md:h-[720px]"
-                  >
-                    <iframe
-                      src={cert.certificate_pdf}
-                      title="Certificate PDF"
-                      className="w-full h-[600px] md:h-[720px]"
-                    />
-                    <div className="p-8 text-center text-foreground/60">
-                      Your browser can't display the PDF inline.{" "}
-                      <a href={cert.certificate_pdf} className="text-accent underline">
-                        Download it here
-                      </a>
-                      .
-                    </div>
-                  </object>
                 </div>
               </div>
             )}
