@@ -198,6 +198,9 @@ const Certificate = () => {
 
             {/* Details grid */}
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-px bg-border/20">
+              {cert.intern_id && (
+                <Detail icon={<BadgeCheck size={14} />} label="Intern ID" value={cert.intern_id} />
+              )}
               <Detail icon={<Calendar size={14} />} label="Issue Date" value={formatDate(cert.issued_date)} />
               {cert.duration && (
                 <Detail icon={<Clock size={14} />} label="Duration" value={cert.duration} />
