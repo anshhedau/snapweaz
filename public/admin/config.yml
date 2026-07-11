@@ -225,7 +225,8 @@ collections:
     slug: "{{certificate_id}}"
     summary: "{{recipient_name}} — {{certificate_id}} ({{status}})"
     fields:
-      - { name: "certificate_id", label: "Certificate ID / Slug", widget: "string", hint: "Used as the URL slug: /certificate/{id}. Must be unique. Example: 9xh4a8p72k" }
+      - { name: "certificate_id", label: "Certificate ID / URL Slug (random)", widget: "string", hint: "Random slug used in the public URL: /certificate/{id}. Must be unique. Example: 9xh4a8p72k" }
+      - { name: "intern_id", label: "Intern ID", widget: "string", hint: "The intern's official ID. Shown on the certificate and used by the public verify search." }
       - { name: "recipient_name", label: "Name", widget: "string" }
       - { name: "program", label: "Program / Role", widget: "string" }
       - { name: "issued_date", label: "Issue Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, format: "YYYY-MM-DD" }
