@@ -124,15 +124,18 @@ export interface FounderInfo {
   sections: { title: string; text: string }[];
   social: { name: string; url: string }[];
 }
+export type CertificateStatus = "verified" | "working" | "incomplete";
 export interface Certificate {
   certificate_id: string;
   recipient_name: string;
   program: string;
   issued_date: string;
   duration?: string;
-  grade?: string;
+  status?: CertificateStatus;
+  linkedin?: string;
+  github?: string;
+  certificate_pdf?: string;
   issuer?: string;
-  valid?: boolean;
   body?: string;
 }
 
