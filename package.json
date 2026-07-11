@@ -6,11 +6,32 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "react-snap || echo 'react-snap prerender skipped'",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "destination": "dist",
+    "inlineCss": false,
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "include": [
+      "/",
+      "/about",
+      "/services",
+      "/divisions",
+      "/work",
+      "/contact",
+      "/careers",
+      "/blog",
+      "/privacy",
+      "/terms",
+      "/sitemap"
+    ]
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
