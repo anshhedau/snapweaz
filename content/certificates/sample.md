@@ -1,5 +1,6 @@
 ---
 certificate_id: 9xh4a8p72k
+intern_id: SW-2026-001
 recipient_name: Sample Recipient
 program: SnapWeaz Design Fellowship
 issued_date: 2026-01-15
