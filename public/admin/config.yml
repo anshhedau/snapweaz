@@ -223,17 +223,46 @@ collections:
     folder: "content/certificates"
     create: true
     slug: "{{certificate_id}}"
-    summary: "{{recipient_name}} — {{certificate_id}}"
+    summary: "{{recipient_name}} — {{certificate_id}} ({{status}})"
     fields:
-      - { name: "certificate_id", label: "Certificate ID (e.g. 9xh4a8p72k)", widget: "string", hint: "Used in the verification URL: /certificate/{id}" }
-      - { name: "recipient_name", label: "Recipient Name", widget: "string" }
-      - { name: "program", label: "Program / Course", widget: "string" }
-      - { name: "issued_date", label: "Issued Date", widget: "string" }
-      - { name: "duration", label: "Duration (optional)", widget: "string", required: false }
-      - { name: "grade", label: "Grade (optional)", widget: "string", required: false }
+      - { name: "certificate_id", label: "Certificate ID / Slug", widget: "string", hint: "Used as the URL slug: /certificate/{id}. Must be unique. Example: 9xh4a8p72k" }
+      - { name: "recipient_name", label: "Name", widget: "string" }
+      - { name: "program", label: "Program / Role", widget: "string" }
+      - { name: "issued_date", label: "Issue Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, format: "YYYY-MM-DD" }
+      - name: "duration"
+        label: "Duration"
+        widget: "select"
+        required: false
+        default: "3 months"
+        options:
+          - "1 month"
+          - "2 months"
+          - "3 months"
+          - "4 months"
+          - "5 months"
+          - "6 months"
+          - "7 months"
+          - "8 months"
+          - "9 months"
+          - "10 months"
+          - "11 months"
+          - "12 months"
+          - "18 months"
+          - "24 months"
+      - name: "status"
+        label: "Status"
+        widget: "select"
+        default: "verified"
+        options:
+          - { label: "Verified", value: "verified" }
+          - { label: "Currently working here", value: "working" }
+          - { label: "Incomplete", value: "incomplete" }
+      - { name: "linkedin", label: "LinkedIn URL (optional)", widget: "string", required: false }
+      - { name: "github", label: "GitHub URL (optional)", widget: "string", required: false }
+      - { name: "certificate_pdf", label: "Certificate PDF", widget: "file", required: false, hint: "Upload the certificate PDF — shown in an embedded viewer with a download button." }
       - { name: "issuer", label: "Issued By", widget: "string", default: "SnapWeaz Studio" }
-      - { name: "valid", label: "Valid", widget: "boolean", default: true, hint: "Uncheck to mark as revoked/invalid" }
       - { name: "body", label: "Notes (optional)", widget: "text", required: false }
+
 
   # ============ OTHER WORK ============
   - name: "other_work"
