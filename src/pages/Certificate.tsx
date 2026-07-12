@@ -6,13 +6,13 @@ import {
   BadgeCheck,
   Loader2,
   Calendar,
-  Clock,
+  CalendarCheck,
   Linkedin,
   Github,
   Download,
   FileText,
   ArrowLeft,
-  Copy,
+  Link2,
   Check,
 } from "lucide-react";
 import { useState } from "react";
@@ -31,22 +31,22 @@ const STATUS_META: Record<
     label: "Verified",
     sub: "Authenticated by SnapWeaz",
     icon: BadgeCheck,
-    tone: "bg-accent/15 text-accent border-accent/30",
-    ring: "shadow-[0_0_60px_-15px_hsl(var(--accent)/0.6)]",
+    tone: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
+    ring: "shadow-[0_0_80px_-10px_rgba(52,211,153,0.55)]",
   },
   working: {
     label: "Currently Working Here",
     sub: "Active engagement in progress",
     icon: Loader2,
     tone: "bg-blue-400/15 text-blue-300 border-blue-400/30",
-    ring: "shadow-[0_0_60px_-15px_rgba(96,165,250,0.5)]",
+    ring: "shadow-[0_0_80px_-10px_rgba(96,165,250,0.55)]",
   },
   incomplete: {
     label: "Incomplete",
     sub: "Program not fully completed",
     icon: ShieldAlert,
-    tone: "bg-amber-400/15 text-amber-300 border-amber-400/30",
-    ring: "shadow-[0_0_60px_-15px_rgba(251,191,36,0.4)]",
+    tone: "bg-red-500/15 text-red-400 border-red-500/30",
+    ring: "shadow-[0_0_80px_-10px_rgba(248,113,113,0.55)]",
   },
 };
 
