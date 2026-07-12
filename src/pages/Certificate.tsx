@@ -10,7 +10,7 @@ import {
   Linkedin,
   Github,
   Download,
-  FileText,
+  
   ArrowLeft,
   Link2,
   Check,
