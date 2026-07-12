@@ -130,8 +130,8 @@ export interface Certificate {
   intern_id?: string;
   recipient_name: string;
   program: string;
-  issued_date: string;
-  duration?: string;
+  start_date: string;
+  end_date?: string;
   status?: CertificateStatus;
   linkedin?: string;
   github?: string;

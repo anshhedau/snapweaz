@@ -229,27 +229,8 @@ collections:
       - { name: "intern_id", label: "Intern ID", widget: "string", hint: "The intern's official ID. Shown on the certificate and used by the public verify search." }
       - { name: "recipient_name", label: "Name", widget: "string" }
       - { name: "program", label: "Program / Role", widget: "string" }
-      - { name: "issued_date", label: "Issue Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, format: "YYYY-MM-DD" }
-      - name: "duration"
-        label: "Duration"
-        widget: "select"
-        required: false
-        default: "3 months"
-        options:
-          - "1 month"
-          - "2 months"
-          - "3 months"
-          - "4 months"
-          - "5 months"
-          - "6 months"
-          - "7 months"
-          - "8 months"
-          - "9 months"
-          - "10 months"
-          - "11 months"
-          - "12 months"
-          - "18 months"
-          - "24 months"
+      - { name: "start_date", label: "Start Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, format: "YYYY-MM-DD" }
+      - { name: "end_date", label: "End Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, format: "YYYY-MM-DD", required: false, hint: "Leave blank if the engagement is ongoing (Currently Working Here)." }
       - name: "status"
         label: "Status"
         widget: "select"
