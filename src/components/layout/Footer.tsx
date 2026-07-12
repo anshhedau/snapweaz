@@ -10,6 +10,7 @@ const footerLinks = {
   company: [
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
+    { name: "Verify Your Certificate", href: "/verify" },
     { name: "Blog", href: "/blog" },
     { name: "Free Website For You", href: "https://free.snapweaz.com/", external: true },
     ...(founder_enabled ? [{ name: "Founder", href: "/founder" }] : []),
