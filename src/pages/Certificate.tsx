@@ -162,18 +162,18 @@ const Certificate = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto mb-8 flex items-center justify-between gap-4"
+            className="max-w-4xl mx-auto mb-8 flex items-center justify-between gap-3 flex-nowrap"
           >
-            <div className="flex items-center gap-3 text-xs text-foreground/50 uppercase tracking-[0.25em]">
-              <ShieldCheck size={14} className="text-accent" />
-              <span>SnapWeaz Certificate Verification</span>
+            <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-foreground/50 uppercase tracking-[0.2em] sm:tracking-[0.25em] whitespace-nowrap min-w-0">
+              <ShieldCheck size={14} className="text-accent shrink-0" />
+              <span className="truncate">SnapWeaz Certificate Verification</span>
             </div>
             <button
-              onClick={copyId}
-              className="flex items-center gap-2 text-xs text-foreground/60 hover:text-foreground transition font-mono"
+              onClick={copyLink}
+              className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-foreground/60 hover:text-foreground transition uppercase tracking-[0.2em] whitespace-nowrap shrink-0"
             >
-              {copied ? <Check size={12} className="text-accent" /> : <Copy size={12} />}
-              <span>{cert.certificate_id}</span>
+              {copied ? <Check size={12} className="text-accent" /> : <Link2 size={12} />}
+              <span>{copied ? "Copied" : "Copy Link"}</span>
             </button>
           </motion.div>
 
@@ -185,12 +185,12 @@ const Certificate = () => {
             className={`max-w-4xl mx-auto rounded-3xl border border-border/40 bg-gradient-to-b from-secondary/30 to-background/60 backdrop-blur-xl overflow-hidden ${meta.ring}`}
           >
             {/* Header band */}
-            <div className="relative px-8 md:px-14 pt-10 md:pt-14 pb-10 border-b border-border/30">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-10">
+            <div className="relative px-6 sm:px-8 md:px-14 pt-8 sm:pt-10 md:pt-14 pb-8 sm:pb-10 border-b border-border/30">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 mb-8 sm:mb-10">
                 <img src={logo} alt="SnapWeaz" className="h-9 w-auto object-contain" />
 
                 <div
-                  className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] ${meta.tone}`}
+                  className={`inline-flex items-center gap-2 rounded-full border px-3 sm:px-4 py-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] ${meta.tone}`}
                 >
                   <StatusIcon
                     size={14}
@@ -200,18 +200,16 @@ const Certificate = () => {
                 </div>
               </div>
 
-              <p className="text-xs text-foreground/50 uppercase tracking-[0.3em] mb-4">
+              <p className="text-[10px] sm:text-xs text-foreground/50 uppercase tracking-[0.3em] mb-3 sm:mb-4">
                 Certificate of {status === "incomplete" ? "Enrollment" : status === "working" ? "Engagement" : "Completion"}
               </p>
-              <h1 className="font-serif text-4xl md:text-6xl leading-[1.02] mb-6">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl leading-[1.05] mb-5 sm:mb-6 break-words">
                 {cert.recipient_name}
               </h1>
-              <p className="text-lg text-foreground/70 max-w-2xl leading-relaxed">
-                {status === "working" ? "is currently working with " : status === "incomplete" ? "was enrolled in " : "has successfully completed "}
-                <span className="text-accent italic">{cert.program}</span>
-                {" "}at {cert.issuer || "SnapWeaz Studio"}.
+              <p className="text-base sm:text-lg text-foreground/70 max-w-2xl leading-relaxed">
+                {sentence}
               </p>
-              <p className="text-sm text-foreground/50 mt-3">{meta.sub}</p>
+              <p className="text-xs sm:text-sm text-foreground/50 mt-3">{meta.sub}</p>
             </div>
 
             {/* Details grid */}
@@ -219,16 +217,14 @@ const Certificate = () => {
               {cert.intern_id && (
                 <Detail icon={<BadgeCheck size={14} />} label="Intern ID" value={cert.intern_id} />
               )}
-              <Detail icon={<Calendar size={14} />} label="Issue Date" value={formatDate(cert.issued_date)} />
-              {cert.duration && (
-                <Detail icon={<Clock size={14} />} label="Duration" value={cert.duration} />
-              )}
+              <Detail icon={<Calendar size={14} />} label="Start Date" value={formatDate(cert.start_date)} />
               <Detail
-                icon={<FileText size={14} />}
-                label="Issuer"
-                value={cert.issuer || "SnapWeaz Studio"}
+                icon={<CalendarCheck size={14} />}
+                label="End Date"
+                value={cert.end_date ? formatDate(cert.end_date) : status === "working" ? "Present" : "—"}
               />
             </div>
+
 
             {/* Social / links */}
             {(cert.linkedin || cert.github) && (
