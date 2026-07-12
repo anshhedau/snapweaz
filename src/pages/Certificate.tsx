@@ -112,15 +112,33 @@ const Certificate = () => {
   const meta = STATUS_META[status];
   const StatusIcon = meta.icon;
 
-  const copyId = async () => {
+  const copyLink = async () => {
     try {
-      await navigator.clipboard.writeText(cert.certificate_id);
+      const url = typeof window !== "undefined"
+        ? `${window.location.origin}/certificate/${cert.certificate_id}`
+        : `https://www.snapweaz.com/certificate/${cert.certificate_id}`;
+      await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
     } catch {
       /* no-op */
     }
   };
+
+  const program = cert.program?.trim() || "";
+  const startsWithVowel = /^[aeiou]/i.test(program);
+  const article = startsWithVowel ? "an" : "a";
+  const issuer = cert.issuer || "SnapWeaz Studio";
+  const workingSentence = (
+    <>is currently working as {article} <span className="text-accent italic">{program}</span> at {issuer}.</>
+  );
+  const completedSentence = (
+    <>has successfully completed the <span className="text-accent italic">{program}</span> program at {issuer}.</>
+  );
+  const incompleteSentence = (
+    <>was enrolled in the <span className="text-accent italic">{program}</span> program at {issuer}.</>
+  );
+  const sentence = status === "working" ? workingSentence : status === "incomplete" ? incompleteSentence : completedSentence;
 
   return (
     <div className="min-h-screen bg-background">
