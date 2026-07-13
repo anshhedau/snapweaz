@@ -128,6 +128,7 @@ export type CertificateStatus = "verified" | "working" | "incomplete";
 export interface Certificate {
   certificate_id: string;
   intern_id?: string;
+  email?: string;
   recipient_name: string;
   program: string;
   start_date: string;

@@ -227,6 +227,7 @@ collections:
     fields:
       - { name: "certificate_id", label: "Certificate ID / URL Slug (random)", widget: "string", hint: "Random slug used in the public URL: /certificate/{id}. Must be unique. Example: 9xh4a8p72k" }
       - { name: "intern_id", label: "Intern ID", widget: "string", hint: "The intern's official ID. Shown on the certificate and used by the public verify search." }
+      - { name: "email", label: "Intern Email (Private — for OTP only)", widget: "string", required: false, hint: "Never displayed publicly. Used only to send the OTP when someone searches this Intern ID on the verify page." }
       - { name: "recipient_name", label: "Name", widget: "string" }
       - { name: "program", label: "Program / Role", widget: "string" }
       - { name: "start_date", label: "Start Date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, format: "YYYY-MM-DD" }
