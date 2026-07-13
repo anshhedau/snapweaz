@@ -24,6 +24,7 @@ import Certificate from "./pages/Certificate";
 import VerifyCertificate from "./pages/VerifyCertificate";
 import { getPageVisibility } from "@/lib/content";
 import Sitemap from "./pages/Sitemap";
+import Unsubscribe from "./pages/Unsubscribe";
 import NotFound from "./pages/NotFound";
 
 // Lazy-load heavy WebGL particle field so it does not block LCP.
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/verify" element={<VerifyCertificate />} />
           <Route path="/certificate/:id" element={<Certificate />} />
           <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WeazAI />
