@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cert_otps: {
+        Row: {
+          attempts: number
+          certificate_id: string
+          code_hash: string
+          created_at: string
+          expires_at: string
+          id: string
+          intern_id: string
+          used: boolean
+        }
+        Insert: {
+          attempts?: number
+          certificate_id: string
+          code_hash: string
+          created_at?: string
+          expires_at: string
+          id?: string
+          intern_id: string
+          used?: boolean
+        }
+        Update: {
+          attempts?: number
+          certificate_id?: string
+          code_hash?: string
+          created_at?: string
+          expires_at?: string
+          id?: string
+          intern_id?: string
+          used?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

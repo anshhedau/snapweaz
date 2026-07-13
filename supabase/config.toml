@@ -2,3 +2,6 @@ project_id = "fnwhiinifkcoeuwyktnk"
 
 [functions.weaz-ai]
 verify_jwt = false
+
+[functions.cert-otp]
+verify_jwt = false

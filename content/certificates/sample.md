@@ -1,6 +1,7 @@
 ---
 certificate_id: 9xh4a8p72k
 intern_id: SWi20260044
+email: ""
 recipient_name: Jhanvi Bist
 program: UX Designer Intern
 start_date: 2026-05-20
