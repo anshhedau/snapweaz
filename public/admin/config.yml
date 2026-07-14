@@ -243,7 +243,7 @@ collections:
       - { name: "linkedin", label: "LinkedIn URL (optional)", widget: "string", required: false }
       - { name: "github", label: "GitHub URL (optional)", widget: "string", required: false }
       - { name: "certificate_pdf", label: "Certificate PDF", widget: "file", required: false, hint: "Upload the certificate PDF — shown in an embedded viewer with a download button." }
-      - { name: "issuer", label: "Issued By", widget: "string", default: "SnapWeaz Studio" }
+      - { name: "issuer", label: "Issued By", widget: "string", default: "SnapWeaz", required: false, hint: "Defaults to SnapWeaz. Change only if a different issuer is needed." }
       - { name: "body", label: "Notes (optional)", widget: "text", required: false }
 
 

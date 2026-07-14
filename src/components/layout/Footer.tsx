@@ -32,39 +32,41 @@ const footerLinks = {
   ],
 };
 
-export const Footer = () => {
+export const Footer = ({ hideCta = false }: { hideCta?: boolean } = {}) => {
   return (
     <footer className="section-dark relative overflow-hidden noise-overlay">
       {/* Orb */}
       <div className="absolute top-[30%] right-[10%] w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px] pointer-events-none" />
 
       {/* Large CTA */}
-      <div className="container-wide py-24 md:py-32 lg:py-40 border-b border-background/10 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-8 h-px bg-accent" />
-            <span className="text-sm text-accent uppercase tracking-[0.3em]">Let's collaborate</span>
-          </div>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-[0.95] max-w-4xl">
-            Ready to build something <span className="text-accent italic">meaningful</span>?
-          </h2>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-3 px-10 py-5 glass-card-dark rounded-full font-medium hover:bg-accent/10 hover:border-accent/30 transition-all duration-500 group text-lg text-foreground"
+      {!hideCta && (
+        <div className="container-wide py-24 md:py-32 lg:py-40 border-b border-background/10 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            Start a conversation
-            <ArrowUpRight
-              size={20}
-              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-            />
-          </Link>
-        </motion.div>
-      </div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-8 h-px bg-accent" />
+              <span className="text-sm text-accent uppercase tracking-[0.3em]">Let's collaborate</span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-[0.95] max-w-4xl">
+              Ready to build something <span className="text-accent italic">meaningful</span>?
+            </h2>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 px-10 py-5 glass-card-dark rounded-full font-medium hover:bg-accent/10 hover:border-accent/30 transition-all duration-500 group text-lg text-foreground"
+            >
+              Start a conversation
+              <ArrowUpRight
+                size={20}
+                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </Link>
+          </motion.div>
+        </div>
+      )}
 
       {/* Links Grid */}
       <div className="container-wide py-20 lg:py-24 relative z-10">

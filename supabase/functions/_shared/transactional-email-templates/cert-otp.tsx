@@ -5,8 +5,12 @@ import {
   Container,
   Head,
   Heading,
+  Hr,
   Html,
+  Link,
   Preview,
+  Row,
+  Column,
   Section,
   Text,
 } from 'npm:@react-email/components@0.0.22';
@@ -18,58 +22,147 @@ interface Props {
   expiresInMinutes?: number;
 }
 
-const Email = ({ code = '000000', name, expiresInMinutes = 10 }: Props) => (
-  <Html lang="en" dir="ltr">
-    <Head />
-    <Preview>Your SnapWeaz certificate verification code</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Heading style={h1}>Verify your certificate</Heading>
-        <Text style={text}>
-          {name ? `Hi ${name},` : 'Hi there,'} use the code below to view your SnapWeaz
-          certificate. It expires in {expiresInMinutes} minutes.
-        </Text>
-        <Section style={codeBox}>
-          <Text style={codeText}>{code}</Text>
-        </Section>
-        <Text style={muted}>
-          If you didn't request this, you can safely ignore this email.
-        </Text>
-        <Text style={footer}>SnapWeaz Studio · snapweaz.com</Text>
-      </Container>
-    </Body>
-  </Html>
-);
+const Email = ({ code = '000000', name, expiresInMinutes = 2 }: Props) => {
+  const digits = String(code).padStart(6, '0').slice(0, 6).split('');
+  return (
+    <Html lang="en" dir="ltr">
+      <Head />
+      <Preview>Your SnapWeaz certificate verification code</Preview>
+      <Body style={main}>
+        <Container style={outer}>
+          <Section style={card}>
+            <Heading style={h1}>
+              Verify your <span style={h1Accent}>certificate</span>
+            </Heading>
+
+            {name ? <Text style={hiName}>Hi {name},</Text> : <Text style={hiName}>Hi there,</Text>}
+            <Text style={intro}>
+              Use the code below to view your SnapWeaz certificate. It expires in{' '}
+              <strong style={strong}>{expiresInMinutes} minutes</strong>.
+            </Text>
+
+            <Section style={codeFrame}>
+              <Row>
+                {digits.map((d, i) => (
+                  <Column key={i} align="center" style={digitCol}>
+                    <div style={digitBox}>{d}</div>
+                  </Column>
+                ))}
+              </Row>
+            </Section>
+
+            <Section style={noteBox}>
+              <Text style={noteText}>
+                🔒 If you didn't request this, you can safely ignore this email.
+              </Text>
+            </Section>
+
+            <Hr style={hr} />
+
+            <Section style={{ textAlign: 'center' as const }}>
+              <Link href="https://www.snapweaz.com" style={siteLink}>
+                www.snapweaz.com
+              </Link>
+              <Row style={socialRow}>
+                <Column align="center">
+                  <Link href="https://www.snapweaz.com" style={socialPill}>Website</Link>
+                </Column>
+                <Column align="center">
+                  <Link href="https://instagram.com/snapweaz.com" style={socialPill}>Instagram</Link>
+                </Column>
+                <Column align="center">
+                  <Link href="https://linkedin.com/company/snapweaz" style={socialPill}>LinkedIn</Link>
+                </Column>
+              </Row>
+            </Section>
+          </Section>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
 
 export const template = {
   component: Email,
   subject: 'Your SnapWeaz certificate verification code',
   displayName: 'Certificate OTP',
-  previewData: { code: '482913', name: 'Jhanvi', expiresInMinutes: 10 },
+  previewData: { code: '321434', name: 'Jhanvi', expiresInMinutes: 2 },
 } satisfies TemplateEntry;
 
 const main = {
-  backgroundColor: '#ffffff',
+  backgroundColor: '#f4f4f7',
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
+  padding: '24px 0',
 };
-const container = { padding: '32px 28px', maxWidth: '520px', margin: '0 auto' };
-const h1 = { color: '#0f0506', fontSize: '24px', margin: '0 0 12px', fontWeight: 600 };
-const text = { color: '#3a2a2c', fontSize: '15px', lineHeight: '1.6', margin: '0 0 24px' };
-const codeBox = {
-  backgroundColor: '#fff4ef',
-  border: '1px solid #f8a791',
-  borderRadius: '14px',
-  padding: '20px',
-  textAlign: 'center' as const,
-  margin: '0 0 24px',
+const outer = { maxWidth: '620px', margin: '0 auto', padding: '0 16px' };
+const card = {
+  backgroundColor: '#ffffff',
+  borderRadius: '24px',
+  padding: '48px 40px 36px',
+  boxShadow: '0 10px 40px rgba(15, 5, 6, 0.06)',
 };
-const codeText = {
-  color: '#0f0506',
+const h1 = {
+  color: '#0f0f10',
   fontSize: '34px',
-  letterSpacing: '10px',
-  fontWeight: 700,
-  margin: 0,
+  lineHeight: '1.1',
+  fontWeight: 800,
+  margin: '0 0 24px',
+  letterSpacing: '-0.02em',
+};
+const h1Accent = {
+  background: 'linear-gradient(90deg, #a855f7 0%, #ec4899 55%, #f97316 100%)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  backgroundClip: 'text' as const,
+  color: '#ec4899',
+};
+const hiName = { color: '#7c3aed', fontSize: '18px', fontWeight: 700, margin: '0 0 8px' };
+const intro = { color: '#3f3f46', fontSize: '15px', lineHeight: '1.65', margin: '0 0 28px' };
+const strong = { color: '#f97316', fontWeight: 700 };
+const codeFrame = {
+  border: '1.5px solid #f8a791',
+  borderRadius: '18px',
+  padding: '18px 12px',
+  margin: '0 0 24px',
+  background: 'linear-gradient(180deg, #fff 0%, #fff7f2 100%)',
+};
+const digitCol = { padding: '0 4px' };
+const digitBox = {
+  backgroundColor: '#ffffff',
+  border: '1px solid #ececf2',
+  borderRadius: '12px',
+  color: '#0f0f10',
+  fontSize: '30px',
+  fontWeight: 800,
+  padding: '14px 0',
+  minWidth: '46px',
+  textAlign: 'center' as const,
+  boxShadow: '0 2px 6px rgba(15, 5, 6, 0.04)',
   fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
 };
-const muted = { color: '#6a5658', fontSize: '13px', margin: '0 0 24px' };
-const footer = { color: '#9a8a8c', fontSize: '12px', margin: 0 };
+const noteBox = {
+  backgroundColor: '#f6f5fb',
+  borderRadius: '14px',
+  padding: '12px 16px',
+  margin: '0 0 28px',
+};
+const noteText = { color: '#52525b', fontSize: '13px', margin: 0, lineHeight: '1.5' };
+const hr = { borderColor: '#eef0f4', margin: '20px 0 18px' };
+const siteLink = {
+  color: '#7c3aed',
+  fontSize: '15px',
+  fontWeight: 700,
+  textDecoration: 'none',
+};
+const socialRow = { marginTop: '14px' };
+const socialPill = {
+  display: 'inline-block',
+  color: '#7c3aed',
+  fontSize: '12px',
+  fontWeight: 600,
+  textDecoration: 'none',
+  padding: '6px 12px',
+  border: '1px solid #ece7fb',
+  borderRadius: '999px',
+  backgroundColor: '#faf8ff',
+};
