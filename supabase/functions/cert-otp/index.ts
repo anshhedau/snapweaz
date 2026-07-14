@@ -24,6 +24,8 @@ function json(body: unknown, status = 200) {
   });
 }
 
+const OTP_TTL_MINUTES = 2;
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
@@ -38,7 +40,6 @@ Deno.serve(async (req) => {
         return json({ error: "Missing or invalid fields" }, 400);
       }
 
-      // Rate limit: max 3 sends per certificate per 10 minutes
       const tenMinAgo = new Date(Date.now() - 10 * 60 * 1000).toISOString();
       const { count } = await admin
         .from("cert_otps")
@@ -51,9 +52,8 @@ Deno.serve(async (req) => {
 
       const code = String(Math.floor(100000 + Math.random() * 900000));
       const code_hash = await sha256(`${certificate_id}:${code}`);
-      const expires_at = new Date(Date.now() + 2 * 60 * 1000).toISOString();
+      const expires_at = new Date(Date.now() + OTP_TTL_MINUTES * 60 * 1000).toISOString();
 
-      // Invalidate any previous unused codes for this cert
       await admin
         .from("cert_otps")
         .update({ used: true })
@@ -71,34 +71,12 @@ Deno.serve(async (req) => {
         return json({ error: "Could not create verification code" }, 500);
       }
 
-      // Send via built-in transactional email
       const { error: sendErr } = await admin.functions.invoke("send-transactional-email", {
         body: {
           templateName: "cert-otp",
           recipientEmail: email,
           idempotencyKey: `cert-otp-${certificate_id}-${Date.now()}`,
-          templateData: { code, name: recipient_name ?? "", expiresInMinutes: 2 },
-        },
-      });
-
-      const { error: insErr } = await admin.from("cert_otps").insert({
-        certificate_id,
-        intern_id,
-        code_hash,
-        expires_at,
-      });
-      if (insErr) {
-        console.error("insert error", insErr.message);
-        return json({ error: "Could not create verification code" }, 500);
-      }
-
-      // Send via built-in transactional email
-      const { error: sendErr } = await admin.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "cert-otp",
-          recipientEmail: email,
-          idempotencyKey: `cert-otp-${certificate_id}-${Date.now()}`,
-          templateData: { code, name: recipient_name ?? "", expiresInMinutes: 10 },
+          templateData: { code, name: recipient_name ?? "", expiresInMinutes: OTP_TTL_MINUTES },
         },
       });
       if (sendErr) {
@@ -131,16 +109,12 @@ Deno.serve(async (req) => {
         console.error("verify lookup", error.message);
         return json({ error: "Verification failed" }, 500);
       }
-      if (!data) {
-        return json({ error: "Incorrect code" }, 400);
-      }
+      if (!data) return json({ error: "Incorrect code" }, 400);
       if (data.used) return json({ error: "Code already used" }, 400);
       if (new Date(data.expires_at).getTime() < Date.now()) {
         return json({ error: "Code expired. Request a new one." }, 400);
       }
-      if (data.attempts >= 5) {
-        return json({ error: "Too many attempts" }, 429);
-      }
+      if (data.attempts >= 5) return json({ error: "Too many attempts" }, 429);
 
       await admin.from("cert_otps").update({ used: true }).eq("id", data.id);
       return json({ ok: true });
