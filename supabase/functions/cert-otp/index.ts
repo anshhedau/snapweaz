@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
 
       const code = String(Math.floor(100000 + Math.random() * 900000));
       const code_hash = await sha256(`${certificate_id}:${code}`);
-      const expires_at = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+      const expires_at = new Date(Date.now() + 2 * 60 * 1000).toISOString();
 
       // Invalidate any previous unused codes for this cert
       await admin
@@ -59,6 +59,27 @@ Deno.serve(async (req) => {
         .update({ used: true })
         .eq("certificate_id", certificate_id)
         .eq("used", false);
+
+      const { error: insErr } = await admin.from("cert_otps").insert({
+        certificate_id,
+        intern_id,
+        code_hash,
+        expires_at,
+      });
+      if (insErr) {
+        console.error("insert error", insErr.message);
+        return json({ error: "Could not create verification code" }, 500);
+      }
+
+      // Send via built-in transactional email
+      const { error: sendErr } = await admin.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "cert-otp",
+          recipientEmail: email,
+          idempotencyKey: `cert-otp-${certificate_id}-${Date.now()}`,
+          templateData: { code, name: recipient_name ?? "", expiresInMinutes: 2 },
+        },
+      });
 
       const { error: insErr } = await admin.from("cert_otps").insert({
         certificate_id,
