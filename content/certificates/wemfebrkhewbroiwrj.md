@@ -11,5 +11,4 @@ linkedin: https://www.linkedin.com/in/jhanvibist
 github: https://github.com/jhanvibist
 issuer: SnapWeaz
 ---
-Certificate download will be available after successful work verification and internship completion.
 
