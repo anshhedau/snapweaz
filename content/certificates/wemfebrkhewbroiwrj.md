@@ -1,0 +1,15 @@
+---
+certificate_id: wemfebrkhewbroiwrj
+intern_id: SWi20260044
+email: jhanvibist8@gmail.com
+recipient_name: Jhanvi Bist
+program: UX Designer Intern
+start_date: 2026-05-20
+end_date: 2026-07-20
+status: working
+linkedin: https://www.linkedin.com/in/jhanvibist
+github: https://github.com/jhanvibist
+issuer: SnapWeaz
+---
+Certificate download will be available after successful work verification and internship completion.
+
