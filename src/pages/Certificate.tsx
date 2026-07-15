@@ -127,16 +127,6 @@ const Certificate = () => {
 
   const shareCertificate = async () => {
     try {
-      const shareData = {
-        title: `${cert.recipient_name} — ${cert.program}`,
-        text: `${cert.recipient_name} — ${cert.program} at ${cert.issuer || "SnapWeaz"}`,
-        url: shareUrl,
-      };
-      const nav = typeof navigator !== "undefined" ? (navigator as Navigator & { share?: (d: ShareData) => Promise<void> }) : undefined;
-      if (nav?.share) {
-        await nav.share(shareData);
-        return;
-      }
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
