@@ -237,7 +237,7 @@ collections:
         widget: "select"
         default: "verified"
         options:
-          - { label: "Verified", value: "verified" }
+          - { label: "Completed", value: "verified" }
           - { label: "Currently working here", value: "working" }
           - { label: "Incomplete", value: "incomplete" }
       - { name: "linkedin", label: "LinkedIn URL (optional)", widget: "string", required: false }
