@@ -31,7 +31,7 @@ const STATUS_META: Record<
   { label: string; sub: string; icon: typeof BadgeCheck; tone: string; ring: string }
 > = {
   verified: {
-    label: "Verified",
+    label: "Completed",
     sub: "Authenticated by SnapWeaz",
     icon: BadgeCheck,
     tone: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
