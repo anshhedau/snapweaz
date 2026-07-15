@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/update-prerender.mjs",
     "build": "vite build",
     "postbuild": "react-snap || echo 'react-snap prerender skipped'",
     "build:dev": "vite build --mode development",
