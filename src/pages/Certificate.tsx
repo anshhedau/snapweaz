@@ -31,7 +31,7 @@ const STATUS_META: Record<
   { label: string; sub: string; icon: typeof BadgeCheck; tone: string; ring: string }
 > = {
   verified: {
-    label: "Verified",
+    label: "Completed",
     sub: "Authenticated by SnapWeaz",
     icon: BadgeCheck,
     tone: "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
@@ -127,16 +127,6 @@ const Certificate = () => {
 
   const shareCertificate = async () => {
     try {
-      const shareData = {
-        title: `${cert.recipient_name} — ${cert.program}`,
-        text: `${cert.recipient_name} — ${cert.program} at ${cert.issuer || "SnapWeaz"}`,
-        url: shareUrl,
-      };
-      const nav = typeof navigator !== "undefined" ? (navigator as Navigator & { share?: (d: ShareData) => Promise<void> }) : undefined;
-      if (nav?.share) {
-        await nav.share(shareData);
-        return;
-      }
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
@@ -205,15 +195,15 @@ const Certificate = () => {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto mb-6 sm:mb-8 flex items-center justify-between gap-3 flex-nowrap"
           >
-            <div className="flex items-center gap-2 text-[10px] sm:text-xs text-foreground/50 uppercase tracking-[0.2em] sm:tracking-[0.25em] whitespace-nowrap min-w-0">
-              <ShieldCheck size={14} className="text-accent shrink-0" />
+            <div className="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-xs text-foreground/50 uppercase tracking-[0.15em] sm:tracking-[0.25em] whitespace-nowrap min-w-0">
+              <ShieldCheck size={12} className="text-accent shrink-0" />
               <span className="truncate">SnapWeaz Certificate Verification</span>
             </div>
             <button
               onClick={shareCertificate}
-              className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-foreground/60 hover:text-foreground transition uppercase tracking-[0.2em] whitespace-nowrap shrink-0"
+              className="flex items-center gap-1 sm:gap-2 text-[9px] sm:text-xs text-foreground/60 hover:text-foreground transition uppercase tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap shrink-0"
             >
-              {copied ? <Check size={12} className="text-accent" /> : <Share2 size={12} />}
+              {copied ? <Check size={11} className="text-accent" /> : <Share2 size={11} />}
               <span>{copied ? "Copied" : "Share Certificate"}</span>
             </button>
           </motion.div>

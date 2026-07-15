@@ -32,12 +32,12 @@ const Email = ({ code = '000000', name, expiresInMinutes = 2 }: Props) => {
         <Container style={outer}>
           <Section style={card}>
             <Heading style={h1}>
-              Verify your <span style={h1Accent}>certificate</span>
+              VERIFY YOUR <span style={h1Accent}>CERTIFICATE</span>
             </Heading>
 
             {name ? <Text style={hiName}>Hi {name},</Text> : <Text style={hiName}>Hi there,</Text>}
             <Text style={intro}>
-              Use the code below to view your SnapWeaz certificate. It expires in{' '}
+              Use the code below to view your certificate. It expires in{' '}
               <strong style={strong}>{expiresInMinutes} minutes</strong>.
             </Text>
 
@@ -59,21 +59,28 @@ const Email = ({ code = '000000', name, expiresInMinutes = 2 }: Props) => {
 
             <Hr style={hr} />
 
-            <Section style={{ textAlign: 'center' as const }}>
-              <Link href="https://www.snapweaz.com" style={siteLink}>
-                www.snapweaz.com
-              </Link>
-              <Row style={socialRow}>
-                <Column align="center">
-                  <Link href="https://www.snapweaz.com" style={socialPill}>Website</Link>
+            <Section>
+              <Row>
+                <Column align="left" style={footerLeftCol}>
+                  <Link href="https://www.snapweaz.com" style={iconPill} aria-label="Website">
+                    <span style={iconGlyph}>🌐</span>
+                  </Link>
+                  <Link href="https://instagram.com/snapweaz.com" style={iconPill} aria-label="Instagram">
+                    <span style={iconGlyph}>📸</span>
+                  </Link>
+                  <Link href="https://linkedin.com/company/snapweaz" style={iconPill} aria-label="LinkedIn">
+                    <span style={iconGlyph}>in</span>
+                  </Link>
                 </Column>
-                <Column align="center">
-                  <Link href="https://instagram.com/snapweaz.com" style={socialPill}>Instagram</Link>
-                </Column>
-                <Column align="center">
-                  <Link href="https://linkedin.com/company/snapweaz" style={socialPill}>LinkedIn</Link>
+                <Column align="right" style={footerRightCol}>
+                  <Link href="https://www.snapweaz.com" style={siteLink}>
+                    snapweaz.com
+                  </Link>
                 </Column>
               </Row>
+              <Text style={disclaimer}>
+                You received this email because of an action on snapweaz.
+              </Text>
             </Section>
           </Section>
         </Container>
@@ -90,7 +97,7 @@ export const template = {
 } satisfies TemplateEntry;
 
 const main = {
-  backgroundColor: '#f4f4f7',
+  backgroundColor: '#ffffff',
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
   padding: '24px 0',
 };
@@ -103,11 +110,11 @@ const card = {
 };
 const h1 = {
   color: '#0f0f10',
-  fontSize: '34px',
-  lineHeight: '1.1',
+  fontSize: '30px',
+  lineHeight: '1.15',
   fontWeight: 800,
   margin: '0 0 24px',
-  letterSpacing: '-0.02em',
+  letterSpacing: '0.02em',
 };
 const h1Accent = {
   background: 'linear-gradient(90deg, #a855f7 0%, #ec4899 55%, #f97316 100%)',
@@ -148,21 +155,33 @@ const noteBox = {
 };
 const noteText = { color: '#52525b', fontSize: '13px', margin: 0, lineHeight: '1.5' };
 const hr = { borderColor: '#eef0f4', margin: '20px 0 18px' };
-const siteLink = {
-  color: '#7c3aed',
-  fontSize: '15px',
-  fontWeight: 700,
-  textDecoration: 'none',
-};
-const socialRow = { marginTop: '14px' };
-const socialPill = {
+const footerLeftCol = { verticalAlign: 'middle' as const };
+const footerRightCol = { verticalAlign: 'middle' as const };
+const iconPill = {
   display: 'inline-block',
   color: '#7c3aed',
-  fontSize: '12px',
-  fontWeight: 600,
+  fontSize: '14px',
+  fontWeight: 700,
   textDecoration: 'none',
-  padding: '6px 12px',
+  width: '34px',
+  height: '34px',
+  lineHeight: '34px',
+  textAlign: 'center' as const,
+  marginRight: '8px',
   border: '1px solid #ece7fb',
   borderRadius: '999px',
   backgroundColor: '#faf8ff',
+};
+const iconGlyph = { display: 'inline-block', lineHeight: '34px' };
+const siteLink = {
+  color: '#7c3aed',
+  fontSize: '14px',
+  fontWeight: 700,
+  textDecoration: 'none',
+};
+const disclaimer = {
+  color: '#8a8a95',
+  fontSize: '11px',
+  margin: '14px 0 0',
+  textAlign: 'center' as const,
 };

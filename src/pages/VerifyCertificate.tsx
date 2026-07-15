@@ -138,9 +138,6 @@ const VerifyCertificate = () => {
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-4">
                 Verify your <span className="text-accent italic">certificate</span>
               </h1>
-              <p className="text-sm sm:text-base text-foreground/60 max-w-lg mx-auto leading-relaxed">
-                Enter the Intern ID printed on your certificate. We'll email a one-time code to confirm it's really you.
-              </p>
             </motion.div>
 
             {/* Step indicator */}
