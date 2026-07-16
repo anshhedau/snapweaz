@@ -137,7 +137,7 @@ export const StoryScrollSection = () => {
           <div className="glass-card-dark rounded-full px-5 py-2 flex items-center gap-3">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <span className="text-[10px] text-foreground/60 uppercase tracking-[0.3em] font-mono">
-              The Studio Story
+              The Company Story
             </span>
           </div>
         </div>

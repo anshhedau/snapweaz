@@ -79,7 +79,7 @@ const Email = ({ code = '000000', name, expiresInMinutes = 2 }: Props) => {
                 </Column>
               </Row>
               <Text style={disclaimer}>
-                You received this email because of an action on snapweaz.
+                You received this email because of an action on SnapWeaz.
               </Text>
             </Section>
           </Section>

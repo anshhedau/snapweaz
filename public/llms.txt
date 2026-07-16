@@ -1,6 +1,6 @@
 # SnapWeaz
 
-> SnapWeaz is a creative technology studio offering design, engineering, and innovation services. Tagline: Design · Engineering · Innovation. Based in India, serving clients globally.
+> SnapWeaz is a creative technology company offering design, engineering, and innovation services. Tagline: Design · Engineering · Innovation. Based in India, serving clients globally.
 
 ## Contact
 - Email: info@snapweaz.com
@@ -8,8 +8,8 @@
 - Response time: usually within 24 hours
 
 ## Core Pages
-- [Home](https://www.snapweaz.com/): Studio overview and featured work
-- [About](https://www.snapweaz.com/about): Studio story, values, and timeline
+- [Home](https://www.snapweaz.com/): Company overview and featured work
+- [About](https://www.snapweaz.com/about): Company story, values, and timeline
 - [Services](https://www.snapweaz.com/services): Brand & Identity Design, UI/UX Design, Web & Software Development, Growth & Marketing
 - [Divisions](https://www.snapweaz.com/divisions): Six specialized divisions — design, software, cloud, growth, ops, ventures
 - [Work](https://www.snapweaz.com/work): Selected client and project case studies

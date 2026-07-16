@@ -26,7 +26,7 @@ const Careers = () => {
     <div className="min-h-screen bg-background">
             <SEO
         title="Careers"
-        description="Join SnapWeaz. Explore open roles across design, software, cloud, and growth — work remotely with a global studio."
+        description="Join SnapWeaz. Explore open roles across design, software, cloud, and growth — work remotely with a global company."
         path="/careers"
       />
       <Header />
