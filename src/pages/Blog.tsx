@@ -26,7 +26,7 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
             <SEO
         title="Blog"
-        description="Insights, tutorials, and perspectives on design, engineering, and digital products from the SnapWeaz studio."
+        description="Insights, tutorials, and perspectives on design, engineering, and digital products from the SnapWeaz company."
         path="/blog"
       />
       <Header />

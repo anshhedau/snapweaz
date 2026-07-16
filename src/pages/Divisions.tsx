@@ -19,7 +19,7 @@ const Divisions = () => {
     <div className="min-h-screen bg-background">
             <SEO
         title="Divisions"
-        description="Six specialized divisions across design, software, cloud, growth, ops, and ventures — explore the SnapWeaz studio structure."
+        description="Six specialized divisions across design, software, cloud, growth, ops, and ventures — explore the SnapWeaz company structure."
         path="/divisions"
       />
       <Header />

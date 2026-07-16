@@ -42,7 +42,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
             <SEO
         title="Contact SnapWeaz"
-        description="Start a project with SnapWeaz. Reach the studio at info@snapweaz.com — we usually reply within 24 hours."
+        description="Start a project with SnapWeaz. Reach the company at info@snapweaz.com — we usually reply within 24 hours."
         path="/contact"
       />
       <Header />

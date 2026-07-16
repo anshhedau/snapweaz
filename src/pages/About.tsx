@@ -28,7 +28,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
             <SEO
         title="About SnapWeaz"
-        description="Learn about SnapWeaz — a creative technology studio blending design, engineering, and innovation to build exceptional digital products."
+        description="Learn about SnapWeaz — a creative technology company blending design, engineering, and innovation to build exceptional digital products."
         path="/about"
       />
       <Header />

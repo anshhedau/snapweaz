@@ -16,7 +16,7 @@ const Index = () => {
     <div className="min-h-screen bg-background relative">
       <SEO
         title="SnapWeaz"
-        description="SnapWeaz is a premium design and engineering studio crafting exceptional digital experiences for startups, founders, and forward-thinking brands."
+        description="SnapWeaz is a premium design and engineering company crafting exceptional digital experiences for startups, founders, and forward-thinking brands."
         path="/"
       />
       <Header />
