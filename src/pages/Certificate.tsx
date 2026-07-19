@@ -30,7 +30,7 @@ const STATUS_META: Record<
   CertificateStatus,
   { label: string; sub: string; icon: typeof BadgeCheck; tone: string; ring: string }
 > = {
-  verified: {
+  completed: {
     label: "Completed",
     sub: "Authenticated by SnapWeaz",
     icon: BadgeCheck,
@@ -116,7 +116,7 @@ const Certificate = () => {
 
   if (!cert) return <NotFoundView id={id} />;
 
-  const status: CertificateStatus = cert.status ?? "verified";
+  const status: CertificateStatus = cert.status ?? "completed";
   const meta = STATUS_META[status];
   const StatusIcon = meta.icon;
 
