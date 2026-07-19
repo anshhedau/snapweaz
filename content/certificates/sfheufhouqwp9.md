@@ -6,7 +6,7 @@ recipient_name: "Avant Zade "
 program: Cloud Security Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: working
+status: incomplete
 github: https://github.com/avantop740-arch
 issuer: SnapWeaz
 ---
