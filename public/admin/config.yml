@@ -223,7 +223,7 @@ collections:
     folder: "content/certificates"
     create: true
     slug: "{{certificate_id}}"
-    summary: "{{recipient_name}} — {{certificate_id}} ({{status}})"
+    summary: "{{recipient_name}} — {{certificate_id}}"
     fields:
       - { name: "certificate_id", label: "Certificate ID / URL Slug (random)", widget: "string", hint: "Random slug used in the public URL: /certificate/{id}. Must be unique. Example: 9xh4a8p72k" }
       - { name: "intern_id", label: "Intern ID", widget: "string", hint: "The intern's official ID. Shown on the certificate and used by the public verify search." }
@@ -244,6 +244,7 @@ collections:
       - { name: "github", label: "GitHub URL (optional)", widget: "string", required: false }
       - { name: "certificate_pdf", label: "Certificate PDF", widget: "file", required: false, hint: "Upload the certificate PDF — shown in an embedded viewer with a download button." }
       - { name: "issuer", label: "Issued By", widget: "string", default: "SnapWeaz", required: false, hint: "Defaults to SnapWeaz. Change only if a different issuer is needed." }
+      - { name: "show_stamp", label: "Show Official Stamp", widget: "boolean", default: true, hint: "Display the SnapWeaz official stamp on the certificate. On by default." }
       - { name: "body", label: "Notes (optional)", widget: "text", required: false }
 
 
