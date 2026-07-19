@@ -6,7 +6,7 @@ recipient_name: "Vedanti Medge "
 program: Cloud Deployment Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: working
+status: incomplete
 linkedin: https://www.linkedin.com/in/vedanti-medge-6566b626b
 github: https://github.com/vmedge
 issuer: SnapWeaz
