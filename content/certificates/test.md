@@ -1,13 +1,14 @@
 ---
-certificate_id: test
-intern_id: test
+certificate_id: ----
+intern_id: ----
 email: snapweaz@gmail.com
-recipient_name: Test Test
-program: Test
-start_date: 2026-07-19
-end_date: 2026-07-19
+recipient_name: ----  -----
+program: ------
+start_date: 2025-02-19
+end_date: 2025-07-15
 status: incomplete
-linkedin: dscdc
-github: dadasc
+linkedin: -----
+github: -----
 issuer: SnapWeaz
 ---
+------
