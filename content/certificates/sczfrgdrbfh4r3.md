@@ -6,7 +6,7 @@ recipient_name: ISHIKA SAINI
 program: Cloud + Python Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: working
+status: incomplete
 github: https://github.com/ishikasaini631-dev/Ishika-Saini
 issuer: SnapWeaz
 ---
