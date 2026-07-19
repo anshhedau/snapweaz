@@ -10,4 +10,3 @@ status: incomplete
 github: https://github.com/avantop740-arch
 issuer: SnapWeaz
 ---
-Certificate download will be available after successful work verification and internship completion.
