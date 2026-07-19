@@ -10,4 +10,5 @@ status: incomplete
 linkedin: https://www.linkedin.com/in/anuj-dixit-6972793b3
 github: https://github.com/anujdixit-02
 issuer: SnapWeaz Studio
+show_stamp: true
 ---

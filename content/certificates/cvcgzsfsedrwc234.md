@@ -10,4 +10,5 @@ status: incomplete
 linkedin: " "
 github: " "
 issuer: SnapWeaz
+show_stamp: true
 ---

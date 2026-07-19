@@ -9,4 +9,5 @@ end_date: 2026-07-20
 status: incomplete
 github: https://github.com/avantop740-arch
 issuer: SnapWeaz
+show_stamp: true
 ---

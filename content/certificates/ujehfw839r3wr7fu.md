@@ -10,4 +10,5 @@ status: incomplete
 linkedin: https://www.linkedin.com/in/sneha-chakraborty0229
 github: https://github.com/snehacodes-07
 issuer: SnapWeaz
+show_stamp: true
 ---

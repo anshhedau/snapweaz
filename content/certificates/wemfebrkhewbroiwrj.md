@@ -10,4 +10,5 @@ status: verified
 linkedin: https://www.linkedin.com/in/jhanvibist
 github: https://github.com/jhanvibist
 issuer: SnapWeaz
+show_stamp: true
 ---

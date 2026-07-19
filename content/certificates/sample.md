@@ -11,4 +11,5 @@ linkedin: https://www.linkedin.com/in/anshhedau
 github: https://github.com/anshhedau
 certificate_pdf: ""
 issuer: SnapWeaz
+show_stamp: true
 ---
