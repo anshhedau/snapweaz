@@ -6,7 +6,7 @@ recipient_name: Ansh A. Hedau
 program: DevOps Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: verified
+status: completed
 linkedin: https://www.linkedin.com/in/anshhedau
 github: https://github.com/anshhedau
 certificate_pdf: ""
