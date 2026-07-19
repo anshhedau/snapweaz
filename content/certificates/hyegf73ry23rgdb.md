@@ -6,7 +6,7 @@ recipient_name: Gaurav Sonar
 program: Cloud Engineer Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: incomplete
+status: completed
 github: https://github.com/gauravsonar7588
 issuer: SnapWeaz
 show_stamp: true
