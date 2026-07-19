@@ -6,10 +6,9 @@ recipient_name: Ansh A. Hedau
 program: DevOps Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: working
+status: verified
 linkedin: https://www.linkedin.com/in/anshhedau
 github: https://github.com/anshhedau
 certificate_pdf: ""
 issuer: SnapWeaz
 ---
-Certificate download will be available after successful work verification and internship completion.
