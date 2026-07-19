@@ -11,4 +11,3 @@ linkedin: https://www.linkedin.com/in/vedanti-medge-6566b626b
 github: https://github.com/vmedge
 issuer: SnapWeaz
 ---
-Certificate download will be available after successful work verification and internship completion.
