@@ -138,6 +138,7 @@ export interface Certificate {
   github?: string;
   certificate_pdf?: string;
   issuer?: string;
+  show_stamp?: boolean;
   body?: string;
 }
 
