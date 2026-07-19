@@ -10,4 +10,5 @@ status: incomplete
 linkedin: https://www.linkedin.com/in/vedanti-medge-6566b626b
 github: https://github.com/vmedge
 issuer: SnapWeaz
+show_stamp: true
 ---
