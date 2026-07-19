@@ -124,7 +124,7 @@ export interface FounderInfo {
   sections: { title: string; text: string }[];
   social: { name: string; url: string }[];
 }
-export type CertificateStatus = "verified" | "working" | "incomplete";
+export type CertificateStatus = "completed" | "working" | "incomplete";
 export interface Certificate {
   certificate_id: string;
   intern_id?: string;
