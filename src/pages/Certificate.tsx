@@ -257,7 +257,7 @@ const Certificate = () => {
             </div>
 
             {/* Social / links + stamp */}
-            {(cert.linkedin || cert.github) && (
+            {(cert.linkedin || cert.github || cert.show_stamp !== false) && (
               <div className="px-5 sm:px-8 md:px-14 py-6 sm:py-8 border-t border-border/30 flex flex-wrap items-center justify-between gap-5">
                 <div className="flex flex-wrap gap-2 sm:gap-3">
                   {cert.linkedin && (
@@ -281,13 +281,15 @@ const Certificate = () => {
                     </a>
                   )}
                 </div>
-                <img
-                  src={stamp}
-                  alt="SnapWeaz Official Stamp"
-                  loading="lazy"
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain opacity-90 select-none pointer-events-none ml-auto -rotate-6 drop-shadow-[0_0_18px_rgba(248,167,145,0.25)]"
-                  draggable={false}
-                />
+                {cert.show_stamp !== false && (
+                  <img
+                    src={stamp}
+                    alt="SnapWeaz Official Stamp"
+                    loading="lazy"
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain opacity-90 select-none pointer-events-none ml-auto -rotate-6 drop-shadow-[0_0_18px_rgba(248,167,145,0.25)]"
+                    draggable={false}
+                  />
+                )}
               </div>
             )}
 
