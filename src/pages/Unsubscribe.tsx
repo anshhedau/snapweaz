@@ -17,6 +17,16 @@ const Unsubscribe = () => {
   const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
+    // Canonicalize to www.snapweaz.com so branded domain is shown in the URL bar.
+    if (typeof window !== "undefined") {
+      const host = window.location.hostname;
+      if (host.endsWith(".lovable.app") || host === "snapweaz.com") {
+        window.location.replace(
+          `https://www.snapweaz.com/unsubscribe${window.location.search}`
+        );
+        return;
+      }
+    }
     if (!token) {
       setState("invalid");
       setMessage("This unsubscribe link is missing a token.");
