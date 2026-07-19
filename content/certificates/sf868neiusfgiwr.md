@@ -6,6 +6,6 @@ recipient_name: "Rohan Shreeram Pawar "
 program: Site Security Research Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: verified
+status: incomplete
 issuer: SnapWeaz
 ---
