@@ -6,6 +6,6 @@ recipient_name: Ayush Chandrashekhar Fartale
 program: Cloud Computing Research Intern
 start_date: 2026-07-25
 end_date: 2026-07-25
-status: verified
+status: incomplete
 issuer: SnapWeaz
 ---
