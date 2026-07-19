@@ -4,7 +4,7 @@ category: Web Design & Development
 description: Complete website redesign for a UK-based soft fruit farm. Featuring
   immersive storytelling, before/after transformation sliders, and a modern
   editorial layout that captures their 25+ year legacy.
-image: https://vicaragenurseries.co.uk/
+image: /uploads/generate_new_thumbnail_minimal_202606261145.jpeg
 url: https://www.vicaragenurseries.co.uk/
 tags:
   - React
