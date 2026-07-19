@@ -6,9 +6,8 @@ recipient_name: Jhanvi Bist
 program: UX Designer Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: working
+status: verified
 linkedin: https://www.linkedin.com/in/jhanvibist
 github: https://github.com/jhanvibist
 issuer: SnapWeaz
 ---
-
