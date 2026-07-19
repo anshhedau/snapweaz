@@ -10,4 +10,3 @@ status: incomplete
 github: https://github.com/ishikasaini631-dev/Ishika-Saini
 issuer: SnapWeaz
 ---
-Certificate download will be available after successful work verification and internship completion.
