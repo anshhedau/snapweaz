@@ -223,7 +223,7 @@ collections:
     folder: "content/certificates"
     create: true
     slug: "{{certificate_id}}"
-    summary: "{{recipient_name}} — {{certificate_id}}"
+    summary: "{{recipient_name}} — {{certificate_id}} · {{status}}"
     fields:
       - { name: "certificate_id", label: "Certificate ID / URL Slug (random)", widget: "string", hint: "Random slug used in the public URL: /certificate/{id}. Must be unique. Example: 9xh4a8p72k" }
       - { name: "intern_id", label: "Intern ID", widget: "string", hint: "The intern's official ID. Shown on the certificate and used by the public verify search." }
