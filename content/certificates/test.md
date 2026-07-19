@@ -6,7 +6,7 @@ recipient_name: ----  -----
 program: ------
 start_date: 2025-02-19
 end_date: 2025-07-15
-status: working
+status: verified
 linkedin: -----
 github: -----
 issuer: SnapWeaz
