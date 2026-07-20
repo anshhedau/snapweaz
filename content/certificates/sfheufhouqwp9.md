@@ -11,7 +11,7 @@ github: https://github.com/avantop740-arch
 issuer: SnapWeaz
 show_stamp: true
 ---
-Submission Status: On Hold |
+Certificate Status: On Hold |
 
 Your submission has been marked Empty, Unsatisfactory, or No Individual Work Submission
 
