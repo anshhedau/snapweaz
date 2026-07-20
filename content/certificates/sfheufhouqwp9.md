@@ -11,4 +11,8 @@ github: https://github.com/avantop740-arch
 issuer: SnapWeaz
 show_stamp: true
 ---
-Submission is Empty/Unsatisfactory/No-Individual-work-submission 
+Submission Status: On Hold |
+
+Your submission has been marked Empty, Unsatisfactory, or No Individual Work Submission
+
+| For assistance, contact team@snapweaz.com.
