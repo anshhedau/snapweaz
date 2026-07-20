@@ -6,8 +6,35 @@
     <meta name="robots" content="noindex" />
     <title>SnapWeaz CMS</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      /* Certificate list row status coloring (CMS-only visual aid) */
+      .sw-cert-completed { background-color: #dcfce7 !important; border-left: 4px solid #16a34a !important; }
+      .sw-cert-incomplete { background-color: #fee2e2 !important; border-left: 4px solid #dc2626 !important; }
+      .sw-cert-working { background-color: #dbeafe !important; border-left: 4px solid #2563eb !important; }
+    </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Tint certificate entry cards based on the status word in their summary.
+      (function () {
+        function tint() {
+          var nodes = document.querySelectorAll('a[href*="/collections/certificates/entries/"], li a, div a');
+          nodes.forEach(function (el) {
+            var text = (el.textContent || '').toLowerCase();
+            if (!text.includes('·') && !text.includes('—')) return;
+            el.classList.remove('sw-cert-completed', 'sw-cert-incomplete', 'sw-cert-working');
+            if (/·\s*completed\b/.test(text)) el.classList.add('sw-cert-completed');
+            else if (/·\s*incomplete\b/.test(text)) el.classList.add('sw-cert-incomplete');
+            else if (/·\s*working\b/.test(text)) el.classList.add('sw-cert-working');
+          });
+        }
+        var obs = new MutationObserver(function () { tint(); });
+        window.addEventListener('load', function () {
+          obs.observe(document.body, { childList: true, subtree: true });
+          tint();
+        });
+      })();
+    </script>
   </body>
 </html>
