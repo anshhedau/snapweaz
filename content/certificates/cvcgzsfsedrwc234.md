@@ -6,7 +6,7 @@ recipient_name: "Shaikh Waqas Mohammad Irshad "
 program: Python Research Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: incomplete
+status: completed
 linkedin: ""
 github: ""
 issuer: SnapWeaz
