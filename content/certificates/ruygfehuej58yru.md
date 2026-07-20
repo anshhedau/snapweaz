@@ -9,6 +9,6 @@ end_date: 2026-08-05
 status: completed
 linkedin: https://www.linkedin.com/in/anuj-dixit-6972793b3
 github: https://github.com/anujdixit-02
-issuer: SnapWeaz Studio
+issuer: SnapWeaz
 show_stamp: true
 ---

@@ -45,7 +45,7 @@ https://www.snapweaz.com
 
 ## 🏢 SnapWeaz Divisions
 
-### 🎨 SnapWeaz Studios
+### 🎨 SnapWeaz
 Creative design, branding, UI/UX, digital experiences, and visual storytelling.
 
 ### ⚙️ SnapWeaz Engineering
