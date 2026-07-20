@@ -11,3 +11,6 @@ github: https://github.com/ishikasaini631-dev/Ishika-Saini
 issuer: SnapWeaz
 show_stamp: true
 ---
+Your certificate is currently on hold due to non-submission or submission after the deadline.
+
+For assistance, contact team@snapweaz.com.
