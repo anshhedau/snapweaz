@@ -6,10 +6,9 @@ recipient_name: "Avant Zade "
 program: Cloud Security Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: completed
+status: incomplete
 github: https://github.com/avantop740-arch
 issuer: SnapWeaz
 show_stamp: true
 ---
-"On Hold" 
-Contact team@snapweaz.com
+Submission is Empty/Unsatisfactory/No-Individual-work-submission 
