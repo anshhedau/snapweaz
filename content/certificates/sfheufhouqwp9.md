@@ -6,13 +6,8 @@ recipient_name: "Avant Zade "
 program: Cloud Security Intern
 start_date: 2026-05-20
 end_date: 2026-07-20
-status: incomplete
+status: completed
 github: https://github.com/avantop740-arch
 issuer: SnapWeaz
 show_stamp: true
 ---
-Certificate Status: On Hold |
-
-Your submission has been marked Empty, Unsatisfactory, or No Individual Work Submission
-
-| For assistance, contact team@snapweaz.com.
